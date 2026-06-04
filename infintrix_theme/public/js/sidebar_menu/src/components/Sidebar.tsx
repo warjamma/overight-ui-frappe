@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import { IconQuestionMark } from "@tabler/icons-react";
 import { Tooltip, UnstyledButton } from "@mantine/core";
 import classes from "./Sidebar.module.css";
-import type { IPage, ISecondSidebar } from "../types/sidebar";
+import type { IPage } from "../types/sidebar";
 import { useQuery } from "@tanstack/react-query";
 import { useRoute } from "../hooks";
 import { SubMenu } from "./SubMenu/SubMenu";

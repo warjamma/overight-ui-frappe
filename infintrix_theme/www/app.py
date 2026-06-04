@@ -81,6 +81,14 @@ def get_context(context):
 	if (desk_theme == 'Dark'):
 		theme = 'dark'
 
+	sidebar_dev_server = (
+		frappe.conf.get("infintrix_sidebar_dev_server")
+		or os.getenv("INFINTRIX_SIDEBAR_DEV_SERVER")
+		or ""
+	).rstrip("/")
+	if not sidebar_dev_server and frappe.conf.get("developer_mode"):
+		sidebar_dev_server = "http://localhost:5173"
+
 	context.update(
 		{
 			"no_cache": 1,
@@ -103,6 +111,7 @@ def get_context(context):
 			"theme_settings": theme_settings_list,
 			"disable_splash" : bool(int(theme_settings_list.get('disable_splash', 0))),
 			"theme_color": (theme_settings_list['color'] or 'Blue').lower() if 'color' in theme_settings_list else 'blue',
+			"infintrix_sidebar_dev_server": sidebar_dev_server,
 		}
 	)
 

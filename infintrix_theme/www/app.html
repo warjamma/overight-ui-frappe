@@ -117,6 +117,7 @@
 			<div id="body"></div>
 			<footer></footer>
 		</div>
+		{% include "templates/includes/sidebar_2.html" %}
 		<div id="all-symbols" style="display:none"></div>
 		<div id="build-events-overlay"></div>
 
@@ -145,6 +146,14 @@
 	{% for include in include_js %}
 	{{ include_script(include) }}
 	{% endfor %}
+
+	{% if infintrix_sidebar_dev_server %}
+	<script type="module" src="{{ infintrix_sidebar_dev_server }}/@vite/client"></script>
+	<script type="module" src="{{ infintrix_sidebar_dev_server }}/src/main.tsx"></script>
+	{% else %}
+	<link rel="stylesheet" href="/assets/infintrix_theme/js/sidebar_menu/build/sidebar.css">
+	<script type="module" src="/assets/infintrix_theme/js/sidebar_menu/build/sidebar.js"></script>
+	{% endif %}
 
 	{% include "templates/includes/app_analytics/google_analytics.html" %}
 

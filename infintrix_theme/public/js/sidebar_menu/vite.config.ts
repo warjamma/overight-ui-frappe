@@ -8,7 +8,7 @@ export default defineConfig({
   build: {
     outDir: "build", // where the file will go
     rollupOptions: {
-      input: "/src/main.tsx", // your main entry file
+      input: "src/main.tsx", // your main entry file
       output: {
         entryFileNames: "sidebar.js", // single output file name
         chunkFileNames: "sidebar.js", // prevent additional chunks

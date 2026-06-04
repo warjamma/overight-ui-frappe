@@ -18,16 +18,22 @@ import { Sidebar } from './components/Sidebar.tsx'
 // const theme = createTheme({
 //   // primaryColor: 'var(--primary)',
 // });
-createRoot(document.getElementById('infintrix_sidebar_menu')!).render(
-  <StrictMode>
-    <QueryClientProvider client={queryClient1}>
-      <MantineProvider >
-        <Sidebar />
-      </MantineProvider>
-      <ReactQueryDevtools initialIsOpen={false} />
-    </QueryClientProvider>
-  </StrictMode>,
-)
+const root =
+  document.getElementById('infintrix_sidebar_menu') ||
+  document.getElementById('root')
+
+if (root) {
+  createRoot(root).render(
+    <StrictMode>
+      <QueryClientProvider client={queryClient1}>
+        <MantineProvider>
+          <Sidebar />
+        </MantineProvider>
+        <ReactQueryDevtools initialIsOpen={false} />
+      </QueryClientProvider>
+    </StrictMode>,
+  )
+}
 
 
 // createRoot(document.getElementById('infintrix_right_sidebar_menu')!).render(
