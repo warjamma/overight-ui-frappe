@@ -107,11 +107,22 @@ body,
 
 /* --- Responsive Layout & Alignment Fixes --- */
 
-/* Make main section wrapper full-width since sidebar is hidden */
-.layout-main-section-wrapper {
-    width: 100% !important;
+/* 
+  Flexible Layout:
+  Instead of hardcoding the main content wrapper to 100% width (which forces it to wrap 
+  and drop below the sidebar when visible), we style it dynamically when a sidebar is present.
+  
+  - If the sidebar is present and visible: the wrapper fills the remaining space next to it.
+  - If the sidebar is hidden/toggled off (display: none): flexbox automatically stretches 
+    the wrapper to fill the full 100% width.
+  - If there is no sidebar at all (single column): this rule does not match, keeping the default 
+    Bootstrap width behaviour.
+*/
+.layout-side-section + .layout-main-section-wrapper {
+    flex: 1 !important;
+    min-width: 0 !important;
     max-width: 100% !important;
-    flex: 0 0 100% !important;
+    width: auto !important;
 }
 
 body.full-width .container {
