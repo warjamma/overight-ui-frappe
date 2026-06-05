@@ -1,0 +1,238 @@
+/* improve UI Ngokhai */
+/* Custom input styling */
+.form-control,
+.awesomplete > input,
+.like-disabled-input {
+    height: 44px !important;
+    width: 100% !important;
+    border-radius: 8px !important;
+    border: 1px solid var(--border-color, #d7dde7) !important;
+    background-color: var(--control-bg, #ffffff) !important;
+    font-size: 15px !important;
+    color: var(--text-color, #1e293b) !important;
+    padding: 8px 12px !important;
+    box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.04) !important;
+    transition: color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out !important;
+    outline: none !important;
+}
+
+.form-control::placeholder,
+.awesomplete > input::placeholder {
+    font-style: italic !important;
+    color: var(--text-muted, #a8afbb) !important;
+}
+
+.form-control:focus,
+.awesomplete > input:focus {
+    border-color: #3ba2d3 !important;
+    box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.04), 0 0 0 3px rgba(59, 162, 211, 0.25) !important;
+}
+
+/* Custom Unified Active Tab */
+.form-tabs .nav-link.active {
+    color: #3ba2d3 !important;
+    border-color: #3ba2d3 !important;
+}
+
+/* Custom button border radius & premium shadow depth */
+.btn,
+.btn-primary,
+.btn-secondary,
+.btn-default,
+.btn-xs,
+.btn-sm,
+.btn-lg,
+.btn-md,
+.btn-reset,
+.primary-action {
+    border-radius: 8px !important;
+}
+
+/* Secondary & Default Buttons border styling and clean shadow depth */
+.btn:not(.btn-primary),
+.btn-secondary,
+.btn-default,
+.btn-xs,
+.btn-sm,
+.btn-lg,
+.btn-md,
+.btn-reset {
+    background-color: var(--control-bg, #ffffff) !important;
+    border: 1px solid var(--border-color, #d7dde7) !important;
+    color: var(--text-color, #1e293b) !important;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 1px 1px rgba(0, 0, 0, 0.03) !important;
+    transition: all 0.15s ease-in-out !important;
+}
+
+.btn:not(.btn-primary):hover,
+.btn-secondary:hover,
+.btn-default:hover,
+.btn:not(.btn-primary):focus,
+.btn-secondary:focus,
+.btn-default:focus {
+    background-color: var(--highlight-color, #f8fafc) !important;
+    border-color: var(--brand-color-300, #b1daec) !important;
+    color: var(--text-color, #1e293b) !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04) !important;
+}
+
+/* Custom select dropdown styling */
+select,
+select.form-control {
+    height: 44px !important;
+    border-radius: 8px !important;
+    border: 1px solid var(--border-color, #d7dde7) !important;
+    background-color: var(--control-bg, #ffffff) !important;
+    font-size: 15px !important;
+    color: var(--text-color, #1e293b) !important;
+    padding: 8px 12px !important;
+    box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.04) !important;
+    transition: color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out !important;
+    outline: none !important;
+}
+
+select:focus,
+select.form-control:focus {
+    border-color: #3ba2d3 !important;
+    box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.04), 0 0 0 3px rgba(59, 162, 211, 0.25) !important;
+}
+
+/* Custom dropdown menu (Bootstrap style) */
+.dropdown-menu {
+    border-radius: 8px !important;
+    border: 1px solid var(--border-color, #e2e8f0) !important;
+    background-color: var(--popover-bg, #ffffff) !important;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+}
+
+.dropdown-menu > li > a {
+    color: var(--text-color, #1e293b) !important;
+}
+
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus,
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus {
+    background-color: var(--highlight-color, #f1f8fb) !important;
+    color: #3ba2d3 !important;
+}
+
+/* Custom Primary Buttons and Actions override with elevation shadow */
+.btn-primary,
+.primary-action {
+    background-color: #3ba2d3 !important;
+    border-color: #3ba2d3 !important;
+    color: #ffffff !important;
+    box-shadow: 0 1px 3px rgba(59, 162, 211, 0.3), 0 1px 2px rgba(0, 0, 0, 0.12) !important;
+    transition: all 0.15s ease-in-out !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.primary-action:hover,
+.primary-action:focus,
+.primary-action:active {
+    background-color: #2b8cb8 !important;
+    border-color: #2b8cb8 !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 6px rgba(43, 140, 184, 0.4), 0 1px 3px rgba(0, 0, 0, 0.12) !important;
+}
+
+.btn-primary *,
+.primary-action * {
+    color: #ffffff !important;
+}
+
+/* Style link-add-btn quick-create-btn to be a circle with centered "+" */
+span.link-add-btn.quick-create-btn,
+.link-add-btn.quick-create-btn {
+    position: relative !important;
+    display: inline-block !important;
+    width: 20px !important;
+    height: 20px !important;
+    border-radius: 50% !important; /* Perfect circle */
+    background-color: var(--brand-color, #3ba2d3) !important;
+    color: transparent !important; /* Hide original text plus sign */
+    font-size: 0 !important; /* Prevent font metrics from affecting alignment */
+    line-height: 0 !important;
+    cursor: pointer !important;
+    transition: all 0.15s ease-in-out !important;
+    box-shadow: 0 1px 2px rgba(59, 162, 211, 0.3) !important;
+    vertical-align: middle !important;
+    margin-left: 6px !important;
+}
+
+/* Horizontal line of the plus sign */
+span.link-add-btn.quick-create-btn::before,
+.link-add-btn.quick-create-btn::before {
+    content: "" !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    width: 10px !important;
+    height: 2px !important;
+    background-color: #ffffff !important;
+    transform: translate(-50%, -50%) !important;
+}
+
+/* Vertical line of the plus sign */
+span.link-add-btn.quick-create-btn::after,
+.link-add-btn.quick-create-btn::after {
+    content: "" !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    width: 2px !important;
+    height: 10px !important;
+    background-color: #ffffff !important;
+    transform: translate(-50%, -50%) !important;
+}
+
+span.link-add-btn.quick-create-btn:hover,
+.link-add-btn.quick-create-btn:hover {
+    background-color: var(--brand-color-600, #2b8cb8) !important;
+    transform: scale(1.08) !important;
+    box-shadow: 0 2px 4px rgba(43, 140, 184, 0.4) !important;
+}
+
+/* Custom Grid Table Header Styling */
+.grid-heading-row,
+.form-grid .grid-heading-row {
+    background-color: var(--brand-color, #3ba2d3) !important;
+    border-bottom: 1px solid var(--brand-color-600, #2b8cb8) !important;
+    border-top-left-radius: 8px !important;
+    border-top-right-radius: 8px !important;
+}
+
+.grid-heading-row .grid-row,
+.grid-heading-row .grid-row *,
+.form-grid .grid-heading-row .grid-row,
+.form-grid .grid-heading-row .grid-row * {
+    color: #ffffff !important;
+    font-weight: 600 !important;
+}
+
+/* Style the check all checkbox border in the header to be white for high contrast */
+.grid-heading-row input[type="checkbox"] {
+    border-color: rgba(255, 255, 255, 0.9) !important;
+    background-color: transparent !important;
+}
+.grid-heading-row input[type="checkbox"]:hover {
+    border-color: #ffffff !important;
+}
+.grid-heading-row input[type="checkbox"]:checked {
+    background-color: var(--brand-color-600, #2b8cb8) !important;
+    border-color: #ffffff !important;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.207 4.793a1 1 0 0 1 0 1.414l-5 5a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L6.5 9.086l4.293-4.293a1 1 0 0 1 1.414 0z'/%3E%3C/svg%3E") !important;
+    background-size: 65% !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+}
+
+
+
+
+
+

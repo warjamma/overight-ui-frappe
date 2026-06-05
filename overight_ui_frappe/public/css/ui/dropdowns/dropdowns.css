@@ -1,0 +1,30 @@
+/* improve UI Ngokhai */
+
+/* Make navbar buttons (notifications, help, profile dropdown triggers) transparent and borderless */
+.navbar-nav .btn-reset,
+.navbar-nav .nav-item .btn-reset {
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    height: 36px !important;
+    padding: 6px 12px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 8px !important; /* Rounded rectangle matching modern Fluent design */
+    transition: background-color 0.15s ease-in-out !important;
+}
+
+/* Make notification icon button a perfect circle */
+.navbar-nav .dropdown-notifications .btn-reset,
+.navbar-nav .dropdown-message .btn-reset {
+    width: 36px !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+}
+
+/* Hover state styling */
+.navbar-nav .btn-reset:hover,
+.navbar-nav .nav-item .btn-reset:hover {
+    background-color: var(--highlight-color, rgba(0, 0, 0, 0.05)) !important;
+}

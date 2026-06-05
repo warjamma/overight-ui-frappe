@@ -1,0 +1,221 @@
+/* improve UI Ngokhai */
+
+/* Global Variable Overrides for bright sky blue #3ba2d3 */
+:root, html, body {
+    --brand-color: #3ba2d3 !important;
+    --primary-color: #3ba2d3 !important;
+    --fluent-primary: #3ba2d3 !important;
+    --primary: #3ba2d3 !important;
+    --btn-primary: #3ba2d3 !important;
+    
+    --brand-color-hover: #2b8cb8 !important;
+    --brand-color-50: #fafcfd !important;
+    --brand-color-100: #f1f8fb !important;
+    --brand-color-200: #d8edf6 !important;
+    --brand-color-300: #b1daec !important;
+    --brand-color-400: #7bc0e1 !important;
+    --brand-color-600: #2b8cb8 !important;
+    --brand-color-700: #1f6787 !important;
+    --brand-color-800: #144459 !important;
+    --brand-color-900: #0a222c !important;
+    --fluent-primary-dark: #0a222c !important;
+}
+
+/* Light theme overrides */
+[data-theme='light'] {
+    --bg-color: #f1f5f9 !important;
+    --fg-color: #ffffff !important;
+    --border-color: #e2e8f0 !important;
+    --navbar-bg: rgba(255, 255, 255, 0.85) !important;
+    --text-color: #1e293b !important;
+    --text-muted: #64748b !important;
+    --control-bg: #ffffff !important;
+    --popover-bg: #ffffff !important;
+    --highlight-color: #f1f8fb !important;
+}
+
+/* Dark theme overrides */
+[data-theme='dark'] {
+    --bg-color: #0f172a !important; /* Premium slate-900 background */
+    --fg-color: #1e293b !important; /* Premium slate-800 card surface */
+    --border-color: #334155 !important; /* Premium slate-700 border */
+    --navbar-bg: rgba(30, 41, 59, 0.85) !important; /* frosted slate-800 */
+    --text-color: #f8fafc !important; /* slate-50 text */
+    --text-muted: #94a3b8 !important; /* slate-400 text */
+    --control-bg: #1e293b !important;
+    --popover-bg: #1e293b !important;
+    --highlight-color: #334155 !important;
+    --card-bg: #1e293b !important;
+}
+
+/* Custom Unified Sidebar Selected Item */
+.desk-sidebar .standard-sidebar-item.selected::before {
+    background-color: #3ba2d3 !important;
+}
+
+.desk-sidebar .standard-sidebar-item.selected .item-anchor .sidebar-item-label,
+.desk-sidebar .standard-sidebar-item.selected .sidebar-item-icon .icon {
+    color: #3ba2d3 !important;
+}
+
+.desk-sidebar .standard-sidebar-item.selected .sidebar-item-icon .icon {
+    --icon-stroke: #3ba2d3 !important;
+}
+
+/* Custom Unified Tree Node Selected */
+.tree-link.selected::before {
+    background-color: #3ba2d3 !important;
+}
+
+.tree-link.selected .tree-label {
+    color: #3ba2d3 !important;
+}
+
+.tree-link.selected .icon,
+.tree-link.selected .node-parent {
+    color: #3ba2d3 !important;
+    --icon-stroke: #3ba2d3 !important;
+}
+
+/* Custom white-blue premium layouts */
+html,
+body,
+.page-container {
+    background-color: var(--bg-color) !important;
+    color: var(--text-color) !important;
+}
+
+.page-head.flex {
+    background-color: var(--fg-color) !important;
+    border-bottom: 1px solid var(--border-color) !important;
+}
+
+.layout-main-section {
+    background-color: var(--fg-color) !important;
+    border: 1px solid var(--border-color) !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+}
+
+.navbar,
+.infintrix-navbar {
+    background-color: var(--navbar-bg) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border-bottom: 1px solid var(--border-color) !important;
+}
+
+
+/* --- Responsive Layout & Alignment Fixes --- */
+
+/* Make main section wrapper full-width since sidebar is hidden */
+.layout-main-section-wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 0 0 100% !important;
+}
+
+body.full-width .container {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+/* Horizontally scrollable top sub-navbar menu on mobile to prevent wrapping and height break */
+@media (max-width: 991px) {
+    .infintrix-navbar {
+        overflow-x: auto !important;
+        white-space: nowrap !important;
+        -webkit-overflow-scrolling: touch !important;
+        padding: 5px 10px !important;
+    }
+    .infintrix-navbar-menu {
+        flex-wrap: nowrap !important;
+        display: inline-flex !important;
+        width: max-content !important;
+    }
+    .infintrix-navbar::-webkit-scrollbar {
+        display: none !important;
+    }
+}
+
+/* Prevent navbar elements from squishing or overlapping on mobile */
+.navbar .container {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+}
+
+/* Mobile navbar layout improvements to prevent overlapping/squishing */
+@media (max-width: 767px) {
+    /* Hide fullscreen, language, theme toggle, brand logo, and page sidebar toggle */
+    #fullscreenToggleButton,
+    #languageSwitchButton,
+    #themeToggleButton,
+    .navbar-brand,
+    .navbar-home,
+    .sidebar-toggle-btn,
+    .btn-reset.sidebar-toggle-btn {
+        display: none !important;
+    }
+
+    /* Fix padding/margin of breadcrumbs container on mobile */
+    .nav.navbar-nav.d-none.d-sm-flex,
+    #navbar-breadcrumbs {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    /* Shrink company select dropdown to a clean circular button with building icon */
+    #company-select {
+        margin-left: 5px !important;
+        margin-right: 5px !important;
+    }
+    
+    #company-select button {
+        width: 32px !important;
+        height: 32px !important;
+        padding: 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        border-radius: 50% !important;
+        border: 1px solid var(--border-color, #d7dde7) !important;
+        background-color: var(--control-bg, #ffffff) !important;
+    }
+
+    #company-select button .company-label {
+        display: none !important; /* Hide text label on mobile */
+    }
+
+    #company-select button::before {
+        content: "🏢" !important; /* Premium office/building icon replacement */
+        font-size: 14px !important;
+        display: inline-block !important;
+        filter: grayscale(1) !important; /* Black & white icon */
+        opacity: 0.85 !important;
+    }
+
+    /* In dark mode, adjust brightness of the monochrome emoji icon for high visibility */
+    [data-theme='dark'] #company-select button::before {
+        filter: grayscale(1) brightness(1.8) !important;
+        opacity: 0.95 !important;
+    }
+
+    #company-select button svg.es-icon {
+        display: none !important; /* Hide the caret */
+    }
+
+    /* Stretch the search bar to fill the remaining space */
+    .navbar .search-bar {
+        flex: 1 !important;
+        max-width: 100% !important;
+        margin: 0 8px !important;
+        display: block !important;
+    }
+    
+    .navbar .search-bar input {
+        width: 100% !important;
+    }
+}
+
+
+
