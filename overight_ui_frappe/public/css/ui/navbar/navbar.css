@@ -1,0 +1,318 @@
+/* ================================================================
+   NAVBAR & TOP NAVIGATION — Overight UI Frappe
+   Enterprise ERP Theme — Header, Search, Breadcrumbs & Icons
+   ================================================================ */
+
+/* ── Navbar Base & Blur Effects ── */
+.navbar {
+    height: 52px;
+    padding: 0 1rem;
+}
+
+.navbar,
+.infintrix-navbar {
+    background: var(--brand-gradient-h, linear-gradient(90deg, #3ba2d3 0%, #5b6cf7 100%)) !important;
+    border-bottom: none !important;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1) !important;
+}
+
+.navbar .container {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+}
+
+/* ── Breadcrumbs ── */
+#navbar-breadcrumbs {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+#navbar-breadcrumbs li a,
+#navbar-breadcrumbs li.disabled a {
+    color: rgba(255, 255, 255, 0.95) !important;
+    font-weight: 600 !important;
+}
+
+#navbar-breadcrumbs a:before {
+    content: none !important;
+}
+
+/* Breadcrumb chevron separator */
+#navbar-breadcrumbs li:not(:first-child)::before {
+    filter: brightness(0) invert(1) !important;
+    opacity: 0.8 !important;
+}
+
+/* ── Search Bar & Awesomplete Suggestion list ── */
+.search-bar .search-icon {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 12px;
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+}
+
+.search-bar .search-icon svg,
+.navbar .search-bar .search-icon svg,
+#navbar-search + .search-icon svg {
+    stroke: #1e293b !important;
+    fill: none !important;
+}
+
+.search-bar input#navbar-search {
+    border-radius: 20px !important;
+    height: 36px !important;
+    transition: all 0.2s ease;
+    padding-left: 50px !important;
+    background-color: #ffffff !important;
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    color: #1e293b !important;
+}
+
+.search-bar input#navbar-search::placeholder,
+.navbar .search-bar input#navbar-search::placeholder,
+#navbar-search::placeholder,
+.search-bar input#navbar-search::-webkit-input-placeholder,
+.search-bar input#navbar-search::-moz-placeholder,
+.search-bar input#navbar-search:-ms-input-placeholder {
+    color: #64748b !important;
+    opacity: 1 !important;
+}
+
+.search-bar input#navbar-search:focus {
+    background-color: #ffffff !important;
+    border-color: #3ba2d3 !important;
+    box-shadow: 0 0 0 3px rgba(59, 162, 211, 0.2) !important;
+}
+
+.search-bar .awesomplete>ul {
+    border-radius: 8px;
+    margin-top: 4px;
+    padding: 4px;
+}
+
+.search-bar .awesomplete>ul>li {
+    border-radius: 4px;
+    padding: 8px 12px;
+    margin: 0;
+}
+
+ul#awesomplete_list_1 {
+    z-index: 9999999999999;
+    border: 0.2px solid var(--primary);
+}
+
+/* ── Navbar Icon Buttons & Dividers ── */
+.navbar-nav .nav-item .btn-reset {
+    height: 36px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+}
+
+.navbar-nav .btn-reset,
+.navbar-nav .nav-item .btn-reset,
+.navbar-nav .nav-link {
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    height: 34px !important;
+    padding: 0 8px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 8px !important;
+    transition: background-color 0.15s ease-in-out !important;
+    color: rgba(255, 255, 255, 0.95) !important;
+}
+
+.navbar-nav .btn-reset svg,
+.navbar-nav .nav-item .btn-reset svg,
+.navbar-nav .nav-link svg,
+.navbar-nav .notifications-seen svg,
+.navbar-nav .notifications-unseen svg {
+    stroke: rgba(255, 255, 255, 0.95) !important;
+}
+
+.navbar-nav .dropdown-notifications .btn-reset,
+.navbar-nav .dropdown-message .btn-reset {
+    width: 34px !important;
+    padding: 0 !important;
+    border-radius: 8px !important;
+}
+
+.navbar-nav .btn-reset:hover,
+.navbar-nav .nav-item .btn-reset:hover {
+    background-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* ── Reset dark text inside Navbar Dropdowns (supports both nested and body-appended states) ── */
+.navbar-nav .dropdown-menu .btn-reset,
+.navbar-nav .dropdown-menu .dropdown-item,
+.navbar-nav .dropdown-menu a,
+.navbar-nav .dropdown-menu span,
+.navbar-nav .dropdown-menu li,
+.navbar-nav .dropdown-menu div,
+.navbar-nav .dropdown-menu button,
+.navbar-nav .nav-item .dropdown-menu .btn-reset,
+.navbar-nav .nav-item .dropdown-menu .dropdown-item,
+.dropdown-menu .btn-reset,
+.dropdown-menu .dropdown-item,
+.dropdown-menu a,
+.dropdown-menu button {
+    color: var(--text-color, #1e293b) !important;
+}
+
+/* SVG stroke styling inside dropdowns */
+.navbar-nav .dropdown-menu svg,
+.navbar-nav .dropdown-menu .btn-reset svg,
+.navbar-nav .dropdown-menu .dropdown-item svg,
+.navbar-nav .dropdown-menu a svg,
+.navbar-nav .dropdown-menu span svg,
+.navbar-nav .dropdown-menu .notifications-seen svg,
+.navbar-nav .dropdown-menu .notifications-unseen svg,
+.navbar-nav .nav-item .dropdown-menu svg,
+.navbar-nav .nav-item .dropdown-menu .btn-reset svg,
+.dropdown-menu svg,
+.dropdown-menu .btn-reset svg,
+.dropdown-menu .dropdown-item svg,
+.dropdown-menu a svg,
+.dropdown-menu span svg,
+.dropdown-menu button svg {
+    stroke: var(--text-color, #1e293b) !important;
+}
+
+/* Maintain hover background and color inside dropdowns */
+.navbar-nav .dropdown-menu .btn-reset:hover,
+.navbar-nav .dropdown-menu .dropdown-item:hover,
+.navbar-nav .dropdown-menu a:hover,
+.dropdown-menu .btn-reset:hover,
+.dropdown-menu .dropdown-item:hover,
+.dropdown-menu a:hover {
+    background-color: var(--highlight-color, rgba(0, 0, 0, 0.05)) !important;
+    color: var(--brand-color, #3ba2d3) !important;
+}
+
+.navbar .vertical-bar {
+    width: 1px;
+    height: 24px;
+    background-color: rgba(255, 255, 255, 0.25) !important;
+}
+
+/* ── Company Selector styling (Desktop & Mobile) ── */
+#company-select button {
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    background-color: rgba(255, 255, 255, 0.15) !important;
+    color: #ffffff !important;
+    border-radius: 6px !important;
+    transition: background-color 0.15s ease !important;
+}
+
+#company-select button:hover {
+    background-color: rgba(255, 255, 255, 0.25) !important;
+    color: #ffffff !important;
+}
+
+#company-select button svg,
+#company-select button svg.es-icon {
+    stroke: #ffffff !important;
+}
+
+/* ── Horizontally scrollable top sub-navbar menu on mobile ── */
+@media (max-width: 991px) {
+    .infintrix-navbar {
+        overflow-x: auto !important;
+        white-space: nowrap !important;
+        -webkit-overflow-scrolling: touch !important;
+        padding: 5px 10px !important;
+    }
+    .infintrix-navbar-menu {
+        flex-wrap: nowrap !important;
+        display: inline-flex !important;
+        width: max-content !important;
+    }
+    .infintrix-navbar::-webkit-scrollbar {
+        display: none !important;
+    }
+}
+
+/* ── Mobile layout improvements (prevent squishing/overlapping) ── */
+@media (max-width: 767px) {
+    /* Hide fullscreen, language, theme toggle, brand logo, and page sidebar toggle */
+    #fullscreenToggleButton,
+    #languageSwitchButton,
+    #themeToggleButton,
+    .navbar-brand,
+    .navbar-home,
+    .sidebar-toggle-btn,
+    .btn-reset.sidebar-toggle-btn {
+        display: none !important;
+    }
+
+    /* Keep only necessary buttons on navbar right side */
+    .navbar .navbar-nav {
+        margin-left: 0 !important;
+        align-items: center !important;
+        gap: 4px !important;
+    }
+
+    .navbar .navbar-nav .nav-item {
+        margin: 0 !important;
+    }
+
+    #company-select button {
+        padding: 4px 8px !important;
+        height: 32px !important;
+        font-size: 0.8rem !important;
+        border-radius: 6px !important;
+        border: 1px solid rgba(255, 255, 255, 0.3) !important;
+        background-color: rgba(255, 255, 255, 0.15) !important;
+        color: #ffffff !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    #company-select button:hover {
+        background-color: rgba(255, 255, 255, 0.25) !important;
+    }
+    
+    #company-select button::before {
+        content: "🏢" !important; /* Premium office/building icon replacement */
+        font-size: 14px !important;
+        display: inline-block !important;
+        opacity: 1 !important;
+        margin-right: 4px !important;
+    }
+
+    #company-select button svg.es-icon {
+        display: none !important; /* Hide the caret */
+    }
+
+    /* Stretch the search bar to fill the remaining space */
+    .navbar .search-bar {
+        flex: 1 !important;
+        max-width: 100% !important;
+        margin: 0 8px !important;
+        display: block !important;
+    }
+    
+    .navbar .search-bar input {
+        width: 100% !important;
+    }
+}
+
+/* Scroll shadow effect for navbar */
+.navbar {
+    transition: box-shadow 0.2s ease-in-out !important;
+}
+.navbar.navbar-scrolled {
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15) !important;
+}

@@ -30,13 +30,23 @@ app_include_css = [
     "/assets/overight_ui_frappe/css/infintrix_light.css",
     "/assets/overight_ui_frappe/css/infintrix_dark.css",
     "/assets/overight_ui_frappe/css/top_menu.css",
+    # ── UI Modules ──────────────────────────────────────────────
+    "/assets/overight_ui_frappe/css/ui/animations/animations.css",
     "/assets/overight_ui_frappe/css/ui/checkboxes/checkboxes.css",
+    "/assets/overight_ui_frappe/css/ui/dashboard/dashboard.css",
+    "/assets/overight_ui_frappe/css/ui/data-tables/data-tables.css",
+    "/assets/overight_ui_frappe/css/ui/detail-view/detail-view.css",
     "/assets/overight_ui_frappe/css/ui/dropdowns/dropdowns.css",
     "/assets/overight_ui_frappe/css/ui/forms/forms.css",
     "/assets/overight_ui_frappe/css/ui/list-view/list-view.css",
     "/assets/overight_ui_frappe/css/ui/modals/modals.css",
     "/assets/overight_ui_frappe/css/ui/multiselect/multiselect.css",
+    "/assets/overight_ui_frappe/css/ui/navbar/navbar.css",
+    "/assets/overight_ui_frappe/css/ui/notifications/notifications.css",
     "/assets/overight_ui_frappe/css/ui/page-shell/page-shell.css",
+    "/assets/overight_ui_frappe/css/ui/print/print.css",
+    "/assets/overight_ui_frappe/css/ui/sidebar/sidebar.css",
+    "/assets/overight_ui_frappe/css/ui/typography/typography.css",
 ]
 
 app_include_js = [

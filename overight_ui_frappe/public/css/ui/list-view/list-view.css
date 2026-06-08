@@ -1,8 +1,39 @@
 /* --- List View Override --- */
 
 .list-row-head {
-    background-color: #f1f5f9 !important;
-    border-bottom: 1px solid #e2e8f0 !important;
+    background: var(--brand-gradient-h, linear-gradient(90deg, #3ba2d3 0%, #5b6cf7 100%)) !important;
+    border-bottom: none !important;
+    border-radius: 8px 8px 0 0 !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+}
+
+.list-row-head.text-muted,
+.list-row-head .text-muted,
+.list-row-head .level-item,
+.list-row-head a,
+.list-row-head span,
+.list-row-head .list-col-title,
+.list-row-head .list-row-checkbox {
+    color: rgba(255, 255, 255, 0.95) !important;
+    font-weight: 600 !important;
+}
+
+/* Style checkboxes inside list header to stand out against the gradient bg */
+.list-row-head input[type="checkbox"] {
+    border-color: rgba(255, 255, 255, 0.8) !important;
+    background-color: transparent !important;
+}
+.list-row-head input[type="checkbox"]:hover {
+    border-color: #ffffff !important;
+}
+.list-row-head input[type="checkbox"]:checked {
+    background-color: #ffffff !important;
+    border-color: #ffffff !important;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='%233ba2d3' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.207 4.793a1 1 0 0 1 0 1.414l-5 5a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L6.5 9.086l4.293-4.293a1 1 0 0 1 1.414 0z'/%3E%3C/svg%3E") !important;
+    background-size: 65% !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
 }
 
 /* improve UI Ngokhai */

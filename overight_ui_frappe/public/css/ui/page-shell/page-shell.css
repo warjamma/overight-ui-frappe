@@ -1,13 +1,27 @@
 /* improve UI Ngokhai */
 
-/* Global Variable Overrides for bright sky blue #3ba2d3 */
 :root, html, body {
+    /* ── Brand core ── */
     --brand-color: #3ba2d3 !important;
     --primary-color: #3ba2d3 !important;
     --fluent-primary: #3ba2d3 !important;
     --primary: #3ba2d3 !important;
     --btn-primary: #3ba2d3 !important;
-    
+
+    /* ── Brand gradient (use in backgrounds, buttons) ── */
+    --brand-gradient: linear-gradient(135deg, #3ba2d3 0%, #5b6cf7 100%) !important;
+    --brand-gradient-h: linear-gradient(90deg, #3ba2d3 0%, #5b6cf7 100%) !important;
+    --brand-gradient-soft: linear-gradient(135deg,
+        color-mix(in srgb, #3ba2d3 15%, transparent),
+        color-mix(in srgb, #5b6cf7 10%, transparent)) !important;
+
+    /* ── Glow shadows ── */
+    --brand-glow: 0 0 0 3px color-mix(in srgb, #3ba2d3 25%, transparent),
+                  0 4px 20px color-mix(in srgb, #3ba2d3 20%, transparent) !important;
+    --brand-glow-strong: 0 0 0 3px color-mix(in srgb, #5b6cf7 30%, transparent),
+                         0 6px 24px color-mix(in srgb, #3ba2d3 30%, transparent) !important;
+
+    /* ── Shade scale ── */
     --brand-color-hover: #2b8cb8 !important;
     --brand-color-50: #fafcfd !important;
     --brand-color-100: #f1f8fb !important;
@@ -19,33 +33,42 @@
     --brand-color-800: #144459 !important;
     --brand-color-900: #0a222c !important;
     --fluent-primary-dark: #0a222c !important;
+
+    /* ── Typography ── */
+    --font-stack: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont,
+                  'Segoe UI', sans-serif !important;
 }
 
 /* Light theme overrides */
 [data-theme='light'] {
-    --bg-color: #f1f5f9 !important;
+    --bg-color: #f0f4f9 !important;
     --fg-color: #ffffff !important;
-    --border-color: #e2e8f0 !important;
-    --navbar-bg: rgba(255, 255, 255, 0.85) !important;
-    --text-color: #1e293b !important;
-    --text-muted: #64748b !important;
-    --control-bg: #ffffff !important;
+    --border-color: #e0e9f0 !important;
+    --navbar-bg: rgba(255, 255, 255, 0.88) !important;
+    --text-color: #0f1c2e !important;
+    --text-muted: #5e7a96 !important;
+    --control-bg: #f8fbfd !important;
     --popover-bg: #ffffff !important;
-    --highlight-color: #f1f8fb !important;
+    --highlight-color: #eaf4fb !important;
+    /* Subtle tech tint on bg */
+    --bg-mesh: radial-gradient(ellipse at 20% 0%, color-mix(in srgb, #3ba2d3 6%, transparent) 0%, transparent 60%),
+               radial-gradient(ellipse at 80% 10%, color-mix(in srgb, #5b6cf7 4%, transparent) 0%, transparent 50%);
 }
 
 /* Dark theme overrides */
 [data-theme='dark'] {
-    --bg-color: #0f172a !important; /* Premium slate-900 background */
-    --fg-color: #1e293b !important; /* Premium slate-800 card surface */
-    --border-color: #334155 !important; /* Premium slate-700 border */
-    --navbar-bg: rgba(30, 41, 59, 0.85) !important; /* frosted slate-800 */
-    --text-color: #f8fafc !important; /* slate-50 text */
-    --text-muted: #94a3b8 !important; /* slate-400 text */
-    --control-bg: #1e293b !important;
-    --popover-bg: #1e293b !important;
-    --highlight-color: #334155 !important;
-    --card-bg: #1e293b !important;
+    --bg-color: #080e1a !important;        /* Rich near-black navy */
+    --fg-color: #111927 !important;        /* Dark card surface */
+    --border-color: #1e2d42 !important;    /* Subtle dark border */
+    --navbar-bg: rgba(10, 16, 28, 0.92) !important;
+    --text-color: #e4edf7 !important;
+    --text-muted: #7a9bbc !important;
+    --control-bg: #0e1825 !important;
+    --popover-bg: #111927 !important;
+    --highlight-color: #1e2d42 !important;
+    --card-bg: #111927 !important;
+    --bg-mesh: radial-gradient(ellipse at 20% 0%, color-mix(in srgb, #3ba2d3 12%, transparent) 0%, transparent 55%),
+               radial-gradient(ellipse at 85% 15%, color-mix(in srgb, #5b6cf7 8%, transparent) 0%, transparent 50%);
 }
 
 /* Custom Unified Sidebar Selected Item */
@@ -77,32 +100,35 @@
     --icon-stroke: #3ba2d3 !important;
 }
 
-/* Custom white-blue premium layouts */
-html,
-body,
-.page-container {
-    background-color: var(--bg-color) !important;
-    color: var(--text-color) !important;
+/* Tech mesh background — applied to the root body area */
+html, body {
+    background-image: var(--bg-mesh) !important;
+    background-attachment: fixed !important;
+    font-family: var(--font-stack) !important;
 }
 
+/* Google Fonts: Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
 .page-head.flex {
-    background-color: var(--fg-color) !important;
+    background: var(--fg-color) !important;
     border-bottom: 1px solid var(--border-color) !important;
+    /* Subtle gradient accent on bottom border */
+    box-shadow: 0 1px 0 0 var(--border-color),
+                inset 0 -1px 0 0 color-mix(in srgb, var(--brand-color) 30%, transparent) !important;
 }
 
 .layout-main-section {
-    background-color: var(--fg-color) !important;
+    background: var(--fg-color) !important;
     border: 1px solid var(--border-color) !important;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.06),
+        0 1px 2px rgba(0, 0, 0, 0.04),
+        inset 0 1px 0 rgba(255,255,255,0.06) !important;
+    transition: box-shadow 0.2s ease !important;
 }
 
-.navbar,
-.infintrix-navbar {
-    background-color: var(--navbar-bg) !important;
-    backdrop-filter: blur(12px) !important;
-    -webkit-backdrop-filter: blur(12px) !important;
-    border-bottom: 1px solid var(--border-color) !important;
-}
+
 
 
 /* --- Responsive Layout & Alignment Fixes --- */
@@ -125,108 +151,105 @@ body,
     width: auto !important;
 }
 
+/* ── Layout side-section: smooth slide + border-radius ── */
+.layout-side-section {
+    border-radius: 0 20px 20px 0 !important;
+    overflow: hidden !important;
+    /* Width-based slide animation for sidebar show/hide */
+    transition: max-width 0.38s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity     0.28s ease !important;
+    max-width: 280px !important;
+}
+
+/* When Frappe hides the sidebar via JS (adds display:none via style) */
+.layout-side-section[style*="display: none"] {
+    display: block !important;   /* Override inline style with !important */
+    max-width: 0 !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    overflow: hidden !important;
+}
+
+/* ── Sidebar accordion (module sub-items) — smooth max-height animation ──
+   Frappe's jQuery slideUp/slideDown sets height inline. We intercept:
+   keep element in block flow but animate max-height for smooth effect. */
+.desk-sidebar .standard-sidebar-item > .sidebar-items,
+.desk-sidebar .desk-sidebar-section > ul,
+.desk-sidebar .desk-sidebar-section > .list-unstyled {
+    overflow: hidden !important;
+    max-height: 1200px !important;
+    transition: max-height 0.38s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity     0.28s ease !important;
+    opacity: 1 !important;
+}
+
+/* When jQuery sets display:none on sub-items, intercept + animate */
+.desk-sidebar .standard-sidebar-item > .sidebar-items[style*="display: none"],
+.desk-sidebar .desk-sidebar-section > ul[style*="display: none"],
+.desk-sidebar .desk-sidebar-section > .list-unstyled[style*="display: none"] {
+    display: block !important;
+    max-height: 0 !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* Chevron rotation on expand */
+.desk-sidebar .sidebar-item-control .icon,
+.desk-sidebar .sidebar-item-control svg {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+.desk-sidebar .standard-sidebar-item.expanded .sidebar-item-control .icon,
+.desk-sidebar .standard-sidebar-item.expanded .sidebar-item-control svg,
+.desk-sidebar .standard-sidebar-item[aria-expanded="true"] .sidebar-item-control .icon,
+.desk-sidebar .standard-sidebar-item[aria-expanded="true"] .sidebar-item-control svg {
+    transform: rotate(180deg) !important;
+}
+
+
+
 body.full-width .container {
     width: 100% !important;
     max-width: 100% !important;
 }
 
-/* Horizontally scrollable top sub-navbar menu on mobile to prevent wrapping and height break */
-@media (max-width: 991px) {
-    .infintrix-navbar {
-        overflow-x: auto !important;
-        white-space: nowrap !important;
-        -webkit-overflow-scrolling: touch !important;
-        padding: 5px 10px !important;
-    }
-    .infintrix-navbar-menu {
-        flex-wrap: nowrap !important;
-        display: inline-flex !important;
-        width: max-content !important;
-    }
-    .infintrix-navbar::-webkit-scrollbar {
-        display: none !important;
-    }
+
+
+
+
+
+
+
+
+/* ================================================================
+   GLOBAL LAYOUT — Scrollbar, selection, card depth
+   ================================================================ */
+
+::-webkit-scrollbar { width: 6px !important; height: 6px !important; }
+::-webkit-scrollbar-track { background: transparent !important; }
+::-webkit-scrollbar-thumb {
+    background: color-mix(in srgb, var(--brand-color, #3ba2d3) 30%, var(--border-color, #e2e8f0) 70%) !important;
+    border-radius: 9999px !important;
 }
+::-webkit-scrollbar-thumb:hover { background: var(--brand-color, #3ba2d3) !important; }
 
-/* Prevent navbar elements from squishing or overlapping on mobile */
-.navbar .container {
-    display: flex !important;
-    flex-wrap: nowrap !important;
-    align-items: center !important;
-}
-
-/* Mobile navbar layout improvements to prevent overlapping/squishing */
-@media (max-width: 767px) {
-    /* Hide fullscreen, language, theme toggle, brand logo, and page sidebar toggle */
-    #fullscreenToggleButton,
-    #languageSwitchButton,
-    #themeToggleButton,
-    .navbar-brand,
-    .navbar-home,
-    .sidebar-toggle-btn,
-    .btn-reset.sidebar-toggle-btn {
-        display: none !important;
-    }
-
-    /* Fix padding/margin of breadcrumbs container on mobile */
-    .nav.navbar-nav.d-none.d-sm-flex,
-    #navbar-breadcrumbs {
-        padding: 0 !important;
-        margin: 0 !important;
-    }
-
-    /* Shrink company select dropdown to a clean circular button with building icon */
-    #company-select {
-        margin-left: 5px !important;
-        margin-right: 5px !important;
-    }
-    
-    #company-select button {
-        width: 32px !important;
-        height: 32px !important;
-        padding: 0 !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        border-radius: 50% !important;
-        border: 1px solid var(--border-color, #d7dde7) !important;
-        background-color: var(--control-bg, #ffffff) !important;
-    }
-
-    #company-select button .company-label {
-        display: none !important; /* Hide text label on mobile */
-    }
-
-    #company-select button::before {
-        content: "🏢" !important; /* Premium office/building icon replacement */
-        font-size: 14px !important;
-        display: inline-block !important;
-        filter: grayscale(1) !important; /* Black & white icon */
-        opacity: 0.85 !important;
-    }
-
-    /* In dark mode, adjust brightness of the monochrome emoji icon for high visibility */
-    [data-theme='dark'] #company-select button::before {
-        filter: grayscale(1) brightness(1.8) !important;
-        opacity: 0.95 !important;
-    }
-
-    #company-select button svg.es-icon {
-        display: none !important; /* Hide the caret */
-    }
-
-    /* Stretch the search bar to fill the remaining space */
-    .navbar .search-bar {
-        flex: 1 !important;
-        max-width: 100% !important;
-        margin: 0 8px !important;
-        display: block !important;
-    }
-    
-    .navbar .search-bar input {
-        width: 100% !important;
-    }
+::selection {
+    background-color: color-mix(in srgb, var(--brand-color, #3ba2d3) 22%, transparent 78%) !important;
+    color: var(--text-color, #1e293b) !important;
 }
 
 
+[data-theme='dark'] ::selection {
+    background-color: color-mix(in srgb, var(--brand-color, #3ba2d3) 30%, transparent 70%) !important;
+    color: #fff !important;
+}
 
+/* Scroll shadow effect for page-head */
+.page-head,
+.page-head.flex {
+    transition: box-shadow 0.2s ease-in-out, border-color 0.2s ease-in-out !important;
+}
+.page-head.page-head-scrolled,
+.page-head.flex.page-head-scrolled {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03) !important;
+    border-bottom-color: rgba(0, 0, 0, 0.06) !important;
+}

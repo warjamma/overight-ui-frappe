@@ -1,30 +1,222 @@
-/* improve UI Ngokhai */
+/* ================================================================
+   DROPDOWNS — Overight UI Frappe
+   Enterprise ERP Theme — Dropdown menus & Select controls
+   ================================================================ */
 
-/* Make navbar buttons (notifications, help, profile dropdown triggers) transparent and borderless */
-.navbar-nav .btn-reset,
-.navbar-nav .nav-item .btn-reset {
-    background-color: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-    height: 36px !important;
-    padding: 6px 12px !important;
-    display: inline-flex !important;
+/* ----------------------------------------------------------------
+   AWESOMPLETE — Fix dropdown positioning
+   ROOT CAUSE: Frappe's SCSS does NOT set position:relative on .awesomplete.
+   Without it, ul[role=listbox] { position:absolute; left:0; width:100% }
+   positions relative to Bootstrap's .input-group { position:relative },
+   making the dropdown appear at the FAR LEFT of the page.
+   FIX: position:relative on .awesomplete makes it the containing block.
+   ---------------------------------------------------------------- */
+.awesomplete {
+    position: relative !important;
+}
+
+/* Ensure the dropdown ul appears above the navbar and page content */
+.awesomplete > [role=listbox]:not([hidden]) {
+    z-index: 1050 !important;
+}
+
+
+
+/* ----------------------------------------------------------------
+   DROPDOWN MENU BASE
+   CRITICAL: Do NOT use transform:translateY animation here.
+   Popper.js reads getBoundingClientRect() when computing position.
+   A translateY in animation fill-mode:both shifts the element BEFORE
+   Popper calculates → all dropdowns appear at wrong position.
+   Use opacity-only transition instead.
+   ---------------------------------------------------------------- */
+.dropdown-menu,
+.frappe-dropdown {
+    border: 1px solid var(--border-color, #e2e8f0) !important;
+    border-radius: 12px !important;
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.10),
+        0 4px 12px rgba(0, 0, 0, 0.06),
+        0 0 0 1px rgba(0, 0, 0, 0.03) !important;
+    background: var(--fg-color, #fff) !important;
+    padding: 5px !important;
+    min-width: 160px !important;
+    /* Opacity-only — safe, no position shift */
+    opacity: 0 !important;
+    transition: opacity 0.15s ease !important;
+    /* NO transform, NO animation — Popper.js needs stable position */
+}
+
+/* When visible: fade in only */
+.dropdown-menu.show,
+.frappe-dropdown.show {
+    opacity: 1 !important;
+}
+
+/* Positioning is handled entirely by Bootstrap/Popper.js — do NOT override left/right/top here */
+
+
+/* ----------------------------------------------------------------
+   DROPDOWN ITEMS
+   ---------------------------------------------------------------- */
+.dropdown-item,
+.dropdown-menu a,
+.dropdown-menu li > a {
+    display: flex !important;
     align-items: center !important;
-    justify-content: center !important;
-    border-radius: 8px !important; /* Rounded rectangle matching modern Fluent design */
-    transition: background-color 0.15s ease-in-out !important;
+    gap: 8px !important;
+    padding: 7px 10px !important;
+    border-radius: 8px !important;
+    font-size: 0.855rem !important;
+    font-weight: 500 !important;
+    color: var(--text-color, #1e293b) !important;
+    background: transparent !important;
+    cursor: pointer !important;
+    text-decoration: none !important;
+    transition: background 0.12s, color 0.12s !important;
+    line-height: 1.4 !important;
 }
 
-/* Make notification icon button a perfect circle */
-.navbar-nav .dropdown-notifications .btn-reset,
-.navbar-nav .dropdown-message .btn-reset {
-    width: 36px !important;
-    padding: 0 !important;
-    border-radius: 50% !important;
+.dropdown-item:hover,
+.dropdown-menu a:hover,
+.dropdown-menu li > a:hover {
+    background: color-mix(in srgb, var(--brand-color, #3ba2d3) 9%, transparent) !important;
+    color: var(--brand-color, #3ba2d3) !important;
 }
 
-/* Hover state styling */
-.navbar-nav .btn-reset:hover,
-.navbar-nav .nav-item .btn-reset:hover {
-    background-color: var(--highlight-color, rgba(0, 0, 0, 0.05)) !important;
+.dropdown-item:active,
+.dropdown-item.active {
+    background: color-mix(in srgb, var(--brand-color, #3ba2d3) 16%, transparent) !important;
+    color: var(--brand-color, #3ba2d3) !important;
 }
+
+/* ----------------------------------------------------------------
+   DROPDOWN DIVIDER
+   ---------------------------------------------------------------- */
+.dropdown-divider {
+    margin: 4px 0 !important;
+    border-color: var(--border-color, #e2e8f0) !important;
+    opacity: 1 !important;
+}
+
+/* ----------------------------------------------------------------
+   DROPDOWN HEADER / LABEL
+   ---------------------------------------------------------------- */
+.dropdown-header {
+    padding: 4px 10px 3px !important;
+    font-size: 0.72rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.06em !important;
+    color: var(--text-muted, #94a3b8) !important;
+}
+
+/* ----------------------------------------------------------------
+   SELECTABLE ITEMS (company dropdown, etc.)
+   ---------------------------------------------------------------- */
+.selectable-item {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    padding: 7px 10px !important;
+    border-radius: 8px !important;
+    font-size: 0.85rem !important;
+    font-weight: 500 !important;
+    color: var(--text-color, #1e293b) !important;
+    cursor: pointer !important;
+    transition: background 0.12s, color 0.12s !important;
+}
+
+.selectable-item:hover {
+    background: color-mix(in srgb, var(--brand-color, #3ba2d3) 9%, transparent) !important;
+    color: var(--brand-color, #3ba2d3) !important;
+}
+
+.selectable-item.selected {
+    background: color-mix(in srgb, var(--brand-color, #3ba2d3) 14%, transparent) !important;
+    color: var(--brand-color, #3ba2d3) !important;
+    font-weight: 600 !important;
+}
+
+/* ----------------------------------------------------------------
+   COMPANY DROPDOWN SPECIFICS
+   ---------------------------------------------------------------- */
+#company-select .dropdown-menu {
+    min-width: 200px !important;
+    max-width: 280px !important;
+}
+
+/* ----------------------------------------------------------------
+   NAVBAR NOTIFICATION / HELP / AVATAR DROPDOWN PANELS
+   ---------------------------------------------------------------- */
+.dropdown-notifications .dropdown-menu,
+.dropdown-message .dropdown-menu,
+.dropdown-help .dropdown-menu,
+.dropdown-navbar-user .dropdown-menu {
+    min-width: 280px !important;
+    padding: 8px !important;
+}
+
+/* Notification panel wider */
+.dropdown-notifications .dropdown-menu {
+    min-width: 320px !important;
+    max-width: 380px !important;
+}
+
+/* Avatar dropdown */
+.dropdown-navbar-user .dropdown-menu {
+    min-width: 200px !important;
+    right: 0 !important;
+    left: auto !important;
+}
+
+/* ----------------------------------------------------------------
+   SELECT CONTROL (HTML <select> override)
+   ---------------------------------------------------------------- */
+select.form-control {
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 10px center !important;
+    padding-right: 32px !important;
+    border-radius: 8px !important;
+    border: 1px solid var(--border-color, #e2e8f0) !important;
+    background-color: var(--control-bg, #fff) !important;
+    color: var(--text-color, #1e293b) !important;
+    font-size: 0.88rem !important;
+    height: 34px !important;
+    cursor: pointer !important;
+    transition: border-color 0.15s, box-shadow 0.15s !important;
+}
+
+select.form-control:focus {
+    border-color: var(--brand-color, #3ba2d3) !important;
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand-color, #3ba2d3) 15%, transparent) !important;
+    outline: none !important;
+}
+
+/* ----------------------------------------------------------------
+   FRAPPE SELECT FIELD (dropdown within form)
+   ---------------------------------------------------------------- */
+.frappe-control[data-fieldtype="Select"] .control-input,
+.frappe-control[data-fieldtype="Select"] .form-control {
+    padding-right: 32px !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 10px center !important;
+}
+
+/* ----------------------------------------------------------------
+   RESPONSIVE — Mobile
+   ---------------------------------------------------------------- */
+@media (max-width: 640px) {
+    .dropdown-notifications .dropdown-menu,
+    .dropdown-message .dropdown-menu {
+        min-width: 280px !important;
+        max-width: calc(100vw - 20px) !important;
+        right: 0 !important;
+        left: auto !important;
+    }
+}
+

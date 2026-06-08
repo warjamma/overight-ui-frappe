@@ -1,0 +1,468 @@
+/* ================================================================
+   DETAIL VIEW — Overight UI Frappe
+   Enterprise ERP Theme — Form/Document detail view
+   ================================================================ */
+
+/* ----------------------------------------------------------------
+   PAGE HEADER (title + save button row)
+   ---------------------------------------------------------------- */
+.page-head {
+    background: var(--fg-color, #fff) !important;
+    border-bottom: 1px solid var(--border-color, #e2e8f0) !important;
+    padding: 0 20px !important;
+    height: 52px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    position: sticky !important;
+    top: 54px !important;
+    z-index: 100 !important;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.03) !important;
+}
+
+.page-head .title-area {
+    flex: 1 !important;
+    min-width: 0 !important;
+}
+
+.page-head .page-title {
+    font-size: 1.05rem !important;
+    font-weight: 700 !important;
+    color: var(--heading-color, #0f172a) !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    max-width: 480px !important;
+}
+
+/* ----------------------------------------------------------------
+   FORM LAYOUT
+   ---------------------------------------------------------------- */
+.form-page,
+.page-content .form-page {
+    padding: 20px !important;
+    max-width: 1200px !important;
+}
+
+.form-layout {
+    animation: ov-fadeSlideUp 0.3s cubic-bezier(0.22, 1, 0.36, 1) both !important;
+}
+
+/* ----------------------------------------------------------------
+   SECTIONS
+   ---------------------------------------------------------------- */
+.form-section {
+    background: var(--fg-color, #fff) !important;
+    border: 1px solid var(--border-color, #e0e9f0) !important;
+    border-radius: 14px !important;
+    margin-bottom: 16px !important;
+    overflow: hidden !important;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease !important;
+    position: relative !important;
+}
+
+.form-section::before {
+    content: '' !important;
+    position: absolute !important;
+    inset: 0 !important;
+    border-radius: 14px !important;
+    padding: 1px !important;
+    background: linear-gradient(135deg,
+        color-mix(in srgb, var(--brand-color, #3ba2d3) 20%, transparent),
+        transparent 50%,
+        color-mix(in srgb, #5b6cf7 10%, transparent)) !important;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0) !important;
+    -webkit-mask-composite: xor !important;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0) !important;
+    mask-composite: exclude !important;
+    opacity: 0 !important;
+    transition: opacity 0.2s ease !important;
+}
+
+.form-section:hover::before {
+    opacity: 1 !important;
+}
+
+.form-section:hover {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.07),
+                0 1px 4px rgba(0,0,0,0.04) !important;
+}
+
+.form-section .section-head {
+    padding: 12px 16px !important;
+    font-size: 0.78rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.06em !important;
+    color: var(--text-muted, #64748b) !important;
+    background: color-mix(in srgb, var(--bg-color, #f8fafc) 60%, var(--fg-color, #fff) 40%) !important;
+    border-bottom: 1px solid var(--border-color, #e2e8f0) !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+}
+
+.form-section .section-body {
+    padding: 16px !important;
+}
+
+/* ----------------------------------------------------------------
+   FIELD LABELS
+   ---------------------------------------------------------------- */
+.frappe-control label,
+.control-label {
+    font-size: 0.76rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.04em !important;
+    color: var(--text-muted, #64748b) !important;
+    margin-bottom: 5px !important;
+    display: block !important;
+}
+
+/* Required field asterisk */
+.reqd .control-label::after,
+.frappe-control.reqd label::after {
+    content: " *" !important;
+    color: #ef4444 !important;
+    font-weight: 700 !important;
+}
+
+/* ----------------------------------------------------------------
+   CONTROL INPUT — text, number, date, etc.
+   ---------------------------------------------------------------- */
+.frappe-control .form-control,
+.frappe-control input[type="text"],
+.frappe-control input[type="number"],
+.frappe-control input[type="email"],
+.frappe-control input[type="date"],
+.frappe-control textarea {
+    height: 34px !important;
+    border-radius: 8px !important;
+    border: 1px solid var(--border-color, #e2e8f0) !important;
+    background: var(--control-bg, #fff) !important;
+    font-size: 0.88rem !important;
+    color: var(--text-color, #1e293b) !important;
+    padding: 0 12px !important;
+    transition: border-color 0.15s, box-shadow 0.15s, background 0.15s !important;
+    box-shadow: none !important;
+}
+
+.frappe-control textarea {
+    height: auto !important;
+    min-height: 80px !important;
+    padding: 10px 12px !important;
+    resize: vertical !important;
+}
+
+.frappe-control .form-control:focus,
+.frappe-control input:not([type="checkbox"]):not([type="radio"]):focus,
+.frappe-control textarea:focus {
+    border-color: var(--brand-color, #3ba2d3) !important;
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand-color, #3ba2d3) 18%, transparent),
+                0 2px 8px color-mix(in srgb, var(--brand-color, #3ba2d3) 12%, transparent) !important;
+    outline: none !important;
+    background: var(--fg-color, #fff) !important;
+}
+
+/* Read-only / disabled */
+.frappe-control .form-control[disabled],
+.frappe-control .form-control[readonly] {
+    background: color-mix(in srgb, var(--bg-color, #f1f5f9) 80%, transparent 20%) !important;
+    color: var(--text-muted, #64748b) !important;
+    cursor: not-allowed !important;
+}
+
+/* ----------------------------------------------------------------
+   CONNECTIONS / QUICK ACCESS LINKS
+   ---------------------------------------------------------------- */
+.form-quick-entry,
+.form-links {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+}
+
+.form-quick-entry .quick-entry-btn,
+.form-links .btn {
+    border-radius: 20px !important;
+    font-size: 0.8rem !important;
+    font-weight: 600 !important;
+    height: 28px !important;
+    padding: 0 12px !important;
+}
+
+/* Connection count badge */
+.form-dashboard-section .count {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-width: 18px !important;
+    height: 18px !important;
+    padding: 0 4px !important;
+    background: var(--brand-color, #3ba2d3) !important;
+    color: #fff !important;
+    border-radius: 9px !important;
+    font-size: 0.68rem !important;
+    font-weight: 700 !important;
+}
+
+/* ----------------------------------------------------------------
+   STATUS INDICATOR (Working, Open, etc.)
+   ---------------------------------------------------------------- */
+.indicator-pill,
+.badge.indicator-pill {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 5px !important;
+    height: 22px !important;
+    padding: 0 10px !important;
+    border-radius: 20px !important;
+    font-size: 0.74rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.02em !important;
+}
+
+/* ----------------------------------------------------------------
+   SAVE / ACTION BUTTONS
+   ---------------------------------------------------------------- */
+.btn-primary {
+    background: var(--brand-gradient, linear-gradient(135deg, #3ba2d3 0%, #5b6cf7 100%)) !important;
+    border: none !important;
+    color: #fff !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    font-size: 0.88rem !important;
+    letter-spacing: 0.01em !important;
+    transition: filter 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease !important;
+    box-shadow: 0 2px 8px color-mix(in srgb, #3ba2d3 30%, transparent),
+                0 1px 2px rgba(0,0,0,0.12) !important;
+}
+
+.btn-primary:hover {
+    filter: brightness(1.08) !important;
+    box-shadow: 0 4px 16px color-mix(in srgb, #3ba2d3 40%, transparent),
+                0 2px 6px rgba(0,0,0,0.14),
+                0 0 0 3px color-mix(in srgb, #5b6cf7 20%, transparent) !important;
+}
+
+.btn-primary:active {
+    transform: scale(0.97) !important;
+    filter: brightness(0.96) !important;
+}
+
+/* ----------------------------------------------------------------
+   CHILD TABLE (in-form grid)
+   ---------------------------------------------------------------- */
+.frappe-control[data-fieldtype="Table"] .grid-heading-row,
+.grid-heading-row,
+.form-grid .grid-heading-row {
+    background: var(--brand-gradient-h, linear-gradient(90deg, #3ba2d3 0%, #5b6cf7 100%)) !important;
+    border-radius: 8px 8px 0 0 !important;
+    border-bottom: none !important;
+}
+
+.frappe-control[data-fieldtype="Table"] .grid-heading-row .col,
+.grid-heading-row .col,
+.grid-heading-row .grid-row,
+.grid-heading-row .grid-row *,
+.form-grid .grid-heading-row .grid-row * {
+    font-size: 0.75rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.04em !important;
+    color: rgba(255, 255, 255, 0.95) !important;
+    padding: 8px 12px !important;
+}
+
+/* Style the check all checkbox border in the grid header to be white for high contrast */
+.grid-heading-row input[type="checkbox"],
+.frappe-control[data-fieldtype="Table"] .grid-heading-row input[type="checkbox"] {
+    border-color: rgba(255, 255, 255, 0.8) !important;
+    background-color: transparent !important;
+}
+.grid-heading-row input[type="checkbox"]:hover,
+.frappe-control[data-fieldtype="Table"] .grid-heading-row input[type="checkbox"]:hover {
+    border-color: #ffffff !important;
+}
+.grid-heading-row input[type="checkbox"]:checked,
+.frappe-control[data-fieldtype="Table"] .grid-heading-row input[type="checkbox"]:checked {
+    background-color: var(--brand-color-600, #2b8cb8) !important;
+    border-color: #ffffff !important;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.207 4.793a1 1 0 0 1 0 1.414l-5 5a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L6.5 9.086l4.293-4.293a1 1 0 0 1 1.414 0z'/%3E%3C/svg%3E") !important;
+    background-size: 65% !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+}
+
+.frappe-control[data-fieldtype="Table"] .grid-row {
+    border-bottom: 1px solid var(--border-color, #f1f5f9) !important;
+    transition: background 0.1s !important;
+}
+
+.frappe-control[data-fieldtype="Table"] .grid-row:hover {
+    background: color-mix(in srgb, var(--brand-color, #3ba2d3) 5%, transparent) !important;
+}
+
+/* Add row button — with spacing so it's not flush against elements below */
+.grid-footer {
+    padding-top: 10px !important;
+    padding-bottom: 8px !important;
+}
+
+.grid-footer .btn-xs,
+.frappe-control .grid-add-row {
+    border-radius: 6px !important;
+    font-size: 0.78rem !important;
+    height: 26px !important;
+    padding: 0 10px !important;
+    font-weight: 600 !important;
+    margin-bottom: 4px !important;
+}
+
+/* Delete row button — small + red */
+.grid-row .btn-danger,
+.frappe-control .grid-row .btn-open-row + .btn {
+    height: 22px !important;
+    width: 22px !important;
+    padding: 0 !important;
+    border-radius: 6px !important;
+    font-size: 0.7rem !important;
+    background: transparent !important;
+    border-color: transparent !important;
+    color: #ef4444 !important;
+    transition: background 0.12s !important;
+}
+
+.grid-row .btn-danger:hover {
+    background: color-mix(in srgb, #ef4444 10%, transparent) !important;
+}
+
+/* ----------------------------------------------------------------
+   TIMELINE / ACTIVITY
+   ---------------------------------------------------------------- */
+
+/* Regular timeline items (connected list with left border + dot) */
+.new-timeline .timeline-items > .timeline-item {
+    border-left: 2px solid var(--border-color, #e2e8f0) !important;
+    padding-left: 16px !important;
+    margin-bottom: 16px !important;
+    position: relative !important;
+}
+
+.new-timeline .timeline-items > .timeline-item::before {
+    content: "" !important;
+    position: absolute !important;
+    left: -5px !important;
+    top: 4px !important;
+    width: 8px !important;
+    height: 8px !important;
+    border-radius: 50% !important;
+    background: var(--border-color, #e2e8f0) !important;
+    border: 2px solid var(--fg-color, #fff) !important;
+}
+
+.new-timeline .timeline-items > .timeline-item .timeline-message-box {
+    background: color-mix(in srgb, var(--bg-color, #f8fafc) 60%, var(--fg-color, #fff) 40%) !important;
+    border-radius: 10px !important;
+    padding: 12px 14px !important;
+    border: 1px solid var(--border-color, #e2e8f0) !important;
+}
+
+/* CRITICAL: Reset .timeline-item inside .timeline-actions
+   (New Email, Comment, etc. action buttons)
+   DO NOT apply border-left / pseudo-circle to these */
+.new-timeline .timeline-actions .timeline-item,
+.timeline-actions .timeline-item {
+    border-left: none !important;
+    padding-left: 0 !important;
+    margin-bottom: 0 !important;
+    position: static !important;
+    background: transparent !important;
+}
+
+.new-timeline .timeline-actions .timeline-item::before,
+.timeline-actions .timeline-item::before {
+    display: none !important;
+    content: none !important;
+}
+
+/* ----------------------------------------------------------------
+   COMMENT BOX — image & attachment border
+   ---------------------------------------------------------------- */
+
+/* Remove the dividing line between editor and image/attachment buttons */
+.comment-box .ql-container,
+.comment-input-wrapper .ql-container,
+.frappe-comment-input .ql-container {
+    border-color: transparent !important;
+    border-bottom-color: transparent !important;
+}
+
+.comment-box .ql-toolbar,
+.comment-input-wrapper .ql-toolbar,
+.ql-snow.ql-toolbar,
+.ql-snow .ql-toolbar {
+    border-color: transparent !important;
+    border-top-color: transparent !important;
+}
+
+/* The action bar border between textarea and buttons */
+.comment-box .comment-input-container > .frappe-control,
+.comment-box .comment-input-container .ql-container {
+    border-color: transparent !important;
+}
+
+/* ----------------------------------------------------------------
+   UPLOAD IMAGE / FILE BUTTONS (.btn-upload-image, .btn-upload-file)
+   Remove border so they look smooth and seamless
+   ---------------------------------------------------------------- */
+.btn-upload-image,
+.btn-upload-file,
+.d-flex .btn-upload-image,
+.d-flex .btn-upload-file,
+.d-flex.gap-2 .btn-upload-image,
+.d-flex.gap-2 .btn-upload-file {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    background-color: transparent !important;
+    outline: none !important;
+    color: var(--text-muted, #94a3b8) !important;
+    transition: color 0.15s, background 0.15s !important;
+    border-radius: 6px !important;
+    padding: 4px 6px !important;
+}
+
+.btn-upload-image:hover,
+.btn-upload-file:hover,
+.d-flex .btn-upload-image:hover,
+.d-flex .btn-upload-file:hover {
+    color: var(--brand-color, #3ba2d3) !important;
+    background: color-mix(in srgb, var(--brand-color, #3ba2d3) 8%, transparent) !important;
+}
+
+/* ----------------------------------------------------------------
+   RESPONSIVE
+   ---------------------------------------------------------------- */
+@media (max-width: 768px) {
+    .form-page {
+        padding: 12px !important;
+    }
+
+    .page-head {
+        padding: 0 12px !important;
+        top: 54px !important;
+    }
+
+    .page-head .page-title {
+        font-size: 0.95rem !important;
+        max-width: 200px !important;
+    }
+
+    .form-section {
+        border-radius: 10px !important;
+        margin-bottom: 12px !important;
+    }
+}

@@ -145,46 +145,12 @@ body.full-width .container {
     margin-right: var(--margin-sm);
 }
 
-/* --- Modal Animations & Structure --- */
-@keyframes fluent-modal-fade-in {
-    from {
-        opacity: 0;
-        transform: translateY(32px) scale(0.97);
-    }
+/* --- Modal Animations removed ---
+   Transforms (scale/translateY) on .modal-dialog create new CSS containing blocks.
+   This breaks awesomplete's position:absolute coordinate calculation inside modals,
+   causing search dropdowns to appear in wrong positions (300×300 overlay on page content).
+   Bootstrap's built-in translate(-50px → 0) animation is used instead. */
 
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
-
-@keyframes fluent-modal-fade-out {
-    from {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-
-    to {
-        opacity: 0;
-        transform: translateY(32px) scale(0.97);
-    }
-}
-
-.modal.fade .modal-dialog {
-    opacity: 0;
-    transform: translateY(32px) scale(0.97);
-    transition: none;
-}
-
-.modal.show .modal-dialog {
-    animation: fluent-modal-fade-in 0.32s cubic-bezier(.4, 0, .2, 1) forwards;
-    opacity: 1;
-    transform: translateY(0) scale(1);
-}
-
-.modal:not(.show) .modal-dialog {
-    animation: fluent-modal-fade-out 0.22s cubic-bezier(.4, 0, .2, 1) forwards;
-}
 
 .modal-content {
     border-radius: 12px !important;
@@ -327,92 +293,16 @@ body.full-width .container {
     display: inline-flex;
 }
 
-/* --- Navbar Structure --- */
-.navbar {
-    height: 52px;
-    padding: 0 1rem;
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-}
 
-#navbar-breadcrumbs {
-    display: flex;
-    align-items: center;
-    flex-wrap: nowrap;
-    overflow: hidden;
-    white-space: nowrap;
-}
 
-#navbar-breadcrumbs li.disabled a {
-    font-weight: 600;
-}
-
-#navbar-breadcrumbs a:before {
-    content: none !important;
-    /* Remove old separator */
-}
-
-.search-bar .search-icon {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 12px;
-    display: flex;
-    align-items: center;
-    pointer-events: none;
-}
-
-.search-bar input#navbar-search {
-    border-radius: 20px !important;
-    height: 36px !important;
-    transition: all 0.2s ease;
-    padding-left: 50px !important;
-}
-
-.search-bar .awesomplete>ul {
-    border-radius: 8px;
-    margin-top: 4px;
-    padding: 4px;
-}
-
-.search-bar .awesomplete>ul>li {
-    border-radius: 4px;
-    padding: 8px 12px;
-    margin: 0;
-}
-
-.navbar-nav .nav-item .btn-reset {
-    height: 36px;
-    border-radius: 50%;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.2s ease;
-}
-
-.dropdown-menu {
-    border-radius: 8px;
-}
-
-.navbar .vertical-bar {
-    width: 1px;
-    height: 24px;
-}
-
-ul#awesomplete_list_1 {
-    z-index: 9999999999999;
-    border: 0.2px solid var(--primary)
-}
-
-/* Page blur effect when search is active */
+/* Page blur effect removed — the CSS sibling selector ~ only works when awesomplete ul
+   and #page-wrapper are direct siblings in DOM, which they are not in Frappe's structure.
+   This rule was non-functional and removed to prevent any rendering side effects. */
 #page-wrapper {
     filter: none;
     transition: filter 0.2s ease;
 }
 
-.awesomplete ul:not([hidden])~#page-wrapper,
-#awesomplete_list_1:not([hidden])~#page-wrapper {
-    filter: blur(5px);
-}
 
 .page-container {
     background-color: color-mix(in srgb, var(--primary) 5%, var(--bg-color) 95%)
@@ -543,8 +433,8 @@ button.btn.btn-secondary.action-btn {
 
 /* improve UI Ngokhai */
 /* Custom input styling */
-.form-control,
-.awesomplete > input,
+.form-control:not(#navbar-search),
+.awesomplete > input:not(#navbar-search),
 .like-disabled-input {
     height: 44px !important;
     width: 100% !important;

@@ -244,6 +244,33 @@ $(document).ready(() => {
 	addFullscreenToggleButton();
 	addThemeToggleButton();
 	addLanguageSwitchButton();
+
+	// Add scroll shadow effect to navbar and page-head
+	const handleScroll = (e) => {
+		const scrollTop = window.scrollY || document.documentElement.scrollTop || (e.target && e.target.scrollTop) || 0;
+		const isScrolled = scrollTop > 5;
+		
+		const navbar = document.querySelector(".navbar");
+		const pageHead = document.querySelector(".page-head");
+		
+		if (navbar) {
+			if (isScrolled) {
+				navbar.classList.add("navbar-scrolled");
+			} else {
+				navbar.classList.remove("navbar-scrolled");
+			}
+		}
+		
+		if (pageHead) {
+			if (isScrolled) {
+				pageHead.classList.add("page-head-scrolled");
+			} else {
+				pageHead.classList.remove("page-head-scrolled");
+			}
+		}
+	};
+
+	window.addEventListener("scroll", handleScroll, true);
 });
 
 (function () {

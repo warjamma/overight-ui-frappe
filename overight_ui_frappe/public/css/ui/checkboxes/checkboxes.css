@@ -44,4 +44,25 @@ input[type="checkbox"]:disabled {
     background-color: var(--input-disabled-bg, #FAFAFA) !important;
 }
 
+/* Fix checkbox and radio labels stacking vertically due to global block display */
+.checkbox label,
+.frappe-control[data-fieldtype="Check"] label,
+.frappe-control[data-fieldtype="Check"] .checkbox label,
+.frappe-control[data-fieldtype="Check"] .control-label {
+    display: inline-flex !important;
+    align-items: center !important;
+    flex-direction: row !important;
+    gap: 8px !important;
+    margin-bottom: 0 !important;
+    text-transform: none !important; /* Keep normal casing for check labels */
+    font-size: 0.85rem !important;
+    cursor: pointer !important;
+}
+
+.checkbox .label-area,
+.frappe-control[data-fieldtype="Check"] .label-area {
+    display: inline-block !important;
+    margin-bottom: 0 !important;
+}
+
 

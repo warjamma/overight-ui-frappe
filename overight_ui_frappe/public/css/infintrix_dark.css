@@ -314,9 +314,7 @@
         background-color: var(--fluent-divider);
     }
 
-    .list-row-head {
-        background-color: color-mix(in srgb, var(--primary) 50%, var(--fg-color) 100%);
-    }
+
 
     /* mark {
       color: var(--fluent-on-primary) !important;
