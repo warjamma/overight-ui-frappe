@@ -1,0 +1,114 @@
+/* ============================================================
+   OV Menubar Component Styles
+   Chuyển đổi từ menubar.tsx (Radix UI Menubar)
+   ============================================================ */
+
+.ov-menubar {
+  display: flex;
+  height: 40px;
+  align-items: center;
+  gap: 4px;
+  border-radius: 8px;
+  border: 1px solid var(--ov-border, #e5e7eb);
+  background-color: var(--ov-background, #ffffff);
+  padding: 4px;
+  box-sizing: border-box;
+}
+
+.ov-menubar-menu {
+  position: relative;
+}
+
+.ov-menubar-trigger {
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  outline: none;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  color: var(--ov-foreground, #111827);
+  transition: background-color 0.15s ease;
+  gap: 8px;
+  white-space: nowrap;
+  font-family: inherit;
+}
+
+.ov-menubar-trigger:hover,
+.ov-menubar-trigger[data-state="open"],
+.ov-menubar-trigger.open {
+  background-color: var(--ov-accent, #f85c1e);
+  color: var(--ov-accent-foreground, #ffffff);
+}
+
+.ov-menubar-content {
+  z-index: 50;
+  min-width: 192px;
+  overflow: hidden;
+  border-radius: 8px;
+  border: 1px solid var(--ov-border, #e5e7eb);
+  background-color: var(--ov-popover, #ffffff);
+  color: var(--ov-popover-foreground, #111827);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  padding: 4px;
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  box-sizing: border-box;
+  display: none;
+}
+
+.ov-menubar-content[data-state="open"],
+.ov-menubar-content.open {
+  display: block;
+}
+
+.ov-menubar-item {
+  position: relative;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  gap: 8px;
+  border-radius: 4px;
+  padding: 6px 8px;
+  font-size: 0.875rem;
+  font-weight: 400;
+  outline: none;
+  transition: background-color 0.1s ease;
+  user-select: none;
+}
+
+.ov-menubar-item:hover,
+.ov-menubar-item:focus {
+  background-color: var(--ov-accent, #f85c1e);
+  color: var(--ov-accent-foreground, #ffffff);
+}
+
+.ov-menubar-item:disabled,
+.ov-menubar-item[data-disabled] {
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+.ov-menubar-separator {
+  height: 1px;
+  margin: 4px -4px;
+  background-color: var(--ov-border, #e5e7eb);
+}
+
+.ov-menubar-label {
+  padding: 6px 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--ov-muted-foreground, #6b7280);
+}
+
+.ov-menubar-shortcut {
+  margin-left: auto;
+  font-size: 0.75rem;
+  opacity: 0.6;
+  font-family: monospace;
+}

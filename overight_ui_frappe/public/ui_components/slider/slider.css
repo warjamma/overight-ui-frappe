@@ -1,0 +1,62 @@
+/* ============================================================
+   OV Slider Component Styles
+   Chuyển đổi từ slider.tsx (Radix UI Slider)
+   ============================================================ */
+
+.ov-slider {
+  position: relative;
+  display: flex;
+  width: 100%;
+  touch-action: none;
+  align-items: center;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+.ov-slider-track {
+  position: relative;
+  height: 5px;
+  width: 100%;
+  flex-grow: 1;
+  overflow: hidden;
+  border-radius: 9999px;
+  background-color: var(--ov-border, #e5e7eb);
+  cursor: pointer;
+}
+
+.ov-slider-range {
+  position: absolute;
+  height: 100%;
+  background-color: var(--ov-accent, #f85c1e);
+  border-radius: 9999px;
+}
+
+.ov-slider-thumb {
+  position: absolute;
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-radius: 9999px;
+  border: 1px solid var(--ov-accent, #f85c1e);
+  background-color: var(--ov-accent, #f85c1e);
+  outline: none;
+  transition: box-shadow 0.15s ease;
+  cursor: grab;
+  transform: translateX(-50%);
+  top: 50%;
+  margin-top: -8px;
+}
+
+.ov-slider-thumb:focus-visible {
+  box-shadow: 0 0 0 4px rgba(248, 92, 30, 0.2);
+}
+
+.ov-slider-thumb:disabled,
+.ov-slider-thumb[data-disabled] {
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+.ov-slider-thumb:active {
+  cursor: grabbing;
+}

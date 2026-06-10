@@ -1,0 +1,51 @@
+/* ============================================================
+   OV Card Component Styles
+   Chuyển đổi từ card.tsx
+   ============================================================ */
+
+ov-card,
+.ov-card {
+  display: block;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  background-color: var(--ov-card, #ffffff);
+  color: var(--ov-card-foreground, #111827);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+}
+
+/* CardHeader */
+.ov-card-header {
+  display: grid;
+  gap: 8px;
+  padding: 24px;
+}
+
+/* CardTitle */
+.ov-card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+/* CardDescription */
+.ov-card-description {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--ov-muted-foreground, #6b7280);
+}
+
+/* CardContent */
+.ov-card-content {
+  padding: 24px;
+  padding-top: 0;
+}
+
+/* CardFooter */
+.ov-card-footer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 24px;
+  padding-top: 0;
+}

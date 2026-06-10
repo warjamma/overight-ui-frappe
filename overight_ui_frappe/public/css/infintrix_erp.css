@@ -1,9 +1,41 @@
-/* Clean Theme */
-/*
- * Theme: Fluent UI for Frappe
- * Description: A modern, clean theme inspired by Microsoft's Fluent Design.
- * This file is structured to support both light and dark modes.
-*/
+/* --- Gilroy Font Declarations --- */
+@font-face {
+    font-family: 'Gilroy';
+    src: url('/assets/overight_ui_frappe/Assets&Font/fonts/gilroy/Gilroy-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Gilroy';
+    src: url('/assets/overight_ui_frappe/Assets&Font/fonts/gilroy/Gilroy-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Gilroy';
+    src: url('/assets/overight_ui_frappe/Assets&Font/fonts/gilroy/Gilroy-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Gilroy';
+    src: url('/assets/overight_ui_frappe/Assets&Font/fonts/gilroy/Gilroy-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+html body {
+    --brand-color: var(--ov-accent) !important;
+    --primary-color: var(--ov-accent) !important;
+    --primary: var(--ov-accent) !important;
+    --btn-primary: var(--ov-accent) !important;
+    --font-stack: var(--ov-font-sans) !important;
+    font-family: var(--ov-font-sans) !important;
+}
+
+body, html, input, button, select, textarea, .form-control, .btn, .widget-title, .title-text {
+    font-family: 'Gilroy', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+}
 
 /* --- 1. THEME-AGNOSTIC STYLES (APPLY TO ALL THEMES) --- */
 
@@ -13,7 +45,8 @@ body {
     background-color: color-mix(in srgb, var(--primary)5%, var(--bg-color) 95%) !important;
 }
 
-* {
+/* Áp dụng text color chung nhưng KHÔNG override SVG/icon (để icon tự kế thừa từ parent) */
+*:not(svg):not(use):not(path):not(circle):not(rect):not(line):not(polyline):not(polygon) {
     color: var(--text-color);
 }
 
@@ -26,6 +59,19 @@ a[href*="support"] {
 }
 
 .hide-side-section {
+    display: none !important;
+}
+
+/* Safeguard hidden elements globally and on buttons */
+.hide,
+.hidden,
+[hidden],
+.d-none,
+.btn.hide,
+.btn.hidden,
+.btn-default.hide,
+.btn-secondary.hide,
+.btn-primary.hide {
     display: none !important;
 }
 
@@ -81,13 +127,21 @@ body.full-width .container {
     padding: 8px 0 16px 0 !important;
 }
 
+.form-tabs-list,
+.form-tabs,
 .form-tabs .nav-link {
-    border-bottom: 2px solid transparent !important;
+    background-color: transparent !important;
+    border-bottom: 0 !important;
+}
+
+.form-tabs .nav-link {
+    border: 0 !important;
+    border-bottom: 0 !important;
     font-weight: 600;
 }
 
 /* --- Sidebar --- */
-.desk-sidebar .standard-sidebar-item {
+body .layout-side-section .standard-sidebar-item {
     border-radius: 4px;
     margin: 2px 0;
     padding: 0;
@@ -95,13 +149,38 @@ body.full-width .container {
     transition: background-color 0.2s ease;
 }
 
-.desk-sidebar .standard-sidebar-item .item-anchor {
+body .layout-side-section .sidebar-item-container:hover .standard-sidebar-item,
+body .layout-side-section .standard-sidebar-item:hover {
+    background-color: var(--highlight-color) !important;
+}
+
+body .layout-side-section .standard-sidebar-item:hover span,
+body .layout-side-section .sidebar-item-container:hover .standard-sidebar-item span,
+body .layout-side-section .standard-sidebar-item:hover a,
+body .layout-side-section .sidebar-item-container:hover .standard-sidebar-item a {
+    background-color: transparent !important;
+}
+
+body .layout-side-section .standard-sidebar-item.selected,
+body .layout-side-section .standard-sidebar-item.active-sidebar {
+    background-color: var(--highlight-color) !important;
+}
+
+body .layout-side-section .standard-sidebar-item.selected span,
+body .layout-side-section .standard-sidebar-item.active-sidebar span,
+body .layout-side-section .standard-sidebar-item.selected a,
+body .layout-side-section .standard-sidebar-item.active-sidebar a {
+    background-color: transparent !important;
+}
+
+.layout-side-section .standard-sidebar-item .item-anchor {
     padding: 8px 12px;
     display: flex;
     align-items: center;
 }
 
-.desk-sidebar .standard-sidebar-item.selected::before {
+.layout-side-section .standard-sidebar-item.selected::before,
+.layout-side-section .standard-sidebar-item.active-sidebar::before {
     content: '';
     position: absolute;
     left: 0;
@@ -111,11 +190,13 @@ body.full-width .container {
     border-radius: 0 4px 4px 0;
 }
 
-.desk-sidebar .standard-sidebar-item.selected .item-anchor {
+.layout-side-section .standard-sidebar-item.selected .item-anchor,
+.layout-side-section .standard-sidebar-item.active-sidebar .item-anchor {
     padding-left: 16px;
 }
 
-.desk-sidebar .standard-sidebar-item.selected .item-anchor .sidebar-item-label {
+.layout-side-section .standard-sidebar-item.selected .item-anchor .sidebar-item-label,
+.layout-side-section .standard-sidebar-item.active-sidebar .item-anchor .sidebar-item-label {
     font-weight: 600;
 }
 
@@ -334,9 +415,20 @@ svg.feather {
     top: 2rem !important;
 } */
 span.link-add-btn.quick-create-btn {
-    background: var(--brand-color-400);
-    padding: 1px 5px !important;
-    color: var(--text-color);
+    background: var(--brand-color, #f85c1e) !important;
+    color: #ffffff !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 16px !important;
+    height: 16px !important;
+    border-radius: 50% !important;
+    font-size: 12px !important;
+    line-height: 1 !important;
+    margin-left: 6px !important;
+    padding: 0 !important;
+    vertical-align: middle !important;
+    font-weight: bold !important;
 }
 
 .page-head.flex {
@@ -433,8 +525,8 @@ button.btn.btn-secondary.action-btn {
 
 /* improve UI Ngokhai */
 /* Custom input styling */
-.form-control:not(#navbar-search),
-.awesomplete > input:not(#navbar-search),
+.form-control,
+.awesomplete > input,
 .like-disabled-input {
     height: 44px !important;
     width: 100% !important;
@@ -516,21 +608,26 @@ input[type="checkbox"]:disabled {
 
 /* Custom Unified Active Tab */
 .form-tabs .nav-link.active {
-    color: #3ba2d3 !important;
-    border-color: #3ba2d3 !important;
+    color: var(--brand-color, #f85c1e) !important;
+    border-color: transparent !important;
+    border-bottom: 0 !important;
 }
 
 /* Custom Unified Sidebar Selected Item */
-.desk-sidebar .standard-sidebar-item.selected::before {
+.layout-side-section .standard-sidebar-item.selected::before,
+.layout-side-section .standard-sidebar-item.active-sidebar::before {
     background-color: #3ba2d3 !important;
 }
 
-.desk-sidebar .standard-sidebar-item.selected .item-anchor .sidebar-item-label,
-.desk-sidebar .standard-sidebar-item.selected .sidebar-item-icon .icon {
+.layout-side-section .standard-sidebar-item.selected .item-anchor .sidebar-item-label,
+.layout-side-section .standard-sidebar-item.active-sidebar .item-anchor .sidebar-item-label,
+.layout-side-section .standard-sidebar-item.selected .sidebar-item-icon .icon,
+.layout-side-section .standard-sidebar-item.active-sidebar .sidebar-item-icon .icon {
     color: #3ba2d3 !important;
 }
 
-.desk-sidebar .standard-sidebar-item.selected .sidebar-item-icon .icon {
+.layout-side-section .standard-sidebar-item.selected .sidebar-item-icon .icon,
+.layout-side-section .standard-sidebar-item.active-sidebar .sidebar-item-icon .icon {
     --icon-stroke: #3ba2d3 !important;
 }
 
@@ -549,4 +646,718 @@ input[type="checkbox"]:disabled {
     --icon-stroke: #3ba2d3 !important;
 }
 
+/* Tweak modular component heights to fit Frappe layout perfectly */
+.form-control.ov-input, 
+.awesomplete > input.ov-input, 
+.like-disabled-input.ov-input {
+    height: 38px !important;
+    font-size: 14px !important;
+    border-radius: 8px !important;
+    padding: 0 12px !important;
+}
+
+/* Adjust button sizes for Frappe desk buttons */
+.btn.ov-button {
+    height: 36px !important;
+    font-size: 13px !important;
+    border-radius: 8px !important;
+    padding: 0 16px !important;
+    line-height: 1.5 !important;
+}
+
+.btn.ov-button--sm {
+    height: 30px !important;
+    font-size: 12px !important;
+    padding: 0 12px !important;
+}
+
+.btn.ov-button--icon, 
+.btn.ov-button--icon-sm {
+    width: 30px !important;
+    height: 30px !important;
+    padding: 0 !important;
+}
+
+/* Core element overrides to map legacy styles to modular ui tokens */
+.btn {
+    border-radius: var(--ov-radius-md, 8px) !important;
+    font-weight: 600 !important;
+    font-family: var(--ov-font-sans) !important;
+    transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease !important;
+    box-shadow: none !important;
+}
+
+.btn-primary, .primary-action {
+    background-color: var(--ov-accent) !important;
+    border-color: var(--ov-accent) !important;
+    color: var(--ov-accent-foreground, #ffffff) !important;
+}
+
+.btn-primary:hover, .primary-action:hover, .btn-primary:focus, .primary-action:focus {
+    background-color: var(--brand-color-hover, #d94e18) !important;
+    border-color: var(--brand-color-hover, #d94e18) !important;
+    color: var(--ov-accent-foreground, #ffffff) !important;
+}
+
+.btn-secondary, .btn-default {
+    background-color: var(--ov-background, #ffffff) !important;
+    border-color: var(--ov-border, #d7e1ea) !important;
+    color: var(--ov-foreground, #2a2c30) !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.btn-secondary:hover, .btn-default:hover, .btn-secondary:focus, .btn-default:focus {
+    background-color: var(--ov-muted, #f0f4f8) !important;
+    border-color: var(--ov-accent) !important;
+    color: var(--ov-accent) !important;
+}
+
+/* Force checkboxes and inputs styling */
+.form-control, .awesomplete > input, .like-disabled-input {
+    border: 1.5px solid var(--ov-border) !important;
+    background-color: var(--ov-background) !important;
+    color: var(--ov-foreground) !important;
+    border-radius: var(--ov-radius-md, 8px) !important;
+    height: 38px !important;
+    font-size: 14px !important;
+}
+
+.form-control:focus, .awesomplete > input:focus {
+    border-color: var(--ov-accent) !important;
+    box-shadow: 0 0 0 3px var(--ov-ring) !important;
+}
+
+input[type="checkbox"].ov-checkbox {
+    width: 18px !important;
+    height: 18px !important;
+    border-radius: 4px !important;
+    border: 1.5px solid var(--ov-border) !important;
+    background-color: var(--ov-background) !important;
+}
+
+/* --- List view and form overrides --- */
+.page-form.flex,
+.page-form.row,
+.page-form {
+    background-color: var(--ov-background, #ffffff) !important;
+    border-bottom: 1px solid var(--ov-border, #d7e1ea) !important;
+}
+
+body .layout-main-section .list-row:hover:not(.list-row-head),
+body .layout-main-section .list-row-container:hover .list-row:not(.list-row-head) {
+    background-color: var(--highlight-color) !important;
+}
+
+/* Bảo vệ indicator-pill: override lại background với specificity cao hơn rule hover */
+body .layout-main-section .list-row:hover .indicator-pill,
+body .layout-main-section .list-row:hover .indicator-pill-right,
+body .layout-main-section .list-row:hover .indicator-pill-round,
+body .layout-main-section .list-row-container:hover .list-row .indicator-pill,
+body .layout-main-section .list-row-container:hover .list-row .indicator-pill-right,
+body .layout-main-section .list-row-container:hover .list-row .indicator-pill-round {
+    background-color: revert !important;
+    background: revert !important;
+}
+
+/* Bảo vệ từng màu indicator-pill cụ thể */
+body .layout-main-section .list-row:hover .indicator-pill.green,
+body .layout-main-section .list-row-container:hover .list-row .indicator-pill.green { background: var(--bg-green) !important; }
+body .layout-main-section .list-row:hover .indicator-pill.blue,
+body .layout-main-section .list-row-container:hover .list-row .indicator-pill.blue { background: var(--bg-blue) !important; }
+body .layout-main-section .list-row:hover .indicator-pill.orange,
+body .layout-main-section .list-row-container:hover .list-row .indicator-pill.orange { background: var(--bg-orange) !important; }
+body .layout-main-section .list-row:hover .indicator-pill.red,
+body .layout-main-section .list-row-container:hover .list-row .indicator-pill.red { background: var(--bg-red) !important; }
+body .layout-main-section .list-row:hover .indicator-pill.yellow,
+body .layout-main-section .list-row-container:hover .list-row .indicator-pill.yellow { background: var(--bg-yellow) !important; }
+body .layout-main-section .list-row:hover .indicator-pill.gray,
+body .layout-main-section .list-row:hover .indicator-pill.grey,
+body .layout-main-section .list-row-container:hover .list-row .indicator-pill.gray,
+body .layout-main-section .list-row-container:hover .list-row .indicator-pill.grey { background: var(--bg-gray) !important; }
+body .layout-main-section .list-row:hover .indicator-pill.purple,
+body .layout-main-section .list-row-container:hover .list-row .indicator-pill.purple { background: var(--bg-purple) !important; }
+body .layout-main-section .list-row:hover .indicator-pill.cyan,
+body .layout-main-section .list-row-container:hover .list-row .indicator-pill.cyan { background: var(--bg-cyan) !important; }
+body .layout-main-section .list-row:hover .indicator-pill.pink,
+body .layout-main-section .list-row-container:hover .list-row .indicator-pill.pink { background: var(--bg-pink) !important; }
+body .layout-main-section .list-row:hover .indicator-pill.darkgrey,
+body .layout-main-section .list-row:hover .indicator-pill.dark-gray,
+body .layout-main-section .list-row-container:hover .list-row .indicator-pill.darkgrey,
+body .layout-main-section .list-row-container:hover .list-row .indicator-pill.dark-gray { background: var(--bg-darkgrey) !important; }
+
+/* Bảo vệ form-control (KHÔNG bao gồm checkbox để không mất màu khi checked) */
+body .layout-main-section .list-row:hover .form-control:not([type="checkbox"]),
+body .layout-main-section .list-row:hover .like-disabled-input,
+body .layout-main-section .list-row-container:hover .list-row .form-control:not([type="checkbox"]),
+body .layout-main-section .list-row-container:hover .list-row .like-disabled-input {
+    background-color: var(--control-bg) !important;
+}
+
+/* Bảo vệ checkbox: giữ màu accent khi checked, transparent khi unchecked */
+body .layout-main-section .list-row:hover input[type="checkbox"]:checked,
+body .layout-main-section .list-row-container:hover .list-row input[type="checkbox"]:checked {
+    background-color: var(--ov-accent, #f85c1e) !important;
+    border-color: var(--ov-accent, #f85c1e) !important;
+}
+body .layout-main-section .list-row:hover input[type="checkbox"]:not(:checked),
+body .layout-main-section .list-row-container:hover .list-row input[type="checkbox"]:not(:checked) {
+    background-color: var(--ov-background, #ffffff) !important;
+}
+
+body .level.list-row-head,
+body .level.list-row-head *,
+body .level.list-row-head .list-subject,
+body .level.list-row-head .list-row-col,
+body .level.list-row-head .list-row-col a {
+    font-weight: 600 !important;
+}
+
+
+/* ============================================================
+   BTN-GROUP: Loại bỏ border-radius ở cạnh kề nhau
+   Dùng individual corner properties để không bị override bởi .btn shorthand
+   ============================================================ */
+
+/* Xóa cạnh phải của button không phải cuối */
+body .btn-group > .btn:not(:last-child):not(.dropdown-toggle),
+body .btn-group > .btn:not(:last-child),
+body .custom-btn-group > .btn:not(:last-child),
+body .filter-selector .btn-group > .btn:not(:last-child) {
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+
+/* Xóa cạnh trái của button không phải đầu tiên */
+body .btn-group > .btn:not(:first-child),
+body .custom-btn-group > .btn:not(:first-child),
+body .filter-selector .btn-group > .btn:not(:first-child) {
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    margin-left: -1px;
+}
+
+/* Dropdown toggle trong btn-group */
+body .btn-group > .dropdown-toggle-split {
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    padding-left: 6px !important;
+    padding-right: 6px !important;
+}
+
+/* mode-btn (List/Kanban/...) */
+body .page-head .mode-btn,
+body .page-actions .mode-btn {
+    border-radius: 0 !important;
+}
+body .page-head .mode-btn:first-child,
+body .page-actions .mode-btn:first-child {
+    border-top-left-radius: var(--ov-radius-md, 8px) !important;
+    border-bottom-left-radius: var(--ov-radius-md, 8px) !important;
+}
+body .page-head .mode-btn:last-child,
+body .page-actions .mode-btn:last-child {
+    border-top-right-radius: var(--ov-radius-md, 8px) !important;
+    border-bottom-right-radius: var(--ov-radius-md, 8px) !important;
+}
+
+
+/* ============================================================
+   PAGE-HEAD & LIST BUTTONS: Thu nhỏ về size label
+   ============================================================ */
+
+/* Các button ngoài list view và page-head - nhỏ và compact */
+.page-actions .btn,
+.page-head .btn,
+.list-header-subject .btn,
+.list-filters .btn,
+.frappe-list .list-filters .btn,
+.frappe-list .page-actions .btn,
+.list-toolbar-wrapper .btn,
+.filter-area .btn,
+.sort-area .btn {
+    height: 28px !important;
+    font-size: 12px !important;
+    padding: 0 10px !important;
+    line-height: 28px !important;
+    font-weight: 500 !important;
+}
+
+/* Icon button trong page-head - nhỏ nhưng vẫn hiện icon */
+body .page-actions .btn.icon-btn,
+body .page-head .btn.icon-btn,
+body .page-icon-group .btn {
+    width: 28px !important;
+    height: 28px !important;
+    padding: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* Đảm bảo icon SVG bên trong icon-btn hiển thị đúng màu */
+.page-actions .btn.icon-btn .icon,
+.page-actions .btn.icon-btn svg,
+.page-actions .btn.icon-btn use,
+.page-head .btn.icon-btn .icon,
+.page-head .btn.icon-btn svg,
+.page-head .btn.icon-btn use,
+.page-icon-group .btn .icon,
+.page-icon-group .btn svg,
+.page-icon-group .btn use {
+    color: inherit !important;
+    --icon-stroke: currentColor !important;
+}
+
+/* Fix dropdown-menu icons: tránh bị override thành màu text tối, mặc định màu trắng */
+.dropdown-menu .dropdown-item .icon,
+.dropdown-menu .dropdown-item svg,
+.dropdown-menu .dropdown-item i,
+.dropdown-menu li a .icon,
+.dropdown-menu li a svg,
+.dropdown-menu li a i {
+    color: #ffffff !important;
+    --icon-stroke: #ffffff !important;
+}
+
+/* Khi dropdown item active/hover: icon trắng */
+.dropdown-menu .dropdown-item:hover .icon,
+.dropdown-menu .dropdown-item:hover svg,
+.dropdown-menu .dropdown-item:hover i,
+.dropdown-menu li a:hover .icon,
+.dropdown-menu li a:hover svg,
+.dropdown-menu li a:hover i,
+.dropdown-menu li a:focus .icon,
+.dropdown-menu li a:focus i {
+    color: #ffffff !important;
+    --icon-stroke: #ffffff !important;
+}
+
+/* menu-btn-group (hamburger / kebab) */
+.menu-btn-group .btn,
+.page-head .menu-btn-group .btn {
+    height: 28px !important;
+    font-size: 12px !important;
+    padding: 0 8px !important;
+}
+
+/* Đảm bảo text bên trong button không bị overflow */
+.page-actions .btn .hidden-xs,
+.page-actions .btn .btn-label {
+    font-size: 12px !important;
+    font-weight: 500 !important;
+}
+
+/* ============================================================
+   FIX: prev-doc / next-doc icon buttons bị mất icon
+   Vấn đề: wildcard rule "*:not(svg)..." override color kế thừa,
+   khiến --icon-stroke không có giá trị trên các icon-btn.
+   Fix: đặt --icon-stroke trực tiếp trên button và svg.feather bên trong.
+   ============================================================ */
+
+/* Set --icon-stroke trực tiếp trên icon-btn để svg.feather kế thừa được */
+.page-actions .btn.icon-btn,
+.page-head .btn.icon-btn,
+.page-icon-group .btn {
+    --icon-stroke: var(--text-muted, #8d99a6) !important;
+}
+
+/* Đảm bảo svg.feather bên trong icon-btn dùng --icon-stroke của button cha */
+.page-actions .btn.icon-btn svg.feather,
+.page-head .btn.icon-btn svg.feather,
+.page-icon-group .btn svg.feather {
+    stroke: var(--icon-stroke, var(--text-muted, #8d99a6)) !important;
+}
+
+/* Đảm bảo es-icon (SVG sprite dùng <use>) cũng hiển thị đúng */
+.page-actions .btn.icon-btn .icon svg,
+.page-head .btn.icon-btn .icon svg,
+.page-icon-group .btn .icon svg {
+    stroke: var(--icon-stroke, var(--text-muted, #8d99a6)) !important;
+}
+
+/* Khi hover, đổi màu icon sang accent */
+.page-actions .btn.icon-btn:hover,
+.page-head .btn.icon-btn:hover,
+.page-icon-group .btn:hover {
+    --icon-stroke: var(--ov-accent, #f85c1e) !important;
+}
+
+/* ============================================================
+   HOVER EFFECTS AND MICROMOTIONS FOR LISTS & SIDEBAR
+   ============================================================ */
+
+/* General hover and active states for awesomplete (search suggestion list) */
+.awesomplete > ul > li:hover,
+.awesomplete > ul > li[aria-selected="true"],
+.awesomplete ul > li:hover,
+.awesomplete ul > li[aria-selected="true"] {
+    background-color: var(--highlight-color, rgba(59, 162, 211, 0.15)) !important;
+    padding-left: 16px !important;
+    transition: all 0.15s ease !important;
+}
+
+/* Hover transition/motion for standard sidebar items */
+body .layout-side-section .sidebar-item-container:hover .standard-sidebar-item,
+body .layout-side-section .standard-sidebar-item:hover,
+.layout-side-section .standard-sidebar-item:hover,
+.desk-sidebar .standard-sidebar-item:hover,
+.standard-sidebar-item:hover {
+    background-color: var(--highlight-color, rgba(59, 162, 211, 0.15)) !important;
+    transform: translateX(4px) !important;
+    transition: background-color 0.2s ease, transform 0.2s ease !important;
+}
+
+/* Hover lift effect for List Rows */
+body .layout-main-section .list-row:hover:not(.list-row-head),
+body .layout-main-section .list-row-container:hover .list-row:not(.list-row-head),
+.list-row:hover:not(.list-row-head) {
+    background-color: var(--highlight-color, rgba(59, 162, 211, 0.12)) !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+    transition: all 0.2s ease !important;
+}
+
+/* ============================================================
+   PREMIUM FILTER SIDEBAR COMPONENT IMPROVEMENTS
+   ============================================================ */
+
+/* Style each filter/sidebar section as a premium card */
+.layout-side-section .sidebar-section,
+.desk-sidebar .sidebar-section {
+    background-color: var(--control-bg, #ffffff) !important;
+    border: 1px solid var(--border-color, #e1dfdd) !important;
+    border-radius: 12px !important;
+    padding: 16px !important;
+    margin-bottom: 16px !important;
+    box-shadow: var(--fluent-shadow-sm, 0 1px 3px rgba(0, 0, 0, 0.05)) !important;
+    transition: all 0.25s ease !important;
+}
+
+.layout-side-section .sidebar-section:hover,
+.desk-sidebar .sidebar-section:hover {
+    box-shadow: var(--fluent-shadow-md, 0 4px 12px rgba(0, 0, 0, 0.08)) !important;
+    border-color: var(--fluent-primary, var(--brand-color, #3ba2d3)) !important;
+}
+
+/* Typography for the sidebar section labels */
+.layout-side-section .sidebar-label,
+.desk-sidebar .sidebar-label {
+    font-size: 11px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.08em !important;
+    font-weight: 700 !important;
+    color: var(--text-muted, #605e5c) !important;
+    margin-bottom: 12px !important;
+    padding: 0 !important;
+    border-bottom: none !important;
+    display: block !important;
+}
+
+/* List buttons (Assigned To, Created By, Tags) */
+.layout-side-section .list-sidebar-button,
+.desk-sidebar .list-sidebar-button {
+    background-color: var(--control-bg, #ffffff) !important;
+    border: 1.5px solid var(--border-color, #e1dfdd) !important;
+    border-radius: 8px !important;
+    padding: 8px 12px !important;
+    height: auto !important;
+    line-height: normal !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+    color: var(--text-color, #323130) !important;
+    box-shadow: none !important;
+    margin-bottom: 10px !important;
+    transition: all 0.15s ease !important;
+}
+
+.layout-side-section .list-sidebar-button:hover,
+.desk-sidebar .list-sidebar-button:hover {
+    border-color: var(--fluent-primary, var(--brand-color, #3ba2d3)) !important;
+    background-color: var(--highlight-color, rgba(59, 162, 211, 0.08)) !important;
+    color: var(--fluent-primary, var(--brand-color, #3ba2d3)) !important;
+}
+
+/* Ensure the dropdown chevron has a good color */
+.layout-side-section .list-sidebar-button .icon,
+.desk-sidebar .list-sidebar-button .icon {
+    color: var(--text-muted, #605e5c) !important;
+    margin-left: 8px !important;
+}
+
+.layout-side-section .list-sidebar-button:hover .icon,
+.desk-sidebar .list-sidebar-button:hover .icon {
+    color: var(--fluent-primary, var(--brand-color, #3ba2d3)) !important;
+}
+
+/* Edit Filters & Show Tags & Save Filter action links */
+.layout-side-section .sidebar-action,
+.desk-sidebar .sidebar-action {
+    margin-top: 8px !important;
+    margin-bottom: 4px !important;
+    list-style: none !important;
+}
+
+.layout-side-section .sidebar-action a,
+.desk-sidebar .sidebar-action a,
+.layout-side-section .list-tag-preview,
+.desk-sidebar .list-tag-preview {
+    color: var(--fluent-primary, var(--brand-color, #3ba2d3)) !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    cursor: pointer !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    transition: opacity 0.15s ease, transform 0.15s ease !important;
+}
+
+.layout-side-section .sidebar-action a:hover,
+.desk-sidebar .sidebar-action a:hover,
+.layout-side-section .list-tag-preview:hover,
+.desk-sidebar .list-tag-preview:hover {
+    opacity: 0.8 !important;
+    text-decoration: underline !important;
+    transform: translateX(2px) !important;
+}
+
+/* Save Filter Name Input */
+.layout-side-section .list-filters input.form-control,
+.desk-sidebar .list-filters input.form-control,
+.layout-side-section .list-filters .input-area .form-control,
+.desk-sidebar .list-filters .input-area .form-control {
+    background-color: var(--control-bg, #ffffff) !important;
+    border: 1.5px solid var(--border-color, #e1dfdd) !important;
+    border-radius: 8px !important;
+    padding: 8px 12px !important;
+    font-size: 13px !important;
+    height: 36px !important;
+    color: var(--text-color, #323130) !important;
+    transition: all 0.15s ease !important;
+}
+
+.layout-side-section .list-filters input.form-control:focus,
+.desk-sidebar .list-filters input.form-control:focus,
+.layout-side-section .list-filters .input-area .form-control:focus,
+.desk-sidebar .list-filters .input-area .form-control:focus {
+    border-color: var(--fluent-primary, var(--brand-color, #3ba2d3)) !important;
+    box-shadow: 0 0 0 3px var(--highlight-color, rgba(59, 162, 211, 0.15)) !important;
+    outline: none !important;
+}
+
+/* Style filter-pill (saved filter list items) */
+.layout-side-section .filter-pill,
+.desk-sidebar .filter-pill {
+    padding-right: 8px !important;
+}
+
+.layout-side-section .filter-pill .remove,
+.desk-sidebar .filter-pill .remove {
+    padding: 2px !important;
+    border-radius: 4px !important;
+    color: var(--text-muted, #605e5c) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.layout-side-section .filter-pill .remove:hover,
+.desk-sidebar .filter-pill .remove:hover {
+    background-color: var(--bg-red, rgba(239, 68, 68, 0.1)) !important;
+    color: var(--text-red, #ef4444) !important;
+}
+
+/* Dropdown menus inside lists */
+.group-by-dropdown,
+.list-stats-dropdown,
+.views-dropdown {
+    border-radius: 10px !important;
+    border: 1px solid var(--border-color, #e1dfdd) !important;
+    box-shadow: var(--fluent-shadow-lg, 0 8px 16px rgba(0, 0, 0, 0.14)) !important;
+    padding: 6px !important;
+}
+
+/* ============================================================
+   RESPONSIVE NAVBAR IMPROVEMENTS
+   ============================================================ */
+
+/* Desktop view defaults (screens larger than 991px) */
+.navbar .search-bar {
+    max-width: 450px !important;
+    flex-grow: 1 !important;
+}
+
+/* Responsive view (tablet and mobile screens <= 991px) */
+@media (max-width: 991px) {
+    /* 1. Hide scan (fullscreen), language, and theme toggle buttons only on small screens */
+    .nav-item.toggle-fullscreen,
+    #fullscreenToggleButton,
+    #themeToggleButton,
+    #languageSwitchButton,
+    .toggle-language,
+    .toggle-theme {
+        display: none !important;
+    }
+
+    /* 2. Keep company selector and search bar on the same row without wrapping */
+    .navbar .container {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+    }
+
+    .navbar .navbar-collapse {
+        display: flex !important;
+        flex-basis: auto !important;
+        flex-grow: 1 !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        width: auto !important;
+    }
+
+    .navbar .form-inline {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+        flex: 1 !important;
+        margin: 0 8px !important;
+        justify-content: flex-start !important;
+        gap: 16px !important; /* Set standard flex gap between switcher and search input */
+    }
+
+    /* 3. Let search bar grow to fill all available space, shrinking only when it touches */
+    .navbar .search-bar {
+        max-width: 100% !important;
+        width: auto !important;
+        margin: 0 !important;
+        flex: 1 1 auto !important;
+    }
+
+    /* 4. Hide logo navbar-brand navbar-home on small screens */
+    .navbar .navbar-brand.navbar-home {
+        display: none !important;
+    }
+
+    /* 5. Push company selector to the left corner and make it a square select box showing original value */
+    .navbar .ov-select,
+    .navbar select,
+    .navbar .company-select,
+    .navbar #company-select,
+    .navbar [id*="company-select"] {
+        width: 42px !important;
+        height: 34px !important;
+        min-width: 42px !important;
+        max-width: 42px !important;
+        margin-right: 16px !important; /* Extra spacing to separate from search input */
+        margin-left: 0 !important;
+        flex: 0 0 auto !important;
+        padding: 0 !important;
+    }
+    
+    .navbar .ov-select .ov-select-trigger,
+    .navbar select.form-control,
+    .navbar .company-select .ov-select-trigger,
+    .navbar #company-select .ov-select-trigger,
+    .navbar #company-select button,
+    .navbar #company-select .btn {
+        padding: 0 !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 42px !important;
+        height: 34px !important;
+        text-align: center !important;
+        display: flex !important;
+    }
+    
+    .navbar .ov-select .ov-select-trigger .ov-select-value,
+    .navbar .company-select .ov-select-trigger .ov-select-value,
+    .navbar #company-select .ov-select-trigger .ov-select-value,
+    .navbar #company-select .company-label {
+        display: block !important; /* Keep original text (e.g. N) visible */
+        width: 100% !important;
+        text-align: center !important;
+        margin: 0 !important;
+        font-size: 14px !important;
+        font-weight: 700 !important;
+    }
+    
+    .navbar .ov-select .ov-select-trigger-icon,
+    .navbar .company-select .ov-select-trigger-icon,
+    .navbar #company-select .ov-select-trigger-icon,
+    .navbar #company-select svg,
+    .navbar #company-select .es-icon,
+    .navbar #company-select [class*="icon"] {
+        display: none !important; /* Hide chevron to fit the square style */
+    }
+    
+    .navbar .ov-select .ov-select-trigger::before,
+    .navbar .company-select .ov-select-trigger::before,
+    .navbar #company-select .ov-select-trigger::before {
+        display: none !important; /* No building icon logo */
+    }
+    
+    /* Fallback for native select text formatting */
+    .navbar select.form-control {
+        text-indent: 0 !important;
+    }
+
+    /* 5. Transform d-flex justify-content-between default/secondary buttons into small square icon buttons */
+    .btn.btn-sm.btn-default.d-flex.align-items-center.justify-content-between:not(.ov-select-trigger):not(.company-select):not([id*="company"]):not(#company-select *):not(#company-select),
+    .btn.btn-default.d-flex.align-items-center.justify-content-between:not(.ov-select-trigger):not(.company-select):not([id*="company"]):not(#company-select *):not(#company-select),
+    .btn.btn-sm.btn-secondary.d-flex.align-items-center.justify-content-between:not(.ov-select-trigger):not(.company-select):not([id*="company"]):not(#company-select *):not(#company-select),
+    .btn.btn-secondary.d-flex.align-items-center.justify-content-between:not(.ov-select-trigger):not(.company-select):not([id*="company"]):not(#company-select *):not(#company-select) {
+        width: 32px !important;
+        height: 32px !important;
+        min-width: 32px !important;
+        padding: 0 !important;
+        justify-content: center !important;
+        align-items: center !important;
+        border-radius: 6px !important;
+        font-size: 0 !important;
+    }
+
+    .btn.btn-sm.btn-default.d-flex.align-items-center.justify-content-between:not(.ov-select-trigger):not(.company-select):not([id*="company"]):not(#company-select *) *,
+    .btn.btn-default.d-flex.align-items-center.justify-content-between:not(.ov-select-trigger):not(.company-select):not([id*="company"]):not(#company-select *) *,
+    .btn.btn-sm.btn-secondary.d-flex.align-items-center.justify-content-between:not(.ov-select-trigger):not(.company-select):not([id*="company"]):not(#company-select *) *,
+    .btn.btn-secondary.d-flex.align-items-center.justify-content-between:not(.ov-select-trigger):not(.company-select):not([id*="company"]):not(#company-select *) * {
+        margin: 0 !important;
+    }
+
+    .btn.btn-sm.btn-default.d-flex.align-items-center.justify-content-between:not(.ov-select-trigger):not(.company-select):not([id*="company"]):not(#company-select *) svg,
+    .btn.btn-default.d-flex.align-items-center.justify-content-between:not(.ov-select-trigger):not(.company-select):not([id*="company"]):not(#company-select *) svg,
+    .btn.btn-sm.btn-secondary.d-flex.align-items-center.justify-content-between:not(.ov-select-trigger):not(.company-select):not([id*="company"]):not(#company-select *) svg,
+    .btn.btn-secondary.d-flex.align-items-center.justify-content-between:not(.ov-select-trigger):not(.company-select):not([id*="company"]):not(#company-select *) svg,
+    .btn.btn-sm.btn-default.d-flex.align-items-center.justify-content-between:not(.ov-select-trigger):not(.company-select):not([id*="company"]):not(#company-select *) .icon,
+    .btn.btn-default.d-flex.align-items-center.justify-content-between:not(.ov-select-trigger):not(.company-select):not([id*="company"]):not(#company-select *) .icon,
+    .btn.btn-sm.btn-secondary.d-flex.align-items-center.justify-content-between:not(.ov-select-trigger):not(.company-select):not([id*="company"]):not(#company-select *) .icon,
+    .btn.btn-secondary.d-flex.align-items-center.justify-content-between:not(.ov-select-trigger):not(.company-select):not([id*="company"]):not(#company-select *) .icon {
+        width: 14px !important;
+        height: 14px !important;
+        display: inline-block !important;
+    }
+
+    /* Fallback icon for buttons that do not have an icon inside, to prevent them from appearing blank */
+    .btn.btn-sm.btn-default.d-flex.align-items-center.justify-content-between:not(.ov-select-trigger):not(.company-select):not([id*="company"]):not(#company-select *):not(:has(svg)):not(:has(.icon)):not(:has(i))::before,
+    .btn.btn-default.d-flex.align-items-center.justify-content-between:not(.ov-select-trigger):not(.company-select):not([id*="company"]):not(#company-select *):not(:has(svg)):not(:has(.icon)):not(:has(i))::before,
+    .btn.btn-sm.btn-secondary.d-flex.align-items-center.justify-content-between:not(.ov-select-trigger):not(.company-select):not([id*="company"]):not(#company-select *):not(:has(svg)):not(:has(.icon)):not(:has(i))::before,
+    .btn.btn-secondary.d-flex.align-items-center.justify-content-between:not(.ov-select-trigger):not(.company-select):not([id*="company"]):not(#company-select *):not(:has(svg)):not(:has(.icon)):not(:has(i))::before {
+        content: "\f142" !important; /* FontAwesome Ellipsis vertical icon */
+        font-family: "Font Awesome 6 Free" !important;
+        font-weight: 900 !important;
+        font-size: 14px !important;
+        display: inline-block !important;
+        color: currentColor !important;
+    }
+}
 

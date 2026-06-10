@@ -1,0 +1,21 @@
+/* ============================================================
+   OV Collapsible Component Styles
+   Chuyển đổi từ collapsible.tsx (Radix UI Collapsible)
+   ============================================================ */
+
+.ov-collapsible {
+  display: block;
+}
+
+.ov-collapsible-content {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.3s ease, opacity 0.2s ease;
+}
+
+.ov-collapsible-content[data-state="open"],
+.ov-collapsible-content.open {
+  max-height: 9999px;
+  opacity: 1;
+}

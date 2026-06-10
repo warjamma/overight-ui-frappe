@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OV Button Component</title>
+  <style>
+    /* Design tokens - Trong Frappe sẽ được override bởi theme */
+    :root {
+      --ov-primary: #111827;
+      --ov-primary-foreground: #ffffff;
+      --ov-background: #ffffff;
+      --ov-foreground: #111827;
+      --ov-accent: #f85c1e;
+      --ov-accent-foreground: #ffffff;
+      --ov-info: #3b82f6;
+      --ov-info-foreground: #ffffff;
+      --ov-destructive: #ef4444;
+      --ov-destructive-foreground: #ffffff;
+      --ov-muted: #f3f4f6;
+      --ov-muted-foreground: #6b7280;
+      --ov-border: #e5e7eb;
+      --ov-ring-rgb: 249 115 22;
+    }
+    body { font-family: system-ui, sans-serif; padding: 32px; background: #f9fafb; }
+    h2 { margin-bottom: 16px; }
+    .demo-row { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; align-items: center; }
+    .demo-label { font-size: 12px; color: #6b7280; margin-bottom: 8px; }
+  </style>
+  <script src="button.js"></script>
+</head>
+<body>
+
+<h2>OV Button — Demo</h2>
+
+<p class="demo-label">Variants</p>
+<div class="demo-row">
+  <ov-button variant="black">Black (default)</ov-button>
+  <ov-button variant="white">White</ov-button>
+  <ov-button variant="orange">Orange</ov-button>
+  <ov-button variant="blue">Blue</ov-button>
+  <ov-button variant="red">Red</ov-button>
+  <ov-button variant="ghost">Ghost</ov-button>
+  <ov-button variant="link">Link</ov-button>
+</div>
+
+<p class="demo-label">Sizes</p>
+<div class="demo-row">
+  <ov-button size="sm">Small</ov-button>
+  <ov-button size="default">Default</ov-button>
+  <ov-button size="lg">Large</ov-button>
+  <ov-button size="icon" variant="orange">✕</ov-button>
+  <ov-button size="icon-sm" variant="blue">+</ov-button>
+</div>
+
+<p class="demo-label">States</p>
+<div class="demo-row">
+  <ov-button disabled>Disabled</ov-button>
+  <ov-button variant="orange" disabled>Disabled Orange</ov-button>
+</div>
+
+<p class="demo-label">Full Width</p>
+<div style="max-width: 400px;">
+  <ov-button full-width variant="orange">Full Width Button</ov-button>
+</div>
+
+<script>
+  // Ví dụ cách dùng trong Frappe doctype JS:
+  // frappe.ui.form.on('MyDoctype', {
+  //   refresh(frm) {
+  //     const btn = document.createElement('ov-button');
+  //     btn.setAttribute('variant', 'orange');
+  //     btn.textContent = 'My Action';
+  //     btn.addEventListener('click', () => frappe.msgprint('Clicked!'));
+  //     frm.fields_dict.my_html_field.$wrapper.append(btn);
+  //   }
+  // });
+
+  document.querySelectorAll('ov-button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      console.log('Button clicked:', btn.getAttribute('variant'));
+    });
+  });
+</script>
+</body>
+</html>

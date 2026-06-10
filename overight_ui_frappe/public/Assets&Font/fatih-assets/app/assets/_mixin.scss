@@ -1,0 +1,16 @@
+$columns: 12;
+$withTotal: 10;
+
+%float-styles {
+  float: left;
+}
+
+@mixin col-x-list {
+  @for $i from 1 through $withTotal {
+    .my-w-#{$i*10} {
+      flex: 1 0 #{$i * 10%};
+    }
+  }
+}
+
+@include col-x-list;

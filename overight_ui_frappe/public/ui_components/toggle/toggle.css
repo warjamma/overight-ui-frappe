@@ -1,0 +1,56 @@
+/* ============================================================
+   OV Toggle Component Styles
+   Chuyển đổi từ toggle.tsx (Radix UI Toggle + cva)
+   ============================================================ */
+
+.ov-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: background-color 0.15s ease, color 0.15s ease;
+  outline: none;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  color: var(--ov-foreground, #111827);
+  font-family: inherit;
+}
+
+.ov-toggle:hover {
+  background-color: var(--ov-muted, #f3f4f6);
+}
+
+.ov-toggle:focus-visible {
+  box-shadow: 0 0 0 3px rgba(var(--ov-ring-rgb, 0 0 0), 0.3);
+}
+
+.ov-toggle:disabled {
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+.ov-toggle[data-state="on"],
+.ov-toggle.on {
+  background-color: var(--ov-accent, #f85c1e);
+  color: var(--ov-accent-foreground, #ffffff);
+}
+
+/* Sizes */
+.ov-toggle,
+.ov-toggle--default {
+  height: 40px;
+  padding: 0 12px;
+}
+
+.ov-toggle--sm {
+  height: 32px;
+  padding: 0 8px;
+}
+
+.ov-toggle--lg {
+  height: 48px;
+  padding: 0 16px;
+}

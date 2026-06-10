@@ -31,7 +31,7 @@
     --table-border-color: var(--fluent-divider);
     --control-bg: var(--fluent-surface);
     --input-disabled-bg: #FAFAFA;
-    --highlight-color: color-mix(in srgb, var(--fluent-primary) 20%, var(--fluent-surface) 80%);
+    --highlight-color: color-mix(in srgb, var(--fluent-primary) 12%, transparent);
     --card-shadow: var(--fluent-shadow-md);
     --modal-shadow: var(--fluent-shadow-lg);
     --btn-shadow: none;
@@ -80,11 +80,6 @@
         
     }
 
-    .form-control:focus,
-    .awesomplete>input:focus {
-        /* border-color: var(--fluent-primary) !important; */
-        /* box-shadow: 0 0 0 2px rgba(0, 120, 212, 0.3) !important; */
-    }
 
     .like-disabled-input {
         background-color: var(--input-disabled-bg) !important;
@@ -108,13 +103,13 @@
         box-shadow: var(--fluent-shadow-md);
     }
 
-    .btn-secondary {
+    .btn-secondary, .btn-default {
         background-color: var(--fluent-surface) !important;
         color: var(--fluent-text-primary) !important;
         border-color: var(--fluent-divider) !important;
     }
 
-    .btn-secondary:hover {
+    .btn-secondary:hover, .btn-default:hover {
         border-color: var(--fluent-primary) !important;
         color: var(--fluent-primary) !important;
     }
@@ -124,9 +119,11 @@
         color: var(--heading-color) !important;
     }
 
-    .form-tabs-list {
-        border-bottom: 1px solid var(--border-color);
-        background-color: var(--fg-color);
+    .form-tabs-list,
+    .form-tabs,
+    .form-tabs .nav-link {
+        background-color: transparent !important;
+        border-bottom: 0 !important;
     }
 
     .form-tabs .nav-link {
@@ -135,29 +132,50 @@
 
     .form-tabs .nav-link.active {
         color: var(--fluent-primary) !important;
-        border-color: var(--fluent-primary) !important;
+        border-color: transparent !important;
+        border-bottom: 0 !important;
         background-color: transparent !important;
     }
 
     /* --- Sidebar --- */
-    .desk-sidebar .standard-sidebar-item:hover {
-        background-color: var(--highlight-color);
+    body .layout-side-section .sidebar-item-container:hover .standard-sidebar-item,
+    body .layout-side-section .standard-sidebar-item:hover {
+        background-color: var(--highlight-color) !important;
     }
 
-    .desk-sidebar .standard-sidebar-item.selected {
-        background-color: var(--highlight-color);
+    body .layout-side-section .standard-sidebar-item:hover span,
+    body .layout-side-section .sidebar-item-container:hover .standard-sidebar-item span,
+    body .layout-side-section .standard-sidebar-item:hover a,
+    body .layout-side-section .sidebar-item-container:hover .standard-sidebar-item a {
+        background-color: transparent !important;
     }
 
-    .desk-sidebar .standard-sidebar-item.selected::before {
-        background-color: var(--fluent-primary);
+    body .layout-side-section .standard-sidebar-item.selected,
+    body .layout-side-section .standard-sidebar-item.active-sidebar {
+        background-color: var(--highlight-color) !important;
     }
 
-    .desk-sidebar .standard-sidebar-item.selected .item-anchor .sidebar-item-label,
-    .desk-sidebar .standard-sidebar-item.selected .sidebar-item-icon .icon {
+    body .layout-side-section .standard-sidebar-item.selected span,
+    body .layout-side-section .standard-sidebar-item.active-sidebar span,
+    body .layout-side-section .standard-sidebar-item.selected a,
+    body .layout-side-section .standard-sidebar-item.active-sidebar a {
+        background-color: transparent !important;
+    }
+
+    body .layout-side-section .standard-sidebar-item.selected::before,
+    body .layout-side-section .standard-sidebar-item.active-sidebar::before {
+        background-color: var(--fluent-primary) !important;
+    }
+
+    body .layout-side-section .standard-sidebar-item.selected .item-anchor .sidebar-item-label,
+    body .layout-side-section .standard-sidebar-item.active-sidebar .item-anchor .sidebar-item-label,
+    body .layout-side-section .standard-sidebar-item.selected .sidebar-item-icon .icon,
+    body .layout-side-section .standard-sidebar-item.active-sidebar .sidebar-item-icon .icon {
         color: var(--fluent-primary) !important;
     }
 
-    .desk-sidebar .standard-sidebar-item.selected .sidebar-item-icon .icon {
+    body .layout-side-section .standard-sidebar-item.selected .sidebar-item-icon .icon,
+    body .layout-side-section .standard-sidebar-item.active-sidebar .sidebar-item-icon .icon {
         --icon-stroke: var(--fluent-primary) !important;
     }
 
@@ -327,5 +345,70 @@
         border: none;
     }
 
+    /* --- List view and form overrides --- */
+    .page-form.flex,
+    .page-form.row,
+    .page-form {
+        background-color: var(--ov-background, var(--fluent-surface)) !important;
+        border-bottom: 1px solid var(--ov-border, var(--fluent-divider)) !important;
+    }
+
+    body .layout-main-section .list-row:hover:not(.list-row-head),
+    body .layout-main-section .list-row-container:hover .list-row:not(.list-row-head) {
+        background-color: var(--highlight-color) !important;
+    }
+
+    /* Bảo vệ indicator-pill - giữ màu gốc khi hover row */
+    body .layout-main-section .list-row:hover .indicator-pill,
+    body .layout-main-section .list-row:hover .indicator-pill-right,
+    body .layout-main-section .list-row:hover .indicator-pill-round,
+    body .layout-main-section .list-row-container:hover .list-row .indicator-pill,
+    body .layout-main-section .list-row-container:hover .list-row .indicator-pill-right,
+    body .layout-main-section .list-row-container:hover .list-row .indicator-pill-round {
+        background-color: revert !important;
+        background: revert !important;
+    }
+    body .layout-main-section .list-row:hover .indicator-pill.green,
+    body .layout-main-section .list-row-container:hover .list-row .indicator-pill.green { background: var(--bg-green) !important; }
+    body .layout-main-section .list-row:hover .indicator-pill.blue,
+    body .layout-main-section .list-row-container:hover .list-row .indicator-pill.blue { background: var(--bg-blue) !important; }
+    body .layout-main-section .list-row:hover .indicator-pill.orange,
+    body .layout-main-section .list-row-container:hover .list-row .indicator-pill.orange { background: var(--bg-orange) !important; }
+    body .layout-main-section .list-row:hover .indicator-pill.red,
+    body .layout-main-section .list-row-container:hover .list-row .indicator-pill.red { background: var(--bg-red) !important; }
+    body .layout-main-section .list-row:hover .indicator-pill.yellow,
+    body .layout-main-section .list-row-container:hover .list-row .indicator-pill.yellow { background: var(--bg-yellow) !important; }
+    body .layout-main-section .list-row:hover .indicator-pill.gray,
+    body .layout-main-section .list-row:hover .indicator-pill.grey,
+    body .layout-main-section .list-row-container:hover .list-row .indicator-pill.gray,
+    body .layout-main-section .list-row-container:hover .list-row .indicator-pill.grey { background: var(--bg-gray) !important; }
+    body .layout-main-section .list-row:hover .indicator-pill.purple,
+    body .layout-main-section .list-row-container:hover .list-row .indicator-pill.purple { background: var(--bg-purple) !important; }
+    body .layout-main-section .list-row:hover .indicator-pill.cyan,
+    body .layout-main-section .list-row-container:hover .list-row .indicator-pill.cyan { background: var(--bg-cyan) !important; }
+    body .layout-main-section .list-row:hover .indicator-pill.pink,
+    body .layout-main-section .list-row-container:hover .list-row .indicator-pill.pink { background: var(--bg-pink) !important; }
+    body .layout-main-section .list-row:hover .indicator-pill.darkgrey,
+    body .layout-main-section .list-row:hover .indicator-pill.dark-gray,
+    body .layout-main-section .list-row-container:hover .list-row .indicator-pill.darkgrey,
+    body .layout-main-section .list-row-container:hover .list-row .indicator-pill.dark-gray { background: var(--bg-darkgrey) !important; }
+
+    /* Bảo vệ form-control và input bên trong row */
+    body .layout-main-section .list-row:hover .form-control,
+    body .layout-main-section .list-row:hover input,
+    body .layout-main-section .list-row:hover .like-disabled-input,
+    body .layout-main-section .list-row-container:hover .list-row .form-control,
+    body .layout-main-section .list-row-container:hover .list-row input,
+    body .layout-main-section .list-row-container:hover .list-row .like-disabled-input {
+        background-color: var(--control-bg) !important;
+    }
+
+    body .level.list-row-head,
+    body .level.list-row-head *,
+    body .level.list-row-head .list-subject,
+    body .level.list-row-head .list-row-col,
+    body .level.list-row-head .list-row-col a {
+        font-weight: 600 !important;
+    }
 
 }

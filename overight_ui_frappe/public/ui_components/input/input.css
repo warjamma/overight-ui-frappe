@@ -1,0 +1,86 @@
+/* ============================================================
+   OV Input Component Styles
+   Chuyển đổi từ input.tsx
+   ============================================================ */
+
+ov-input input,
+.ov-input {
+  display: flex;
+  height: 50px;
+  width: 100%;
+  border-radius: 8px;
+  border: 1.5px solid var(--ov-input, #d1d5db);
+  background-color: var(--ov-background, #ffffff);
+  padding: 0 16px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--ov-foreground, #111827);
+  transition: border-color 0.15s ease;
+  outline: none;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+ov-input input::placeholder,
+.ov-input::placeholder {
+  color: var(--ov-muted-foreground, #9ca3af);
+  font-weight: 400;
+}
+
+ov-input input:focus,
+.ov-input:focus {
+  border-color: var(--ov-primary, #111827);
+}
+
+ov-input input:disabled,
+.ov-input:disabled {
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+ov-input input[aria-invalid="true"],
+.ov-input[aria-invalid="true"] {
+  border-color: var(--ov-accent, #f85c1e);
+}
+
+/* --- Frappe Input Native Mapping --- */
+input.form-control,
+textarea.form-control,
+.awesomplete > input,
+.like-disabled-input {
+  border-radius: 8px !important;
+  border: 1.5px solid var(--ov-input, #d1d5db) !important;
+  background-color: var(--ov-background, #ffffff) !important;
+  color: var(--ov-foreground, #111827) !important;
+  transition: border-color 0.15s ease !important;
+  outline: none !important;
+  box-sizing: border-box !important;
+  font-family: inherit !important;
+}
+
+input.form-control::placeholder,
+textarea.form-control::placeholder,
+.awesomplete > input::placeholder {
+  color: var(--ov-muted-foreground, #9ca3af) !important;
+}
+
+input.form-control:focus,
+textarea.form-control:focus,
+.awesomplete > input:focus {
+  border-color: var(--ov-primary, #111827) !important;
+}
+
+[data-theme="dark"] input.form-control,
+[data-theme="dark"] textarea.form-control,
+[data-theme="dark"] .awesomplete > input,
+[data-theme="dark"] .like-disabled-input {
+  border-color: #3e424b !important;
+  background-color: #2a2c30 !important;
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] input.form-control:focus,
+[data-theme="dark"] textarea.form-control:focus,
+[data-theme="dark"] .awesomplete > input:focus {
+  border-color: var(--ov-accent, #f85c1e) !important;
+}

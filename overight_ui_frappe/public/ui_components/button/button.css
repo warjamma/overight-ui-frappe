@@ -1,0 +1,289 @@
+/* ============================================================
+   OV Button Component Styles
+   Chuyển đổi từ button.tsx (Radix UI / cva)
+   ============================================================ */
+
+ov-button,
+.ov-button {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 8px;
+  border-width: 1.5px;
+  border-style: solid;
+  text-align: center;
+  font-size: 1rem;       /* base = 16px */
+  font-weight: 600;
+  line-height: 1.5;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  outline: none;
+  user-select: none;
+  cursor: pointer;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+ov-button:disabled,
+.ov-button:disabled,
+ov-button[disabled],
+.ov-button[disabled] {
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+ov-button:focus-visible,
+.ov-button:focus-visible {
+  box-shadow: 0 0 0 3px rgba(var(--ov-ring-rgb, 0 0 0), 0.3);
+}
+
+/* SVG icons inside button */
+ov-button svg,
+.ov-button svg {
+  pointer-events: none;
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+
+/* ---- Variants ---- */
+
+/* black (default) */
+ov-button[variant="black"],
+.ov-button--black,
+ov-button:not([variant]),
+.ov-button {
+  border-color: var(--ov-primary, #111827);
+  background-color: var(--ov-primary, #111827);
+  color: var(--ov-primary-foreground, #ffffff);
+}
+ov-button[variant="black"]:hover,
+.ov-button--black:hover {
+  background-color: var(--ov-primary, #111827);
+}
+
+/* white */
+ov-button[variant="white"],
+.ov-button--white {
+  border-color: var(--ov-primary, #111827);
+  background-color: var(--ov-background, #ffffff);
+  color: var(--ov-primary, #111827);
+}
+ov-button[variant="white"]:hover,
+.ov-button--white:hover {
+  background-color: transparent;
+}
+
+/* orange */
+ov-button[variant="orange"],
+.ov-button--orange {
+  border-color: var(--ov-accent, #f85c1e);
+  background-color: var(--ov-accent, #f85c1e);
+  color: var(--ov-accent-foreground, #ffffff);
+}
+ov-button[variant="orange"]:hover,
+.ov-button--orange:hover {
+  background-color: var(--ov-accent, #f85c1e);
+}
+
+/* blue */
+ov-button[variant="blue"],
+.ov-button--blue {
+  border-color: transparent;
+  background-color: var(--ov-info, #3b82f6);
+  color: var(--ov-info-foreground, #ffffff);
+}
+ov-button[variant="blue"]:hover,
+.ov-button--blue:hover {
+  background-color: var(--ov-info, #3b82f6);
+}
+
+/* red */
+ov-button[variant="red"],
+.ov-button--red {
+  border-color: var(--ov-destructive, #ef4444);
+  background-color: var(--ov-destructive, #ef4444);
+  color: var(--ov-destructive-foreground, #ffffff);
+}
+ov-button[variant="red"]:hover,
+.ov-button--red:hover {
+  background-color: var(--ov-destructive, #ef4444);
+}
+
+/* ghost */
+ov-button[variant="ghost"],
+.ov-button--ghost {
+  border-color: transparent;
+  background-color: transparent;
+  color: var(--ov-foreground, #111827);
+}
+ov-button[variant="ghost"]:hover,
+.ov-button--ghost:hover {
+  background-color: transparent;
+}
+
+/* link */
+ov-button[variant="link"],
+.ov-button--link {
+  height: auto !important;
+  border-color: transparent;
+  background-color: transparent;
+  padding: 0 !important;
+  color: var(--ov-accent, #f85c1e);
+  text-decoration-line: none;
+  text-underline-offset: 4px;
+}
+ov-button[variant="link"]:hover,
+.ov-button--link:hover {
+  text-decoration-line: underline;
+}
+
+/* ---- Sizes ---- */
+
+/* default */
+ov-button,
+.ov-button {
+  height: 50px;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* sm */
+ov-button[size="sm"],
+.ov-button--sm {
+  height: 36px;
+  padding-left: 16px;
+  padding-right: 16px;
+  font-size: 0.875rem;
+}
+
+/* lg */
+ov-button[size="lg"],
+.ov-button--lg {
+  height: 56px;
+  padding-left: 32px;
+  padding-right: 32px;
+  font-size: 1rem;
+}
+
+/* icon */
+ov-button[size="icon"],
+.ov-button--icon {
+  width: 50px;
+  height: 50px;
+  padding: 0;
+}
+
+/* icon-sm */
+ov-button[size="icon-sm"],
+.ov-button--icon-sm {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+}
+
+/* full-width */
+ov-button[full-width],
+.ov-button--full-width {
+  width: 100%;
+}
+
+/* --- Frappe Buttons Native Mapping --- */
+.btn-primary,
+.primary-action,
+button[data-btn-style="primary"] {
+  display: inline-flex;
+  flex-shrink: 0 !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  border-radius: 8px !important;
+  border-width: 1.5px !important;
+  border-style: solid !important;
+  text-align: center !important;
+  font-weight: 600 !important;
+  line-height: 1.5 !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+  box-sizing: border-box !important;
+  
+  border-color: var(--ov-accent, #f85c1e) !important;
+  background-color: var(--ov-accent, #f85c1e) !important;
+  color: var(--ov-accent-foreground, #ffffff) !important;
+  
+  height: 28px !important;
+  padding-left: 12px !important;
+  padding-right: 12px !important;
+  font-size: 13px !important;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease !important;
+}
+
+.btn-primary:hover,
+.primary-action:hover,
+button[data-btn-style="primary"]:hover {
+  background-color: var(--ov-accent, #e04b12) !important;
+  border-color: var(--ov-accent, #e04b12) !important;
+}
+
+.btn-default,
+.btn-secondary,
+.btn:not(.btn-primary):not(.primary-action) {
+  display: inline-flex;
+  flex-shrink: 0 !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  border-radius: 8px !important;
+  border-width: 1.5px !important;
+  border-style: solid !important;
+  text-align: center !important;
+  font-weight: 600 !important;
+  line-height: 1.5 !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+  box-sizing: border-box !important;
+  
+  border-color: var(--ov-border, #d1d5db) !important;
+  background-color: var(--ov-background, #ffffff) !important;
+  color: var(--ov-foreground, #111827) !important;
+  
+  height: 28px !important;
+  padding-left: 12px !important;
+  padding-right: 12px !important;
+  font-size: 13px !important;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease !important;
+}
+
+.btn-default:hover,
+.btn-secondary:hover,
+.btn:not(.btn-primary):not(.primary-action):hover {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+[data-theme="dark"] .btn-default,
+[data-theme="dark"] .btn-secondary,
+[data-theme="dark"] .btn:not(.btn-primary):not(.primary-action) {
+  border-color: #3e424b !important;
+  background-color: #2a2c30 !important;
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .btn-default:hover,
+[data-theme="dark"] .btn-secondary:hover,
+[data-theme="dark"] .btn:not(.btn-primary):not(.primary-action):hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Safeguard hidden elements globally and on buttons */
+.hide,
+.hidden,
+[hidden],
+.d-none,
+.btn.hide,
+.btn.hidden,
+.btn-default.hide,
+.btn-secondary.hide,
+.btn-primary.hide {
+  display: none !important;
+}

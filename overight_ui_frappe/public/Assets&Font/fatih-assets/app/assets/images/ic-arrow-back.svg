@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <filter id="prefix__a">
+      <feColorMatrix in="SourceGraphic" values="0 0 0 0 0.166031 0 0 0 0 0.174218 0 0 0 0 0.189227 0 0 0 1.000000 0"/>
+    </filter>
+  </defs>
+  <g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round" filter="url(#prefix__a)">
+    <g>
+      <path stroke="#000" stroke-width="2" d="M8.103.57L12.8 5.108 8.103 9.444M11.979 5.137L0 5.137"
+            transform="matrix(-1 0 0 1 18.4 7.2)"/>
+    </g>
+  </g>
+</svg>

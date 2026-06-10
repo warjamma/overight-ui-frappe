@@ -1,0 +1,46 @@
+/* ============================================================
+   OV Popover Component Styles
+   Chuyển đổi từ popover.tsx (Radix UI Popover)
+   ============================================================ */
+
+.ov-popover {
+  position: relative;
+  display: inline-block;
+}
+
+.ov-popover-content {
+  position: absolute;
+  z-index: 50;
+  width: 320px;
+  border-radius: 8px;
+  border: 1px solid var(--ov-border, #e5e7eb);
+  background-color: var(--ov-popover, #ffffff);
+  padding: 20px;
+  color: var(--ov-popover-foreground, #111827);
+  box-shadow: 0 10px 38px -10px rgba(0, 0, 0, 0.35), 0 10px 20px -15px rgba(0, 0, 0, 0.2);
+  outline: none;
+  box-sizing: border-box;
+  /* By default hidden */
+  display: none;
+}
+
+.ov-popover-content[data-state="open"],
+.ov-popover-content.open {
+  display: block;
+}
+
+/* Default alignment - center, side bottom */
+.ov-popover-content[data-align="center"] {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.ov-popover-content[data-side="bottom"],
+.ov-popover-content {
+  top: calc(100% + 8px);
+}
+
+.ov-popover-content[data-side="top"] {
+  bottom: calc(100% + 8px);
+  top: auto;
+}

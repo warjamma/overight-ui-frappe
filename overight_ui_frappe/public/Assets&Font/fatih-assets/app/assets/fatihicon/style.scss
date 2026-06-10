@@ -1,0 +1,493 @@
+@import "variables";
+
+@font-face {
+  font-family: '#{$icomoon-font-family}';
+  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?fgmj1l');
+  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?fgmj1l#iefix') format('embedded-opentype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?fgmj1l') format('truetype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?fgmj1l') format('woff'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?fgmj1l##{$icomoon-font-family}') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+.icon {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: '#{$icomoon-font-family}' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.Logo-with-border .path1 {
+  &:before {
+    content: $Logo-with-border-path1;  
+    color: none;  
+    opacity: 0.5;
+  }
+}
+.Logo-with-border .path2 {
+  &:before {
+    content: $Logo-with-border-path2;  
+    margin-left: -1em;  
+    color: rgb(42, 44, 48);
+  }
+}
+.Logo-with-border .path3 {
+  &:before {
+    content: $Logo-with-border-path3;  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ic_features {
+  &:before {
+    content: $ic_features; 
+  }
+}
+.ic_data_driven {
+  &:before {
+    content: $ic_data_driven; 
+  }
+}
+.ic_contracts {
+  &:before {
+    content: $ic_contracts; 
+  }
+}
+.ic_products {
+  &:before {
+    content: $ic_products; 
+  }
+}
+.ic_free {
+  &:before {
+    content: $ic_free; 
+  }
+}
+.ic_safe {
+  &:before {
+    content: $ic_safe; 
+  }
+}
+.ic_growth {
+  &:before {
+    content: $ic_growth; 
+  }
+}
+.ic_b2b {
+  &:before {
+    content: $ic_b2b; 
+  }
+}
+.ic_increase {
+  &:before {
+    content: $ic_increase;     
+    color: #168b99;
+  }
+}
+.ic_decrease {
+  &:before {
+    content: $ic_decrease;     
+    color: #f85c1e;
+  }
+}
+.ic_download_2 {
+  &:before {
+    content: $ic_download_2; 
+  }
+}
+.ic_offline {
+  &:before {
+    content: $ic_offline; 
+  }
+}
+.ic_pin_location {
+  &:before {
+    content: $ic_pin_location; 
+  }
+}
+.ic_phone {
+  &:before {
+    content: $ic_phone; 
+  }
+}
+.ic_online {
+  &:before {
+    content: $ic_online; 
+  }
+}
+.cost {
+  &:before {
+    content: $cost; 
+  }
+}
+.cal-offer_date {
+  &:before {
+    content: $cal-offer_date; 
+  }
+}
+.discount {
+  &:before {
+    content: $discount; 
+  }
+}
+.tick-2 {
+  &:before {
+    content: $tick-2; 
+  }
+}
+.ic_counter-offer {
+  &:before {
+    content: $ic_counter-offer; 
+  }
+}
+.ic_marketplace {
+  &:before {
+    content: $ic_marketplace; 
+  }
+}
+.ic_offers_seller {
+  &:before {
+    content: $ic_offers_seller; 
+  }
+}
+.ic_offers_buyer {
+  &:before {
+    content: $ic_offers_buyer; 
+  }
+}
+.ic_save {
+  &:before {
+    content: $ic_save; 
+  }
+}
+.ic_edit {
+  &:before {
+    content: $ic_edit; 
+  }
+}
+.ic_instagram {
+  &:before {
+    content: $ic_instagram; 
+  }
+}
+.ic_twitter {
+  &:before {
+    content: $ic_twitter; 
+  }
+}
+.ic_world {
+  &:before {
+    content: $ic_world; 
+  }
+}
+.ic_add {
+  &:before {
+    content: $ic_add; 
+  }
+}
+.ic_arrow_back {
+  &:before {
+    content: $ic_arrow_back; 
+  }
+}
+.ic_arrow_downward {
+  &:before {
+    content: $ic_arrow_downward; 
+  }
+}
+.ic_arrow_upward {
+  &:before {
+    content: $ic_arrow_upward; 
+  }
+}
+.ic_buying {
+  &:before {
+    content: $ic_buying; 
+  }
+}
+.ic_cal {
+  &:before {
+    content: $ic_cal; 
+  }
+}
+.ic_cancel_order {
+  &:before {
+    content: $ic_cancel_order; 
+  }
+}
+.ic_cards {
+  &:before {
+    content: $ic_cards; 
+  }
+}
+.ic_chat_bubble {
+  &:before {
+    content: $ic_chat_bubble; 
+  }
+}
+.ic_close {
+  &:before {
+    content: $ic_close; 
+  }
+}
+.ic_copy {
+  &:before {
+    content: $ic_copy; 
+  }
+}
+.ic_dashboard {
+  &:before {
+    content: $ic_dashboard; 
+  }
+}
+.ic_dashboard_2 {
+  &:before {
+    content: $ic_dashboard_2; 
+  }
+}
+.ic_delete {
+  &:before {
+    content: $ic_delete; 
+  }
+}
+.ic_delivery {
+  &:before {
+    content: $ic_delivery; 
+  }
+}
+.ic_details {
+  &:before {
+    content: $ic_details; 
+  }
+}
+.ic_disputes {
+  &:before {
+    content: $ic_disputes; 
+  }
+}
+.ic_download {
+  &:before {
+    content: $ic_download; 
+  }
+}
+.ic_email {
+  &:before {
+    content: $ic_email; 
+  }
+}
+.ic_explore {
+  &:before {
+    content: $ic_explore; 
+  }
+}
+.ic_facebook {
+  &:before {
+    content: $ic_facebook; 
+  }
+}
+.ic_FATIH {
+  &:before {
+    content: $ic_FATIH; 
+  }
+}
+.ic_format_list_bulleted {
+  &:before {
+    content: $ic_format_list_bulleted; 
+  }
+}
+.ic_from {
+  &:before {
+    content: $ic_from; 
+  }
+}
+.ic_info {
+  &:before {
+    content: $ic_info; 
+  }
+}
+.ic_invoice {
+  &:before {
+    content: $ic_invoice; 
+  }
+}
+.ic_keyboard_arrow_down {
+  &:before {
+    content: $ic_keyboard_arrow_down; 
+  }
+}
+.ic_keyboard_arrow_left {
+  &:before {
+    content: $ic_keyboard_arrow_left; 
+  }
+}
+.ic_keyboard_arrow_right {
+  &:before {
+    content: $ic_keyboard_arrow_right; 
+  }
+}
+.ic_keyboard_arrow_up {
+  &:before {
+    content: $ic_keyboard_arrow_up; 
+  }
+}
+.ic_list {
+  &:before {
+    content: $ic_list; 
+  }
+}
+.ic_loadmore {
+  &:before {
+    content: $ic_loadmore; 
+  }
+}
+.ic_logout {
+  &:before {
+    content: $ic_logout; 
+  }
+}
+.ic_menu {
+  &:before {
+    content: $ic_menu; 
+  }
+}
+.ic_message {
+  &:before {
+    content: $ic_message; 
+  }
+}
+.ic_minus {
+  &:before {
+    content: $ic_minus; 
+  }
+}
+.ic_more_horiz {
+  &:before {
+    content: $ic_more_horiz; 
+  }
+}
+.ic_notifications {
+  &:before {
+    content: $ic_notifications; 
+  }
+}
+.ic_package {
+  &:before {
+    content: $ic_package; 
+  }
+}
+.ic_parameters {
+  &:before {
+    content: $ic_parameters; 
+  }
+}
+.ic_payments {
+  &:before {
+    content: $ic_payments; 
+  }
+}
+.ic_pin {
+  &:before {
+    content: $ic_pin; 
+  }
+}
+.ic_product {
+  &:before {
+    content: $ic_product; 
+  }
+}
+.ic_profile {
+  &:before {
+    content: $ic_profile; 
+  }
+}
+.ic_QA {
+  &:before {
+    content: $ic_QA; 
+  }
+}
+.ic_resolved {
+  &:before {
+    content: $ic_resolved; 
+  }
+}
+.ic_review {
+  &:before {
+    content: $ic_review; 
+  }
+}
+.ic_search {
+  &:before {
+    content: $ic_search; 
+  }
+}
+.ic_seller {
+  &:before {
+    content: $ic_seller; 
+  }
+}
+.ic_send {
+  &:before {
+    content: $ic_send; 
+  }
+}
+.ic_settings {
+  &:before {
+    content: $ic_settings; 
+  }
+}
+.ic_share {
+  &:before {
+    content: $ic_share; 
+  }
+}
+.ic_shipping_id {
+  &:before {
+    content: $ic_shipping_id; 
+  }
+}
+.ic_shopping_cart {
+  &:before {
+    content: $ic_shopping_cart; 
+  }
+}
+.ic_template {
+  &:before {
+    content: $ic_template; 
+  }
+}
+.ic_tick {
+  &:before {
+    content: $ic_tick; 
+  }
+}
+.ic_translating {
+  &:before {
+    content: $ic_translating; 
+  }
+}
+.ic_verified {
+  &:before {
+    content: $ic_verified; 
+  }
+}
+.ic_wishlist {
+  &:before {
+    content: $ic_wishlist; 
+  }
+}
+.ic_wishlist_border {
+  &:before {
+    content: $ic_wishlist_border; 
+  }
+}
+

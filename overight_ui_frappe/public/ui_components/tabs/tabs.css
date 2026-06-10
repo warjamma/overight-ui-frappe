@@ -1,0 +1,249 @@
+/* ============================================================
+   OV Tabs Component Styles
+   Chuyển đổi từ tabs.tsx (Radix UI Tabs)
+   ============================================================ */
+
+/* Tabs Root */
+.ov-tabs {
+  display: block;
+}
+
+/* Tabs List */
+.ov-tabs-list {
+  display: flex;
+  min-height: 0;
+  align-items: center;
+  gap: 30px;
+  overflow-x: auto;
+  border: 0;
+  background-color: transparent;
+  padding: 0;
+  scrollbar-width: none;
+}
+
+.ov-tabs-list::-webkit-scrollbar {
+  display: none;
+}
+
+/* Tabs Trigger */
+.ov-tabs-trigger {
+  position: relative;
+  display: inline-flex;
+  height: auto;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 0;
+  border: 0;
+  background-color: transparent;
+  padding: 0 0 8px 0;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.57;
+  color: var(--ov-muted-foreground, #6b7280);
+  transition: color 0.15s ease;
+  outline: none;
+  cursor: pointer;
+  white-space: nowrap;
+  font-family: inherit;
+}
+
+.ov-tabs-trigger:hover {
+  color: var(--ov-foreground, #111827);
+}
+
+.ov-tabs-trigger:focus-visible {
+  box-shadow: 0 0 0 3px rgba(var(--ov-ring-rgb, 0 0 0), 0.3);
+}
+
+.ov-tabs-trigger:disabled {
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+/* Active state */
+.ov-tabs-trigger[data-state="active"],
+.ov-tabs-trigger.active {
+  font-weight: 600;
+  color: var(--ov-foreground, #111827);
+}
+
+.ov-tabs-trigger[data-state="active"]::after,
+.ov-tabs-trigger.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  transform: translateX(-50%);
+  border-radius: 9999px;
+  background-color: var(--ov-accent, #f85c1e);
+}
+
+/* Tabs Content */
+.ov-tabs-content {
+  margin-top: 20px;
+  outline: none;
+  display: none;
+}
+
+.ov-tabs-content[data-state="active"],
+.ov-tabs-content.active {
+  display: block;
+}
+
+.ov-tabs-content:focus-visible {
+  box-shadow: 0 0 0 3px rgba(var(--ov-ring-rgb, 0 0 0), 0.3);
+}
+
+/* --- Frappe Tabs General CSS Mapping --- */
+.nav-tabs,
+.nav-pills,
+ul#form-tabs.nav.form-tabs,
+ul.form-tabs {
+  display: flex !important;
+  min-height: 0 !important;
+  align-items: center !important;
+  gap: 30px !important;
+  overflow-x: auto !important;
+  background-color: transparent !important;
+  padding: 0 !important;
+  scrollbar-width: none !important;
+  margin-bottom: 0 !important;
+}
+
+.form-tabs-list {
+  background-color: transparent !important;
+  background: transparent !important;
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+}
+
+.form-page,
+.form-section,
+.card-section,
+.row.form-section.card-section {
+  border-top: 0 !important;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+}
+
+.nav-tabs,
+ul#form-tabs.nav.form-tabs,
+ul.form-tabs {
+  border-bottom: 0 !important;
+}
+
+.nav-tabs::-webkit-scrollbar,
+.nav-pills::-webkit-scrollbar,
+ul#form-tabs.nav.form-tabs::-webkit-scrollbar,
+ul.form-tabs::-webkit-scrollbar {
+  display: none !important;
+}
+
+/* Frappe tab item list elements */
+.nav-tabs .nav-item,
+.nav-pills .nav-item,
+ul#form-tabs.nav.form-tabs li.nav-item,
+ul.form-tabs li.nav-item {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Frappe tab link elements */
+.nav-tabs .nav-link,
+.nav-tabs .nav-item .nav-link,
+.nav-pills .nav-link,
+.nav-pills .nav-item .nav-link,
+ul#form-tabs.nav.form-tabs li.nav-item .nav-link,
+ul.form-tabs li.nav-item .nav-link {
+  position: relative !important;
+  display: inline-flex !important;
+  height: auto !important;
+  flex-shrink: 0 !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: 0 !important;
+  background-color: transparent !important;
+  padding: 0 0 8px 0 !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  line-height: 1.57 !important;
+  color: var(--ov-muted-foreground, #6b7280) !important;
+  transition: color 0.15s ease !important;
+  outline: none !important;
+  cursor: pointer !important;
+  white-space: nowrap !important;
+  font-family: var(--ov-font-sans, 'Gilroy') !important;
+}
+
+.nav-tabs .nav-link:hover,
+.nav-tabs .nav-item .nav-link:hover,
+.nav-pills .nav-link:hover,
+.nav-pills .nav-item .nav-link:hover,
+ul#form-tabs.nav.form-tabs li.nav-item .nav-link:hover,
+ul.form-tabs li.nav-item .nav-link:hover {
+  color: var(--ov-foreground, #111827) !important;
+}
+
+/* Active tab style */
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-item .nav-link.active,
+.nav-pills .nav-link.active,
+.nav-pills .nav-item .nav-link.active,
+ul#form-tabs.nav.form-tabs li.nav-item .nav-link.active,
+ul.form-tabs li.nav-item .nav-link.active {
+  font-weight: 600 !important;
+  color: var(--ov-foreground, #111827) !important;
+  background-color: transparent !important;
+}
+
+.nav-tabs .nav-link.active::after,
+.nav-tabs .nav-item .nav-link.active::after,
+.nav-pills .nav-link.active::after,
+.nav-pills .nav-item .nav-link.active::after,
+ul#form-tabs.nav.form-tabs li.nav-item .nav-link.active::after,
+ul.form-tabs li.nav-item .nav-link.active::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 50% !important;
+  width: 4px !important;
+  height: 4px !important;
+  transform: translateX(-50%) !important;
+  border-radius: 9999px !important;
+  background-color: var(--ov-accent, #f85c1e) !important;
+}
+
+/* Dark theme overrides */
+[data-theme="dark"] .nav-tabs,
+[data-theme="dark"] ul#form-tabs.nav.form-tabs,
+[data-theme="dark"] ul.form-tabs {
+  border-bottom: 0 !important;
+}
+
+[data-theme="dark"] .nav-tabs .nav-link,
+[data-theme="dark"] .nav-tabs .nav-item .nav-link,
+[data-theme="dark"] .nav-pills .nav-link,
+[data-theme="dark"] .nav-pills .nav-item .nav-link,
+[data-theme="dark"] ul#form-tabs.nav.form-tabs li.nav-item .nav-link,
+[data-theme="dark"] ul.form-tabs li.nav-item .nav-link {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+[data-theme="dark"] .nav-tabs .nav-link:hover,
+[data-theme="dark"] .nav-tabs .nav-item .nav-link:hover,
+[data-theme="dark"] .nav-tabs .nav-link.active,
+[data-theme="dark"] .nav-tabs .nav-item .nav-link.active,
+[data-theme="dark"] .nav-pills .nav-link:hover,
+[data-theme="dark"] .nav-pills .nav-item .nav-link:hover,
+[data-theme="dark"] .nav-pills .nav-link.active,
+[data-theme="dark"] .nav-pills .nav-item .nav-link.active,
+[data-theme="dark"] ul#form-tabs.nav.form-tabs li.nav-item .nav-link:hover,
+[data-theme="dark"] ul.form-tabs li.nav-item .nav-link:hover,
+[data-theme="dark"] ul#form-tabs.nav.form-tabs li.nav-item .nav-link.active,
+[data-theme="dark"] ul.form-tabs li.nav-item .nav-link.active {
+  color: #ffffff !important;
+}

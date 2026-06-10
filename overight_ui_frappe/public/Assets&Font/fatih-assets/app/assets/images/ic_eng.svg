@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>3. Icons/30px/Flags/ic_eng</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="29.0769231" height="20.7692308" rx="2.07692308"></rect>
+    </defs>
+    <g id="3.-Icons/30px/Flags/ic_eng" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="GB" transform="translate(0.000000, 4.000000)">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="Mask" fill="#FFFFFF" xlink:href="#path-1"></use>
+            <rect id="Mask-Copy" fill="#0A17A7" mask="url(#mask-2)" x="0" y="0" width="29.0769231" height="20.7692308"></rect>
+            <path d="M30.408718,-1.9901557 L31.9572522,0.305640654 L22.1456709,6.9228443 L29.0769231,6.92307692 L29.0769231,13.8461538 L22.1466709,13.8458443 L31.9572522,20.4635901 L30.408718,22.7593865 L17.9996709,14.3888443 L18,22.1538462 L11.0769231,22.1538462 L11.0766709,14.3888443 L-1.33179494,22.7593865 L-2.88032913,20.4635901 L6.92967087,13.8458443 L-7.14983628e-14,13.8461538 L-7.14983628e-14,6.92307692 L6.93067087,6.9228443 L-2.88032913,0.305640654 L-1.33179494,-1.9901557 L11.0766709,6.3798443 L11.0769231,-1.38461538 L18,-1.38461538 L17.9996709,6.3798443 L30.408718,-1.9901557 Z" id="Rectangle-2" fill="#FFFFFF" mask="url(#mask-2)"></path>
+            <line x1="19.3859675" y1="6.57573993" x2="32.5384615" y2="-2.07692308" id="Line" stroke="#DB1F35" stroke-width="0.692307692" stroke-linecap="round" mask="url(#mask-2)"></line>
+            <line x1="20.7824989" y1="22.1715088" x2="32.5730262" y2="14.2243371" id="Line-Copy-2" stroke="#DB1F35" stroke-width="0.692307692" stroke-linecap="round" mask="url(#mask-2)" transform="translate(26.677763, 18.197923) scale(1, -1) translate(-26.677763, -18.197923) "></line>
+            <line x1="8.313439" y1="6.55317571" x2="-3.98507925" y2="-1.73524827" id="Line-Copy" stroke="#DB1F35" stroke-width="0.692307692" stroke-linecap="round" mask="url(#mask-2)"></line>
+            <line x1="9.64734826" y1="23.1685603" x2="-3.98507925" y2="14.1281644" id="Line-Copy-3" stroke="#DB1F35" stroke-width="0.692307692" stroke-linecap="round" mask="url(#mask-2)" transform="translate(2.831135, 18.648362) scale(1, -1) translate(-2.831135, -18.648362) "></line>
+            <polygon id="Rectangle-2-Copy-3" fill="#E6273E" mask="url(#mask-2)" points="0 12.4615385 12.4615385 12.4615385 12.4615385 20.7692308 16.6153846 20.7692308 16.6153846 12.4615385 29.0769231 12.4615385 29.0769231 8.30769231 16.6153846 8.30769231 16.6153846 0 12.4615385 0 12.4615385 8.30769231 0 8.30769231"></polygon>
+        </g>
+    </g>
+</svg>

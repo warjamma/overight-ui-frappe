@@ -1,0 +1,172 @@
+/* ============================================================
+   OV Badge Component Styles
+   Chuyển đổi từ badge.tsx (cva variants)
+   ============================================================ */
+
+ov-badge,
+.ov-badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 6px;
+  padding: 4px 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1;
+  box-sizing: border-box;
+}
+
+/* Variants */
+ov-badge,
+ov-badge[variant="default"],
+.ov-badge,
+.ov-badge--default {
+  background-color: var(--ov-primary, #111827);
+  color: var(--ov-primary-foreground, #ffffff);
+}
+
+ov-badge[variant="orange"],
+.ov-badge--orange {
+  background-color: rgba(248, 92, 30, 0.1);
+  color: var(--ov-accent, #f85c1e);
+}
+
+ov-badge[variant="blue"],
+.ov-badge--blue {
+  background-color: rgba(59, 130, 246, 0.1);
+  color: var(--ov-info, #3b82f6);
+}
+
+ov-badge[variant="grey"],
+.ov-badge--grey {
+  background-color: var(--ov-muted, #f3f4f6);
+  color: var(--ov-muted-foreground, #6b7280);
+}
+
+ov-badge[variant="red"],
+.ov-badge--red {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: var(--ov-destructive, #ef4444);
+}
+
+ov-badge[variant="yellow"],
+.ov-badge--yellow {
+  background-color: rgba(234, 179, 8, 0.15);
+  color: var(--ov-warning-foreground, #854d0e);
+}
+
+/* Mapping Frappe Indicator Pill variants to OV Badge */
+.indicator-pill.no-indicator-dot.orange,
+.indicator-pill.no-indicator-dot.whitespace-nowrap.orange {
+  display: inline-flex !important;
+  align-items: center !important;
+  border-radius: 6px !important;
+  padding: 4px 12px !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  line-height: 1 !important;
+  box-sizing: border-box !important;
+  background-color: rgba(248, 92, 30, 0.1) !important;
+  background: rgba(248, 92, 30, 0.1) !important;
+  color: var(--ov-accent, #f85c1e) !important;
+  height: auto !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  text-transform: uppercase !important;
+}
+
+.indicator-pill.no-indicator-dot.blue,
+.indicator-pill.no-indicator-dot.whitespace-nowrap.blue {
+  display: inline-flex !important;
+  align-items: center !important;
+  border-radius: 6px !important;
+  padding: 4px 12px !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  line-height: 1 !important;
+  box-sizing: border-box !important;
+  background-color: rgba(59, 130, 246, 0.1) !important;
+  background: rgba(59, 130, 246, 0.1) !important;
+  color: var(--ov-info, #3b82f6) !important;
+  height: auto !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  text-transform: uppercase !important;
+}
+
+.indicator-pill.no-indicator-dot.grey,
+.indicator-pill.no-indicator-dot.gray,
+.indicator-pill.no-indicator-dot.whitespace-nowrap.grey,
+.indicator-pill.no-indicator-dot.whitespace-nowrap.gray {
+  display: inline-flex !important;
+  align-items: center !important;
+  border-radius: 6px !important;
+  padding: 4px 12px !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  line-height: 1 !important;
+  box-sizing: border-box !important;
+  background-color: var(--ov-muted, #f3f4f6) !important;
+  background: var(--ov-muted, #f3f4f6) !important;
+  color: var(--ov-muted-foreground, #6b7280) !important;
+  height: auto !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  text-transform: uppercase !important;
+}
+
+.indicator-pill.no-indicator-dot.red,
+.indicator-pill.no-indicator-dot.whitespace-nowrap.red {
+  display: inline-flex !important;
+  align-items: center !important;
+  border-radius: 6px !important;
+  padding: 4px 12px !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  line-height: 1 !important;
+  box-sizing: border-box !important;
+  background-color: rgba(239, 68, 68, 0.1) !important;
+  background: rgba(239, 68, 68, 0.1) !important;
+  color: var(--ov-destructive, #ef4444) !important;
+  height: auto !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  text-transform: uppercase !important;
+}
+
+.indicator-pill.no-indicator-dot.yellow,
+.indicator-pill.no-indicator-dot.whitespace-nowrap.yellow {
+  display: inline-flex !important;
+  align-items: center !important;
+  border-radius: 6px !important;
+  padding: 4px 12px !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  line-height: 1 !important;
+  box-sizing: border-box !important;
+  background-color: rgba(234, 179, 8, 0.15) !important;
+  background: rgba(234, 179, 8, 0.15) !important;
+  color: var(--ov-warning-foreground, #854d0e) !important;
+  height: auto !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  text-transform: uppercase !important;
+}
+
+.indicator-pill.no-indicator-dot.green,
+.indicator-pill.no-indicator-dot.whitespace-nowrap.green {
+  display: inline-flex !important;
+  align-items: center !important;
+  border-radius: 6px !important;
+  padding: 4px 12px !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  line-height: 1 !important;
+  box-sizing: border-box !important;
+  background-color: rgba(16, 185, 129, 0.1) !important;
+  background: rgba(16, 185, 129, 0.1) !important;
+  color: #10b981 !important;
+  height: auto !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  text-transform: uppercase !important;
+}

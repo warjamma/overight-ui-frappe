@@ -1,0 +1,46 @@
+/* ============================================================
+   OV Toggle Group Component Styles
+   Chuyển đổi từ toggle-group.tsx (Radix UI ToggleGroup)
+   ============================================================ */
+
+.ov-toggle-group {
+  display: inline-flex;
+  border-radius: 8px;
+  border: 1px solid var(--ov-border, #e5e7eb);
+  background-color: var(--ov-background, #ffffff);
+  padding: 4px;
+  gap: 2px;
+}
+
+.ov-toggle-group-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 0 12px;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: background-color 0.15s ease, color 0.15s ease;
+  outline: none;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  color: var(--ov-foreground, #111827);
+  font-family: inherit;
+}
+
+.ov-toggle-group-item:hover {
+  background-color: var(--ov-muted, #f3f4f6);
+}
+
+.ov-toggle-group-item[data-state="on"],
+.ov-toggle-group-item.on {
+  background-color: var(--ov-accent, #f85c1e);
+  color: var(--ov-accent-foreground, #ffffff);
+}
+
+.ov-toggle-group-item:disabled {
+  pointer-events: none;
+  opacity: 0.3;
+}

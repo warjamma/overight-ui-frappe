@@ -1,0 +1,73 @@
+/* ============================================================
+   OV Table Component Styles
+   Chuyển đổi từ table.tsx
+   ============================================================ */
+
+.ov-table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.ov-table {
+  width: 100%;
+  caption-side: bottom;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.875rem;
+}
+
+/* Table Header */
+.ov-table-header {
+  background-color: var(--ov-muted, #f3f4f6);
+}
+
+/* Table Body */
+.ov-table-body tr:last-child td,
+.ov-table-body tr:last-child th {
+  border-bottom: none;
+}
+
+/* Table Row */
+.ov-table-row > * {
+  border-bottom: 1.5px solid var(--ov-border, #e5e7eb);
+}
+
+.ov-table-row {
+  transition: background-color 0.1s ease;
+}
+
+.ov-table-row:hover {
+  background-color: rgba(243, 244, 246, 0.4);
+}
+
+/* Table Head cell */
+.ov-table-head {
+  height: 30px;
+  padding: 0 16px;
+  text-align: left;
+  vertical-align: middle;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height: 1.5;
+  color: var(--ov-muted-foreground, #6b7280);
+}
+
+/* Table Cell */
+.ov-table-cell {
+  height: 50px;
+  padding: 12px 16px;
+  vertical-align: middle;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.57;
+  color: var(--ov-foreground, #111827);
+}
+
+/* Table Caption */
+.ov-table-caption {
+  margin-top: 16px;
+  font-size: 0.875rem;
+  color: var(--ov-muted-foreground, #6b7280);
+  caption-side: bottom;
+}

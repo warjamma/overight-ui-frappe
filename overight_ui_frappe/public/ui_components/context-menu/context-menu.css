@@ -1,0 +1,100 @@
+/* ============================================================
+   OV Context Menu Component Styles
+   Chuyển đổi từ context-menu.tsx (Radix UI ContextMenu)
+   ============================================================ */
+
+.ov-context-menu-content {
+  z-index: 50;
+  min-width: 200px;
+  overflow: hidden;
+  border-radius: 8px;
+  border: 1px solid var(--ov-border, #e5e7eb);
+  background-color: var(--ov-popover, #ffffff);
+  color: var(--ov-popover-foreground, #111827);
+  box-shadow: 0 10px 38px -10px rgba(0, 0, 0, 0.35);
+  padding: 4px;
+  position: fixed;
+  display: none;
+  box-sizing: border-box;
+}
+
+.ov-context-menu-content[data-state="open"],
+.ov-context-menu-content.open {
+  display: block;
+}
+
+.ov-context-menu-item {
+  position: relative;
+  display: flex;
+  cursor: pointer;
+  select: none;
+  align-items: center;
+  border-radius: 4px;
+  padding: 8px 10px;
+  font-size: 0.875rem;
+  font-weight: 400;
+  outline: none;
+  transition: background-color 0.1s ease;
+  gap: 8px;
+  user-select: none;
+}
+
+.ov-context-menu-item:hover,
+.ov-context-menu-item:focus {
+  background-color: var(--ov-accent, #f85c1e);
+  color: var(--ov-accent-foreground, #ffffff);
+}
+
+.ov-context-menu-item:disabled,
+.ov-context-menu-item[data-disabled] {
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+/* Shortcut hint text */
+.ov-context-menu-shortcut {
+  margin-left: auto;
+  font-size: 0.75rem;
+  opacity: 0.6;
+  font-family: monospace;
+}
+
+.ov-context-menu-separator {
+  height: 1px;
+  margin: 4px -4px;
+  background-color: var(--ov-border, #e5e7eb);
+}
+
+.ov-context-menu-label {
+  padding: 6px 10px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--ov-muted-foreground, #6b7280);
+}
+
+/* Sub-trigger arrow */
+.ov-context-menu-sub-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Checkbox item */
+.ov-context-menu-checkbox-item .ov-context-menu-item-indicator {
+  width: 14px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Radio item */
+.ov-context-menu-radio-item .ov-context-menu-item-indicator {
+  width: 14px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}

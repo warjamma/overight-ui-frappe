@@ -1,0 +1,51 @@
+/* ============================================================
+   OV Switch Component Styles
+   Chuyển đổi từ switch.tsx
+   ============================================================ */
+
+.ov-switch {
+  position: relative;
+  display: inline-flex;
+  height: 22px;
+  width: 40px;
+  flex-shrink: 0;
+  cursor: pointer;
+  align-items: center;
+  border-radius: 8.8px;
+  border: 1px solid #f85c1e;
+  background-color: #ffffff;
+  transition: background-color 0.2s ease;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.ov-switch:focus-visible {
+  box-shadow: 0 0 0 3px rgba(248, 92, 30, 0.3);
+}
+
+.ov-switch[disabled],
+.ov-switch:disabled {
+  cursor: not-allowed;
+  opacity: 0.3;
+}
+
+.ov-switch[data-state="checked"] {
+  background-color: #f85c1e;
+}
+
+.ov-switch-thumb {
+  pointer-events: none;
+  display: block;
+  width: 14px;
+  height: 14px;
+  border-radius: 9999px;
+  background-color: #f85c1e;
+  box-shadow: none;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  transform: translateX(2px);
+}
+
+.ov-switch[data-state="checked"] .ov-switch-thumb {
+  transform: translateX(22px);
+  background-color: #ffffff;
+}

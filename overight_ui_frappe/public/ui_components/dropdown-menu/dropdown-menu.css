@@ -1,0 +1,124 @@
+/* ============================================================
+   OV Dropdown Menu Component Styles
+   Chuyển đổi từ dropdown-menu.tsx (Radix UI DropdownMenu)
+   ============================================================ */
+
+.ov-dropdown-menu {
+  position: relative;
+  display: inline-block;
+}
+
+.ov-dropdown-menu-content {
+  z-index: 50;
+  min-width: 192px;
+  overflow: hidden;
+  border-radius: 8px;
+  border: 1px solid var(--ov-border, #e5e7eb);
+  background-color: var(--ov-popover, #ffffff);
+  color: var(--ov-popover-foreground, #111827);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  padding: 4px;
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  box-sizing: border-box;
+  display: none;
+}
+
+.ov-dropdown-menu-content[data-state="open"],
+.ov-dropdown-menu-content.open {
+  display: block;
+}
+
+/* Alignment */
+.ov-dropdown-menu-content[data-align="end"] {
+  left: auto;
+  right: 0;
+}
+
+.ov-dropdown-menu-content[data-align="center"] {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.ov-dropdown-menu-item {
+  position: relative;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  gap: 8px;
+  border-radius: 4px;
+  padding: 6px 8px;
+  font-size: 0.875rem;
+  font-weight: 400;
+  outline: none;
+  transition: background-color 0.1s ease;
+  user-select: none;
+}
+
+.ov-dropdown-menu-item:hover,
+.ov-dropdown-menu-item:focus {
+  background-color: var(--ov-accent, #f85c1e);
+  color: var(--ov-accent-foreground, #ffffff);
+}
+
+.ov-dropdown-menu-item:disabled,
+.ov-dropdown-menu-item[data-disabled] {
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+/* Destructive item */
+.ov-dropdown-menu-item[data-variant="destructive"],
+.ov-dropdown-menu-item--destructive {
+  color: var(--ov-destructive, #ef4444);
+}
+
+.ov-dropdown-menu-item[data-variant="destructive"]:hover,
+.ov-dropdown-menu-item--destructive:hover {
+  background-color: var(--ov-destructive, #ef4444);
+  color: var(--ov-destructive-foreground, #ffffff);
+}
+
+.ov-dropdown-menu-separator {
+  height: 1px;
+  margin: 4px -4px;
+  background-color: var(--ov-border, #e5e7eb);
+}
+
+.ov-dropdown-menu-label {
+  padding: 6px 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--ov-muted-foreground, #6b7280);
+}
+
+.ov-dropdown-menu-shortcut {
+  margin-left: auto;
+  font-size: 0.75rem;
+  opacity: 0.6;
+  font-family: monospace;
+}
+
+/* Sub menu indicator */
+.ov-dropdown-menu-sub-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Checkbox / Radio items */
+.ov-dropdown-menu-checkbox-item,
+.ov-dropdown-menu-radio-item {
+  padding-left: 32px;
+}
+
+.ov-dropdown-menu-item-indicator {
+  position: absolute;
+  left: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+}

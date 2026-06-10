@@ -1,0 +1,352 @@
+/* ============================================================
+   OV Select Component Styles
+   Chuyển đổi từ select.tsx (Radix UI Select)
+   ============================================================ */
+
+.ov-select-trigger {
+  display: flex;
+  height: 38px !important;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 8px !important;
+  border: 1.5px solid var(--ov-input, #d1d5db);
+  background-color: var(--ov-background, #ffffff);
+  padding: 0 14px !important;
+  font-size: 14px !important;
+  font-weight: 600;
+  color: var(--ov-foreground, #111827);
+  transition: border-color 0.15s ease;
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  font-family: inherit;
+  position: relative;
+}
+
+.ov-select-trigger:focus {
+  border-color: var(--ov-primary, #111827);
+}
+
+.ov-select-trigger:disabled {
+  cursor: not-allowed;
+  opacity: 0.3;
+}
+
+.ov-select-trigger-icon {
+  width: 16px;
+  height: 16px;
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+
+/* Select Content (dropdown) */
+.ov-select-content {
+  position: absolute;
+  z-index: 50;
+  max-height: 384px;
+  min-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  left: 0;
+  overflow-y: auto;
+  border-radius: 8px;
+  border: 1px solid #2a2c30;
+  background-color: #2a2c30;
+  color: #ffffff;
+  box-shadow: none;
+  display: none;
+}
+
+.ov-select-content[data-state="open"],
+.ov-select-content.open {
+  display: block;
+}
+
+.ov-select-viewport {
+  padding: 8px;
+}
+
+/* Select Item */
+.ov-select-item {
+  position: relative;
+  display: flex;
+  min-height: 40px;
+  width: 100%;
+  cursor: pointer;
+  align-items: center;
+  padding: 0 15px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 2.86;
+  color: #ffffff;
+  outline: none;
+  transition: background-color 0.1s ease;
+  user-select: none;
+  border-radius: 4px;
+}
+
+.ov-select-item:hover,
+.ov-select-item:focus {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.ov-select-item:disabled,
+.ov-select-item[data-disabled] {
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+.ov-select-item[data-state="checked"],
+.ov-select-item.selected {
+  color: var(--ov-accent, #f85c1e);
+}
+
+/* Select Label */
+.ov-select-label {
+  padding: 8px 15px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Scroll buttons */
+.ov-select-scroll-up,
+.ov-select-scroll-down {
+  display: flex;
+  cursor: default;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  color: #ffffff;
+}
+
+/* Select wrapper for positioning */
+.ov-select {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+/* ============================================================
+   Override standard Bootstrap Dropdown Menu styles to match custom select
+   ============================================================ */
+.dropdown-menu,
+.dropdown-menu.dropdown-menu-right {
+  background-color: #2a2c30 !important;
+  border: 1px solid #3e424b !important;
+  border-radius: 8px !important;
+  padding: 8px !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.1) !important;
+  color: #ffffff !important;
+}
+
+/* Native Select Styling */
+select.form-control,
+select.ov-select-native {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23111827' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='m6 9 6 6 6-6'/%3e%3c/svg%3e") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 12px center !important;
+  background-size: 16px !important;
+  padding-right: 36px !important;
+  background-color: var(--ov-background, #ffffff) !important;
+  color: var(--ov-foreground, #111827) !important;
+  border: 1.5px solid var(--ov-input, #d1d5db) !important;
+  border-radius: 8px !important;
+  height: 38px !important;
+  font-weight: 600 !important;
+  font-family: inherit !important;
+  cursor: pointer !important;
+  transition: border-color 0.15s ease !important;
+  font-size: 14px !important;
+}
+
+[data-theme="dark"] select.form-control,
+[data-theme="dark"] select.ov-select-native,
+[data-theme="dark"] select {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='m6 9 6 6 6-6'/%3e%3c/svg%3e") !important;
+  background-color: #2a2c30 !important;
+  color: #ffffff !important;
+  border-color: #3e424b !important;
+}
+
+[data-theme="dark"] select.form-control option,
+[data-theme="dark"] select.ov-select-native option,
+[data-theme="dark"] select option {
+  background-color: #2a2c30 !important;
+  color: #ffffff !important;
+}
+
+select.form-control:focus,
+select.ov-select-native:focus {
+  border-color: var(--ov-primary, #f85c1e) !important;
+  outline: none !important;
+}
+
+/* Hide Frappe's duplicate select arrow element */
+.control-input-wrapper .select-icon,
+.control-input-wrapper .select-btn,
+.control-input-wrapper .select-icon svg {
+  display: none !important;
+  pointer-events: none !important;
+}
+
+/* Dropdown items (links and buttons) */
+.dropdown-menu .dropdown-item,
+.dropdown-menu.dropdown-menu-right .dropdown-item,
+.dropdown-menu a,
+.dropdown-menu button,
+.dropdown-menu li:not(.dropdown-divider):not(.divider) {
+  display: flex !important;
+  align-items: center !important;
+  min-height: 40px !important;
+  width: 100% !important;
+  padding: 0 15px !important;
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+  background-color: transparent !important;
+  border-radius: 4px !important;
+  border: none !important;
+  outline: none !important;
+  transition: background-color 0.1s ease !important;
+  font-family: var(--ov-font-sans, 'Gilroy') !important;
+  box-sizing: border-box !important;
+  text-align: left !important;
+  text-decoration: none !important;
+}
+
+.dropdown-menu .dropdown-item,
+.dropdown-menu.dropdown-menu-right .dropdown-item,
+.dropdown-menu a,
+.dropdown-menu button,
+.dropdown-menu li:not(.dropdown-divider):not(.divider),
+.dropdown-menu span,
+.dropdown-menu div:not(.dropdown-divider):not(kbd):not(kbd *),
+.dropdown-menu .dropdown-item *:not(kbd),
+.dropdown-menu.dropdown-menu-right .dropdown-item *:not(kbd),
+.dropdown-menu a *:not(kbd),
+.dropdown-menu button *:not(kbd),
+.dropdown-menu li:not(.dropdown-divider):not(.divider) *:not(kbd),
+.dropdown-menu span *:not(kbd) {
+  color: #ffffff !important;
+}
+
+/* Hover and focus states */
+.dropdown-menu .dropdown-item:hover,
+.dropdown-menu .dropdown-item:focus,
+.dropdown-menu.dropdown-menu-right .dropdown-item:hover,
+.dropdown-menu.dropdown-menu-right .dropdown-item:focus,
+.dropdown-menu a:hover,
+.dropdown-menu a:focus,
+.dropdown-menu button:hover,
+.dropdown-menu button:focus,
+.dropdown-menu li:not(.dropdown-divider):not(.divider):hover,
+.dropdown-menu li:not(.dropdown-divider):not(.divider):focus {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.dropdown-menu .dropdown-item:hover,
+.dropdown-menu .dropdown-item:hover *:not(kbd),
+.dropdown-menu.dropdown-menu-right .dropdown-item:hover,
+.dropdown-menu.dropdown-menu-right .dropdown-item:hover *:not(kbd),
+.dropdown-menu a:hover,
+.dropdown-menu a:hover *:not(kbd),
+.dropdown-menu button:hover,
+.dropdown-menu button:hover *:not(kbd),
+.dropdown-menu li:not(.dropdown-divider):not(.divider):hover,
+.dropdown-menu li:not(.dropdown-divider):not(.divider):hover *:not(kbd) {
+  color: #ffffff !important;
+}
+
+/* Selected/Active states */
+.dropdown-menu .dropdown-item.active,
+.dropdown-menu .dropdown-item[data-state="checked"],
+.dropdown-menu.dropdown-menu-right .dropdown-item.active,
+.dropdown-menu a.active,
+.dropdown-menu button.active,
+.dropdown-menu li:not(.dropdown-divider):not(.divider).active {
+  background-color: transparent !important;
+}
+
+.dropdown-menu .dropdown-item.active,
+.dropdown-menu .dropdown-item.active *:not(kbd),
+.dropdown-menu .dropdown-item[data-state="checked"],
+.dropdown-menu .dropdown-item[data-state="checked"] *:not(kbd),
+.dropdown-menu.dropdown-menu-right .dropdown-item.active,
+.dropdown-menu.dropdown-menu-right .dropdown-item.active *:not(kbd),
+.dropdown-menu a.active,
+.dropdown-menu a.active *:not(kbd),
+.dropdown-menu button.active,
+.dropdown-menu button.active *:not(kbd),
+.dropdown-menu li:not(.dropdown-divider):not(.divider).active,
+.dropdown-menu li:not(.dropdown-divider):not(.divider).active *:not(kbd),
+.dropdown-menu li:not(.dropdown-divider):not(.divider).active a,
+.dropdown-menu li:not(.dropdown-divider):not(.divider).active a *:not(kbd),
+.dropdown-menu li:not(.dropdown-divider):not(.divider).active button,
+.dropdown-menu li:not(.dropdown-divider):not(.divider).active button *:not(kbd) {
+  color: var(--ov-accent, #f85c1e) !important;
+}
+
+/* Dropdown headers / labels */
+.dropdown-menu .dropdown-header,
+.dropdown-menu.dropdown-menu-right .dropdown-header {
+  padding: 8px 15px !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+  font-family: var(--ov-font-sans, 'Gilroy') !important;
+  text-transform: uppercase !important;
+}
+
+/* Dropdown divider */
+.dropdown-menu .dropdown-divider,
+.dropdown-menu.dropdown-menu-right .dropdown-divider {
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+  margin: 6px 0 !important;
+}
+
+/* Styling for Frappe's native selectable-item dropdown list items (e.g. Link fields) */
+.selectable-item {
+  background-color: transparent !important;
+  font-family: var(--ov-font-sans, 'Gilroy') !important;
+  font-weight: 600 !important;
+  transition: background-color 0.1s ease !important;
+}
+
+.selectable-item,
+.selectable-item * {
+  color: #ffffff !important;
+}
+
+.selectable-item:hover,
+.selectable-item:focus {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.selectable-item:hover,
+.selectable-item:hover *,
+.selectable-item:focus,
+.selectable-item:focus * {
+  color: #ffffff !important;
+}
+
+.selectable-item.selected {
+  background-color: transparent !important;
+}
+
+.selectable-item.selected,
+.selectable-item.selected * {
+  color: var(--ov-accent, #f85c1e) !important;
+}
+
+.selectable-item.selected:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.selectable-item.selected:hover,
+.selectable-item.selected:hover * {
+  color: var(--ov-accent, #f85c1e) !important;
+}

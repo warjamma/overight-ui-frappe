@@ -1,0 +1,27 @@
+/* ============================================================
+   OV Separator Component Styles
+   Chuyển đổi từ separator.tsx
+   ============================================================ */
+
+ov-separator,
+.ov-separator {
+  display: block;
+  flex-shrink: 0;
+  background-color: var(--ov-border, #e5e7eb);
+}
+
+/* Horizontal (default) */
+ov-separator,
+ov-separator[orientation="horizontal"],
+.ov-separator,
+.ov-separator--horizontal {
+  height: 1px;
+  width: 100%;
+}
+
+/* Vertical */
+ov-separator[orientation="vertical"],
+.ov-separator--vertical {
+  height: 100%;
+  width: 1px;
+}

@@ -1,0 +1,124 @@
+/* ============================================================
+   OV Radio Group Component Styles
+   Chuyển đổi từ radio-group.tsx (Radix UI RadioGroup)
+   ============================================================ */
+
+.ov-radio-group {
+  display: grid;
+  gap: 12px;
+}
+
+/* RadioGroupItem - small circle radio */
+.ov-radio-item {
+  position: relative;
+  display: flex;
+  width: 24px;
+  height: 24px;
+  aspect-ratio: 1 / 1;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  border: 1.5px solid var(--ov-border, #e5e7eb);
+  background-color: var(--ov-background, #ffffff);
+  color: var(--ov-accent, #f85c1e);
+  outline: none;
+  transition: border-color 0.15s ease;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  box-sizing: border-box;
+}
+
+.ov-radio-item:focus-visible {
+  box-shadow: 0 0 0 3px rgba(var(--ov-ring-rgb, 0 0 0), 0.3);
+}
+
+.ov-radio-item:disabled {
+  cursor: not-allowed;
+  opacity: 0.3;
+}
+
+.ov-radio-item:checked,
+.ov-radio-item[data-state="checked"] {
+  border-color: var(--ov-accent, #f85c1e);
+}
+
+/* Inner dot via pseudo element */
+.ov-radio-item::after {
+  content: '';
+  display: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 9999px;
+  background-color: var(--ov-accent, #f85c1e);
+}
+
+.ov-radio-item:checked::after,
+.ov-radio-item[data-state="checked"]::after {
+  display: block;
+}
+
+/* RadioGroupOption - full-width option button */
+.ov-radio-option {
+  display: flex;
+  height: 50px;
+  width: 100%;
+  cursor: pointer;
+  align-items: center;
+  gap: 13px;
+  border-radius: 8px;
+  border: 1.5px solid var(--ov-input, #d1d5db);
+  background-color: var(--ov-background, #ffffff);
+  padding: 0 18px;
+  text-align: left;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.57;
+  color: var(--ov-muted-foreground, #6b7280);
+  outline: none;
+  transition: border-color 0.15s ease, color 0.15s ease;
+  cursor: pointer;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.ov-radio-option:focus-visible {
+  box-shadow: 0 0 0 3px rgba(var(--ov-ring-rgb, 0 0 0), 0.3);
+}
+
+.ov-radio-option:disabled {
+  cursor: not-allowed;
+  opacity: 0.3;
+}
+
+.ov-radio-option[data-state="checked"],
+.ov-radio-option.checked {
+  border-color: var(--ov-primary, #111827);
+  font-weight: 500;
+  color: var(--ov-foreground, #111827);
+}
+
+.ov-radio-option-indicator {
+  display: grid;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  place-items: center;
+  border-radius: 9999px;
+  border: 1px solid var(--ov-input, #d1d5db);
+  background-color: var(--ov-background, #ffffff);
+}
+
+.ov-radio-option-dot {
+  display: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 9999px;
+  background-color: var(--ov-accent, #f85c1e);
+}
+
+.ov-radio-option[data-state="checked"] .ov-radio-option-dot,
+.ov-radio-option.checked .ov-radio-option-dot {
+  display: block;
+}

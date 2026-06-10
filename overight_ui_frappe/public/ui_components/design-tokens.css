@@ -1,0 +1,119 @@
+/* ============================================================
+   OV UI Design Tokens (CSS Custom Properties)
+   
+   File này định nghĩa tất cả các biến CSS cho hệ thống UI.
+   Include file này trước khi include bất kỳ component CSS nào.
+   
+   Trong Frappe, add vào hooks.py:
+     app_include_css = ["/assets/overight_ui_frappe/ui_components/design-tokens.css"]
+   
+   Hoặc import trong CSS khác:
+     @import url("/assets/overight_ui_frappe/ui_components/design-tokens.css");
+   ============================================================ */
+
+:root {
+  /* ---- Source Design Theme Variables ---- */
+  ---ui-1-color-fill-color-1: #2a2c30;
+  ---ui-1-color-fill-color-2: #03c3ec;
+  ---ui-1-color-fill-color-3: #feae43;
+  ---ui-1-color-fill-color-4: #f85c1e;
+  ---ui-1-color-fill-color-5: #168b99;
+  ---ui-2-greys-grey-1: #4a505b;
+  ---ui-2-greys-grey-2: #778699;
+  ---ui-2-greys-grey-3: #d7e1ea;
+  ---ui-2-greys-grey-4: #f0f4f8;
+  ---ui-2-greys-grey-5: #fafbfd;
+  ---ui-white: #ffffff;
+  ---ui-4-service-colors-error: #f73838;
+  --dark-grey: #2a2c30;
+
+  /* ---- Colors mapped to Design Tokens ---- */
+  --ov-primary:             var(---ui-1-color-fill-color-1);
+  --ov-primary-foreground:  var(---ui-white);
+
+  --ov-background:          var(---ui-white);
+  --ov-foreground:          var(---ui-1-color-fill-color-1);
+
+  --ov-card:                var(---ui-white);
+  --ov-card-foreground:     var(---ui-1-color-fill-color-1);
+
+  --ov-popover:             var(---ui-white);
+  --ov-popover-foreground:  var(---ui-1-color-fill-color-1);
+
+  --ov-accent:              var(---ui-1-color-fill-color-4);
+  --ov-accent-foreground:   var(---ui-white);
+
+  --ov-info:                var(---ui-1-color-fill-color-2);
+  --ov-info-foreground:     var(---ui-white);
+
+  --ov-destructive:         var(---ui-4-service-colors-error);
+  --ov-destructive-foreground: var(---ui-white);
+
+  --ov-warning:             var(---ui-1-color-fill-color-3);
+  --ov-warning-foreground:  var(---ui-white);
+
+  --ov-muted:               var(---ui-2-greys-grey-4);
+  --ov-muted-foreground:    var(---ui-2-greys-grey-2);
+
+  --ov-border:              var(---ui-2-greys-grey-3);
+  --ov-input:               var(---ui-2-greys-grey-3);
+
+  --ov-ring:                rgba(249, 115, 22, 0.3);
+  --ov-ring-rgb:            249 115 22;
+
+  /* ---- Typography ---- */
+  --ov-font-sans:           'Gilroy', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --ov-font-mono:           ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* ---- Border Radius ---- */
+  --ov-radius-sm:           4px;
+  --ov-radius-md:           8px;
+  --ov-radius-lg:           8px;
+  --ov-radius-full:         9999px;
+
+  /* ---- Shadows ---- */
+  --ov-shadow-sm:           0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --ov-shadow-md:           0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --ov-shadow-lg:           0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --ov-shadow-dialog:       0 10px 38px -10px rgba(0, 0, 0, 0.35), 0 10px 20px -15px rgba(0, 0, 0, 0.2);
+
+  /* ---- Z-Index scale ---- */
+  --ov-z-dropdown:          50;
+  --ov-z-overlay:           50;
+  --ov-z-dialog:            51;
+  --ov-z-toast:             100;
+  --ov-z-tooltip:           60;
+}
+
+/* Dark mode support (optional) */
+@media (prefers-color-scheme: dark) {
+  :root.ov-auto-dark {
+    --ov-primary:             #f9fafb;
+    --ov-primary-foreground:  #111827;
+
+    --ov-background:          #1f2937;
+    --ov-foreground:          #f9fafb;
+
+    --ov-card:                #1f2937;
+    --ov-card-foreground:     #f9fafb;
+
+    --ov-popover:             #374151;
+    --ov-popover-foreground:  #f9fafb;
+
+    --ov-muted:               #374151;
+    --ov-muted-foreground:    #9ca3af;
+
+    --ov-border:              #374151;
+    --ov-input:               #4b5563;
+  }
+}
+
+/* Base reset for OV components */
+.ov-button,
+.ov-input,
+.ov-select-trigger,
+.ov-tabs-trigger,
+.ov-accordion-trigger,
+.ov-toggle {
+  font-family: var(--ov-font-sans);
+}

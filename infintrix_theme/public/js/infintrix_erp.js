@@ -273,7 +273,6 @@ $(document).ready(() => {
 		// btn.type = "span";
 		btn.textContent = "+";
 		btn.className = "link-add-btn quick-create-btn";
-		btn.style.padding = "1px 2px";
 		// btn.style.marginLeft = "2px";
 		// btn.style.border = "0.5px solid #ccc";
 		// btn.style.borderRadius = "2px";

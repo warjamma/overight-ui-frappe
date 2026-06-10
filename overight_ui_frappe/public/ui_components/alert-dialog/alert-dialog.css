@@ -1,0 +1,62 @@
+/* ============================================================
+   OV Alert Dialog Component Styles
+   Chuyển đổi từ alert-dialog.tsx
+   Kế thừa dialog.css, chỉ override nếu cần
+   ============================================================ */
+
+/* AlertDialog dùng lại hầu hết styles của Dialog */
+/* Thêm màu sắc riêng cho action button (Red variant) */
+.ov-alert-dialog-action {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 50px;
+  padding-left: 24px;
+  padding-right: 24px;
+  border-radius: 8px;
+  border: 1.5px solid var(--ov-destructive, #ef4444);
+  background-color: var(--ov-destructive, #ef4444);
+  color: var(--ov-destructive-foreground, #ffffff);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.15s ease;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.ov-alert-dialog-action:hover {
+  background-color: var(--ov-destructive, #ef4444);
+  filter: brightness(0.9);
+}
+
+.ov-alert-dialog-cancel {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 50px;
+  padding-left: 24px;
+  padding-right: 24px;
+  border-radius: 8px;
+  border: 1.5px solid var(--ov-primary, #111827);
+  background-color: var(--ov-background, #ffffff);
+  color: var(--ov-primary, #111827);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.15s ease;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.ov-alert-dialog-cancel:hover {
+  background-color: transparent;
+}

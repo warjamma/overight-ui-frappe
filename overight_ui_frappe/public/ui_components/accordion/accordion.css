@@ -1,0 +1,81 @@
+/* ============================================================
+   OV Accordion Component Styles
+   Chuyển đổi từ accordion.tsx (Radix UI Accordion)
+   ============================================================ */
+
+.ov-accordion {
+  display: block;
+}
+
+.ov-accordion-item {
+  border-radius: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+/* Accordion Trigger */
+.ov-accordion-header {
+  display: flex;
+  margin: 0;
+}
+
+.ov-accordion-trigger {
+  display: flex;
+  height: 30px;
+  min-height: 30px;
+  flex: 1;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--ov-muted, #f3f4f6);
+  padding: 0 16px;
+  text-align: left;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.57;
+  color: var(--ov-foreground, #111827);
+  transition: color 0.15s ease;
+  outline: none;
+  cursor: pointer;
+  border: none;
+  width: 100%;
+  font-family: inherit;
+}
+
+.ov-accordion-trigger:focus-visible {
+  box-shadow: 0 0 0 3px rgba(var(--ov-ring-rgb, 0 0 0), 0.3);
+}
+
+/* Chevron icon */
+.ov-accordion-trigger .ov-accordion-icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  color: var(--ov-foreground, #111827);
+  transition: transform 0.2s ease;
+}
+
+.ov-accordion-trigger[data-state="open"] .ov-accordion-icon,
+.ov-accordion-trigger.open .ov-accordion-icon {
+  transform: rotate(180deg);
+}
+
+/* Accordion Content */
+.ov-accordion-content {
+  overflow: hidden;
+  font-size: 0.875rem;
+  max-height: 0;
+  transition: max-height 0.2s ease, opacity 0.2s ease;
+  opacity: 0;
+}
+
+.ov-accordion-content[data-state="open"],
+.ov-accordion-content.open {
+  max-height: 9999px;
+  opacity: 1;
+}
+
+.ov-accordion-content-inner {
+  padding: 12px 16px 16px;
+  color: var(--ov-muted-foreground, #6b7280);
+}

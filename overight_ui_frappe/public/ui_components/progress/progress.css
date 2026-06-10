@@ -1,0 +1,22 @@
+/* ============================================================
+   OV Progress Component Styles
+   Chuyển đổi từ progress.tsx
+   ============================================================ */
+
+.ov-progress {
+  position: relative;
+  height: 12px;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 9999px;
+  background-color: var(--ov-muted, #f3f4f6);
+}
+
+.ov-progress-indicator {
+  height: 100%;
+  width: 100%;
+  flex: 1;
+  background-color: var(--ov-accent, #f85c1e);
+  transition: transform 0.3s ease;
+  border-radius: 9999px;
+}

@@ -1,0 +1,115 @@
+/* ============================================================
+   OV Toast Component Styles
+   Chuyển đổi từ toast.tsx (Radix UI Toast)
+   ============================================================ */
+
+/* Toast Viewport */
+.ov-toast-viewport {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 100;
+  display: flex;
+  max-height: 100vh;
+  width: 100%;
+  max-width: 360px;
+  flex-direction: column;
+  gap: 12px;
+  outline: none;
+  pointer-events: none;
+}
+
+/* Individual Toast */
+.ov-toast {
+  pointer-events: auto;
+  position: relative;
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  overflow: hidden;
+  border-radius: 8px;
+  border: 1px solid var(--ov-border, #e5e7eb);
+  background-color: var(--ov-background, #ffffff);
+  padding: 20px;
+  color: var(--ov-foreground, #111827);
+  box-shadow: 0 10px 38px -10px rgba(0, 0, 0, 0.35);
+  box-sizing: border-box;
+  /* Entry animation */
+  animation: ov-toast-slide-in 0.25s ease;
+}
+
+@keyframes ov-toast-slide-in {
+  from {
+    transform: translateX(calc(100% + 16px));
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.ov-toast.ov-toast-exit {
+  animation: ov-toast-slide-out 0.2s ease forwards;
+}
+
+@keyframes ov-toast-slide-out {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(calc(100% + 16px));
+    opacity: 0;
+  }
+}
+
+/* Toast Title */
+.ov-toast-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+/* Toast Description */
+.ov-toast-description {
+  font-size: 0.875rem;
+  color: var(--ov-muted-foreground, #6b7280);
+  margin-top: 4px;
+}
+
+/* Toast Close button */
+.ov-toast-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  padding: 4px;
+  border: none;
+  background: transparent;
+  color: var(--ov-muted-foreground, #6b7280);
+  cursor: pointer;
+  outline: none;
+  transition: color 0.15s ease;
+  flex-shrink: 0;
+}
+
+.ov-toast-close:hover {
+  color: var(--ov-accent, #f85c1e);
+}
+
+.ov-toast-close:focus-visible {
+  box-shadow: 0 0 0 3px rgba(var(--ov-ring-rgb, 0 0 0), 0.3);
+}
+
+.ov-toast-close svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Toast content area */
+.ov-toast-body {
+  flex: 1;
+  min-width: 0;
+}

@@ -1,0 +1,35 @@
+/* ============================================================
+   OV Hover Card Component Styles
+   Chuyển đổi từ hover-card.tsx (Radix UI HoverCard)
+   ============================================================ */
+
+.ov-hover-card {
+  position: relative;
+  display: inline-block;
+}
+
+.ov-hover-card-content {
+  position: absolute;
+  z-index: 50;
+  width: 320px;
+  border-radius: 8px;
+  border: 1px solid var(--ov-border, #e5e7eb);
+  background-color: var(--ov-popover, #ffffff);
+  padding: 20px;
+  color: var(--ov-popover-foreground, #111827);
+  box-shadow: 0 10px 38px -10px rgba(0, 0, 0, 0.35);
+  outline: none;
+  box-sizing: border-box;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+}
+
+.ov-hover-card:hover .ov-hover-card-content,
+.ov-hover-card-content[data-state="open"] {
+  opacity: 1;
+  pointer-events: auto;
+}

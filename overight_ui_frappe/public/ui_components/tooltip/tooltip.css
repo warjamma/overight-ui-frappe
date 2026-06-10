@@ -1,0 +1,58 @@
+/* ============================================================
+   OV Tooltip Component Styles
+   Chuyển đổi từ tooltip.tsx (Radix UI Tooltip)
+   ============================================================ */
+
+/* Tooltip wrapper */
+.ov-tooltip-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* Tooltip content */
+.ov-tooltip-content {
+  position: absolute;
+  z-index: 50;
+  border-radius: 6px;
+  background-color: var(--ov-primary, #111827);
+  padding: 8px 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--ov-primary-foreground, #ffffff);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  /* default position: top */
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.ov-tooltip-wrapper:hover .ov-tooltip-content,
+.ov-tooltip-content[data-state="delayed-open"],
+.ov-tooltip-content[data-state="instant-open"] {
+  opacity: 1;
+}
+
+/* Side positions */
+.ov-tooltip-content[data-side="bottom"] {
+  top: calc(100% + 8px);
+  bottom: auto;
+}
+
+.ov-tooltip-content[data-side="left"] {
+  right: calc(100% + 8px);
+  left: auto;
+  top: 50%;
+  bottom: auto;
+  transform: translateY(-50%);
+}
+
+.ov-tooltip-content[data-side="right"] {
+  left: calc(100% + 8px);
+  top: 50%;
+  bottom: auto;
+  transform: translateY(-50%);
+}

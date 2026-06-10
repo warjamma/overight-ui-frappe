@@ -1,0 +1,57 @@
+/* ============================================================
+   OV Scroll Area Component Styles
+   Chuyển đổi từ scroll-area.tsx (Radix UI ScrollArea)
+   ============================================================ */
+
+.ov-scroll-area {
+  position: relative;
+  overflow: hidden;
+}
+
+.ov-scroll-viewport {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  overflow: auto;
+  scrollbar-width: none; /* Firefox */
+}
+
+.ov-scroll-viewport::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+/* Scrollbar */
+.ov-scrollbar {
+  display: flex;
+  touch-action: none;
+  padding: 1px;
+  transition: colors 0.15s ease;
+  user-select: none;
+}
+
+.ov-scrollbar[data-orientation="vertical"] {
+  height: 100%;
+  width: 10px;
+  border-left: 1px solid transparent;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.ov-scrollbar[data-orientation="horizontal"] {
+  height: 10px;
+  flex-direction: row;
+  border-top: 1px solid transparent;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.ov-scrollbar-thumb {
+  position: relative;
+  flex: 1;
+  border-radius: 9999px;
+  background-color: var(--ov-border, #e5e7eb);
+}

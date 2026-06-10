@@ -1,0 +1,20 @@
+/* ============================================================
+   OV Label Component Styles
+   Chuyển đổi từ label.tsx
+   ============================================================ */
+
+ov-label label,
+label.ov-label,
+.ov-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--ov-muted-foreground, #6b7280);
+}
+
+/* Khi input kèm theo bị disabled */
+.ov-label:has(+ input:disabled),
+.ov-label[data-disabled] {
+  opacity: 0.3;
+}

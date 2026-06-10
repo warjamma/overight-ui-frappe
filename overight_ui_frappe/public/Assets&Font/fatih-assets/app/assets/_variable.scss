@@ -1,0 +1,24 @@
+@import '~bootstrap/scss/bootstrap.scss';
+@import '~react-toastify/dist/ReactToastify.min.css';
+@import './normailize';
+@import './mixin';
+:root {
+  ---ui-1-color-fill-color-1: #2a2c30;
+  ---ui-1-color-fill-color-2: #03c3ec;
+  ---ui-1-color-fill-color-3: #feae43;
+  ---ui-1-color-fill-color-4: #f85c1e;
+  ---ui-1-color-fill-color-5: #168b99;
+  ---ui-2-greys-grey-1: #4a505b;
+  ---ui-2-greys-grey-3: #d7e1ea;
+  ---ui-2-greys-grey-4: #f0f4f8;
+  ---ui-2-greys-grey-5: #fafbfd;
+  ---ui-2-greys-grey-2: #778699;
+  ---ui-white: #ffffff;
+  ---ui-4-service-colors-error: #f73838;
+  --dark-grey: #2a2c30;
+}
+
+$df-fs: 14;
+$rem: 1rem;
+
+$widthPage: 1110px;

@@ -1,0 +1,119 @@
+/* ============================================================
+   OV Dialog Component Styles
+   Chuyển đổi từ dialog.tsx (Radix UI Dialog)
+   ============================================================ */
+
+/* Overlay */
+.ov-dialog-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.ov-dialog-overlay[data-state="open"] {
+  opacity: 1;
+}
+
+/* Dialog Content */
+.ov-dialog-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 51;
+  display: grid;
+  width: calc(100% - 2rem);
+  max-width: 430px;
+  transform: translate(-50%, -50%) scale(0.95);
+  gap: 20px;
+  border-radius: 8px;
+  border: 1px solid var(--ov-border, #e5e7eb);
+  background-color: var(--ov-background, #ffffff);
+  padding: 44px 30px 33px;
+  color: var(--ov-foreground, #111827);
+  box-shadow: 0 10px 38px -10px rgba(0, 0, 0, 0.35), 0 10px 20px -15px rgba(0, 0, 0, 0.2);
+  outline: none;
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  box-sizing: border-box;
+}
+
+.ov-dialog-content[data-state="open"] {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Close button */
+.ov-dialog-close {
+  position: absolute;
+  top: 21px;
+  right: 21px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  padding: 4px;
+  border: none;
+  background: transparent;
+  color: var(--ov-foreground, #111827);
+  cursor: pointer;
+  outline: none;
+  transition: color 0.15s ease;
+}
+
+.ov-dialog-close:hover {
+  color: var(--ov-accent, #f85c1e);
+}
+
+.ov-dialog-close:focus-visible {
+  box-shadow: 0 0 0 3px rgba(var(--ov-ring-rgb, 0 0 0), 0.3);
+}
+
+.ov-dialog-close svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Dialog Header */
+.ov-dialog-header {
+  display: grid;
+  gap: 12px;
+  text-align: center;
+}
+
+/* Dialog Footer */
+.ov-dialog-footer {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 12px;
+}
+
+@media (min-width: 640px) {
+  .ov-dialog-footer {
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+}
+
+/* Dialog Title */
+.ov-dialog-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--ov-foreground, #111827);
+}
+
+/* Dialog Description */
+.ov-dialog-description {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--ov-muted-foreground, #6b7280);
+}
+
+/* Hidden class */
+.ov-dialog-overlay.ov-hidden,
+.ov-dialog-content.ov-hidden {
+  display: none;
+}

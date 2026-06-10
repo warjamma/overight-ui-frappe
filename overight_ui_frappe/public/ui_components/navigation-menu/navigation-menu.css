@@ -1,0 +1,121 @@
+/* ============================================================
+   OV Navigation Menu Component Styles
+   Chuyển đổi từ navigation-menu.tsx (Radix UI NavigationMenu)
+   ============================================================ */
+
+.ov-nav-menu {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  max-width: max-content;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+.ov-nav-menu-list {
+  display: flex;
+  flex: 1;
+  list-style: none;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 0;
+  margin: 0;
+}
+
+.ov-nav-menu-trigger {
+  display: inline-flex;
+  height: 40px;
+  width: max-content;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  background-color: var(--ov-background, #ffffff);
+  padding: 0 16px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--ov-foreground, #111827);
+  transition: background-color 0.15s ease;
+  outline: none;
+  cursor: pointer;
+  border: none;
+  gap: 4px;
+  font-family: inherit;
+}
+
+.ov-nav-menu-trigger:hover,
+.ov-nav-menu-trigger:focus {
+  background-color: var(--ov-accent, #f85c1e);
+  color: var(--ov-accent-foreground, #ffffff);
+}
+
+.ov-nav-menu-trigger:disabled {
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+/* Chevron inside trigger */
+.ov-nav-menu-trigger-icon {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.2s ease;
+}
+
+.ov-nav-menu-trigger[data-state="open"] .ov-nav-menu-trigger-icon {
+  transform: rotate(-180deg);
+}
+
+.ov-nav-menu-content {
+  position: absolute;
+  left: 0;
+  top: calc(100% + 4px);
+  width: max-content;
+  border-radius: 8px;
+  border: 1px solid var(--ov-border, #e5e7eb);
+  background-color: var(--ov-popover, #ffffff);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  padding: 8px;
+  display: none;
+  box-sizing: border-box;
+}
+
+.ov-nav-menu-content[data-state="open"],
+.ov-nav-menu-content.open {
+  display: block;
+}
+
+.ov-nav-menu-link {
+  display: block;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--ov-foreground, #111827);
+  text-decoration: none;
+  transition: background-color 0.15s ease;
+  outline: none;
+}
+
+.ov-nav-menu-link:hover,
+.ov-nav-menu-link:focus {
+  background-color: var(--ov-muted, #f3f4f6);
+}
+
+.ov-nav-menu-indicator {
+  position: absolute;
+  top: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+  height: 6px;
+  z-index: 1;
+}
+
+.ov-nav-menu-viewport {
+  position: absolute;
+  left: 0;
+  top: calc(100% + 4px);
+  width: 100%;
+}
